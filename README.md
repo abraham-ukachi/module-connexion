@@ -98,6 +98,8 @@ These are some of the things I did in addition to this project's [job requiremen
 
 ## TODOs
 
+- [ ] Create logo
+- [ ] Sketch the **UI**
 - [ ] Add localization / internationalization (at least: **english** & **french**)
 - [ ] Add mobile compatibility to all pages (i.e. make it responsive)
 - [ ] Optimize all `.php` files
