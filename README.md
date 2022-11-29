@@ -51,14 +51,21 @@ The folder & file structure of this project:
 - [**assets**](./assets/)
 - - [**logos**](./assets/logos/)
 - - [**images**](./assets/images/)
-- - ...
-- [**css**](./css/)
-- - ...
-- - **ddd.css**
-- - **login-styles.css**
-- - **register-styles.css**
+- - [**animations**](./assets/animations/)
+- - * *fadein-animation.css*
+- - * *slide-from-down-animation.css*
+- - [**theme**](./assets/theme/)
+- - * *color.css*
+- - * *typography.css*
+- - * *styles.css*
+- - [**stylesheets**](./assets/stylesheets)
+- - * *splash-screen-styles.css*
+- - * *login-styles.css*
+- - * *register-styles.css*
+- - * *profile-styles.css*
+- - * *login-styles.css*
 - [**script**](./script/)
-- - **ddd.js**
+- - *app.js*
 - ...
 - LICENSE
 - README.md
@@ -89,17 +96,18 @@ The folder & file structure of this project:
 
 ## More 
 
-These are some of the things I did in addition to this project's [job requirements](#Requirements):
+These are some of the things I did or plan to do, in addition to this project's [job requirements](#Requirements):
 
-1. **`login-styles.css`** - 
-2. **`register-styles.css`** - 
+| No. | Name | File | Status |
+|:----|:-----|:-----|:-------|
+| 1 | *`SplashScreen - Page`* | **splash-screen.php** | Pending |
+| 2 | *`Logout - Page`* | **logout.php** | Pending |
 
-> NOTE: There are a few we must have forgotten, so we'll keep the above list updated obv. :)
+> NOTE: There are a few we must have forgotten or not added yet, so I'll keep the above list updated obv. :)
 
 ## TODOs
 
-- [ ] Create logo
-- [ ] Sketch the **UI**
+- [ ] Create a project-specific logo 
 - [ ] Add localization / internationalization (at least: **english** & **french**)
 - [ ] Add mobile compatibility to all pages (i.e. make it responsive)
 - [ ] Optimize all `.php` files
