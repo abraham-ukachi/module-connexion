@@ -51,6 +51,7 @@ The folder & file structure of this project:
 - [**assets**](./assets/)
 - - [**logos**](./assets/logos/)
 - - [**images**](./assets/images/)
+- - ...
 - - [**animations**](./assets/animations/)
 - - * *fadein-animation.css*
 - - * *slide-from-down-animation.css*
@@ -100,8 +101,9 @@ These are some of the things I did or plan to do, in addition to this project's 
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`SplashScreen - Page`* | **splash-screen.php** | Pending |
+| 1 | *`SplashScreen - Page`* | **splash-screen.php** | _*In progress*_ |
 | 2 | *`Logout - Page`* | **logout.php** | Pending |
+| 3 | *`Database - API`* | **database.php** | Pending |
 
 > NOTE: There are a few we must have forgotten or not added yet, so I'll keep the above list updated obv. :)
 
