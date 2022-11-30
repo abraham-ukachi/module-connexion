@@ -1,4 +1,6 @@
 # `module-connexion`
+> IMPORTANT: This is a working progress and subject to major changes until the specified deadline below.
+
 A school project to create a simple website with PHP &amp; SQL (via phpmyadmin) which includes **login**, **register** and **home** pages.
 
 For this project, I decided to create a simple 3D creator page titled **ddd**. 
@@ -76,6 +78,31 @@ The folder & file structure of this project:
 - **inscription.php**
 
 > NOTE: This is just a snippet.
+
+
+## Installation
+> IMPORTANT: Make sure you have `XAMPP` already installed in your Linux machine before proceeding.
+
+1. Clone this project's repository
+```sh
+git clone https://github.com/abraham-ukachi/module-connexion.git
+```
+
+> NOTE: There's no need to change the current working directory to **module-connexion**
+
+
+2. Now, create a symbolic link of **module-connexion** in the `XAMPP`'s **htdocs** folder:
+
+```sh
+ln -s "$(pwd)/module-connextion" /opt/lampp/htdocs/module-connexion
+```
+
+3. Open the **module-connexion** folder in your default browser:
+
+```sh
+open http://localhost/module-connexion
+```
+
 
 
 ---
