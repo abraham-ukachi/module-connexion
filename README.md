@@ -55,7 +55,7 @@ The folder & file structure of this project:
 - - [**images**](./assets/images/)
 - - ...
 - - [**animations**](./assets/animations/)
-- - * *fadein-animation.css*
+- - * *fade-in-animation.css*
 - - * *slide-from-down-animation.css*
 - - [**theme**](./assets/theme/)
 - - * *color.css*
@@ -111,7 +111,7 @@ open http://localhost/module-connexion
 
 | Browser | Version | Status | Date | Time
 |:--------|:--------|:-------|:-----|:-----
-| *`Brave`* | **1.45.127** | *Pending* | 28-11-2022 | 12:50
+| *`Brave`* | **1.45.127** | [Tested](http://localhost/module-connexion/splash-screen.php) | 28-11-2022 | 12:50
 | *`Chrome`* | **-** | *Pending* | - | -
 | *`Firefox`* | **-** | *Pending* | - | -
 | *`Safari`* | **-** | *Pending* | - | -
