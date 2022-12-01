@@ -1,0 +1,355 @@
+/* 
+* @license
+* ddd / module-connexion
+* Copyright (c) 2022 Abraham Ukachi
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* @name: Theme
+* @type: Styles 
+* @author: Abraham Ukachi <abraham.ukachi@laplateforme.com>
+*/
+
+/* @import 'color.css'; */
+/* @import 'typography.css'; */
+
+
+/* ==== THEME STYLES ==== */
+
+
+/**** custom properties for `classic`, `light` and `dark` themes ****/
+
+/* Default Theme */
+.theme {}
+
+/* Classic Theme */
+.theme.classic {}
+
+
+/* Light Theme */
+.theme.light {}
+
+/* Dark Theme */
+.theme.dark {}
+
+
+
+
+
+/* ==== FLEX LAYOUT ==== */
+
+/* Flex-Layout */
+.flex-layout {
+  display: flex;
+}
+
+
+/* Screens & Fixed Layouts */
+.screen.flex-layout, .flex-layout[fixed] {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: inherit;
+  color: inherit;
+}
+
+/* Vertical Flex-Layout */
+.vertical.flex-layout {
+  flex-direction: column;
+}
+
+/* Horizontal Flex-Layout */
+.horizontal.flex-layout {
+  flex-direction: row;
+}
+
+/* Centered Flex-Layout */
+.centered.flex-layout {
+  justify-content: center;
+  align-items: center;
+}
+
+/* JustCenter Flex-Layout */
+.center.flex-layout {
+  align-items: center;
+}
+
+/* ==== END of FLEX LAYOUT ==== */
+
+
+
+/* Full Bleed */
+[fullbleed] {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Fit nicely into its container */
+[fit] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Naked Buttons */
+button[naked] {
+  border: 0;
+  background: none;
+  list-style: none;
+}
+
+/* Naked Lists */
+ul[naked], li[naked] {
+  padding: 0;
+  list-style: none;
+}
+
+
+/* Top Position  */
+.top { top: 0; }
+/* Right Position  */
+.right { right: 0; }
+/* Bottom Position  */
+.bottom { bottom: 0; }
+/* Left Position  */
+.left { left: 0; }
+
+
+/* 
+ * --> Narrow - Device <--
+ * Phone: ? (Responsive)
+ * Dimension: ~460px (width)
+ *
+ * ***************************************
+ * when the viewport is lesser than 460px,
+ * layout changes to a narrow-layout.
+ * ***************************************
+ */
+
+/* The Boss - html */
+html {
+  width: 100%;
+  height: 100%;
+}
+
+/* Body */
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--on-background-color);
+  fill: var(--on-background-color);
+   
+  /* Support for all Webkit browsers. */
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: background-color 200ms ease;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  transition: background-color 200ms ease;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  -moz-transition: background-color 200ms ease;
+  
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+/* App Layout */
+#appLayout {}
+
+/* MAIN part of App Layout */
+#appLayout > main {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ------ */
+
+
+/* App Header */
+#appHeader {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* Header Content */
+#headerContent {}
+
+
+/* ------ */
+
+
+/* Any Bar in App Header */
+#appHeader > .bar {
+  position: relative;
+  width: 100%;
+  height: var(--app-bar-size, 60px);
+}
+
+/* App Bar */
+#appBar {
+  height: var(--app-bar-size, var(--bar-size, 60px));
+}
+
+/* Nav Bar Styles & footer of Main */
+.nav-bar, main > footer {
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Vertical Nav Bar */
+.nav-bar.vertical {
+  display: none;
+  width: var(--nav-bar-size, 60px);
+}
+
+/* Horizontal Nav Bar & Footer of Main */
+.nav-bar.horizontal, main > footer {
+  height: var(--nav-bar-size, 60px);
+}
+
+
+
+/* --- Dividers --- 
+ *
+ * NOTE: To change the diviers position, 
+ * you can apply either `.top`, `.right`, `.bottom` and/or `.left` classes
+ */
+
+/* Divider | SPAN */
+span.divider {
+  display: block;
+  position: absolute;
+  background: var(--divider-color, var(--outline-color));
+  opacity: var(--divider-opacity, var(--opacity-icon-disabled, 0.5));
+}
+
+/* Horizontal Dividers */
+span.divider.horizontal {
+  width: 100%;
+  height: var(--divider-size, 1px);
+}
+
+/* Vertical Dividers */
+span.divider.vertical {
+  width: var(--divider-size, 1px);
+  height: 100%;
+}
+
+
+
+/* ------ */
+
+
+/* Content */
+#content {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  flex: 1;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+/* Backdrop */
+#backdrop {}
+
+/* Dialogs Container */
+#dialogsContainer {}
+
+/* Toast */
+#toast {}
+
+
+/* Icon Wrapper */
+.icon-wrapper {}
+
+
+
+
+/* 
+ * --> Wide - Layout <--
+ * Phone: ? (Responsive)
+ * Dimension: 460px+ (width)
+ *
+ * ***************************************
+ * when the viewport is bigger than 460px,
+ * layout changes to wide-layout.
+ * ***************************************
+ */
+@media (min-width: 460px) {
+  
+  /* Show the vertical nav bar */
+  .nav-bar.vertical {
+    display: flex;
+  }
+
+  /* Hide the horizontal nav bar & footer of Main */
+  .nav-bar.horizontal, main > footer {
+    display: none !important;
+  }
+}
+
+
+
+/* 
+ * --> Tablet - Device <--
+ * Phone: ? (Responsive)
+ * Width: 768px <-to-> 1024px
+ */
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+
+/* 
+ * --> Laptop - Device <--
+ * Phone: ? (Responsive)
+ * Width: 1024px <-to-> 2560px
+ */
+@media (min-width: 1024px) and (max-width: 2560px) {}
+
+
+/* ==== END of THEME STYLES ==== */

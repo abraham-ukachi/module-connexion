@@ -38,7 +38,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 |:----|:-----|:-----|:-------|
 | 1 | *`Home - Page`* | **index.php** | Pending |
 | 2 | *`Register - Page`* | **inscription.php** | Pending |
-| 3 | *`Login - Page`* | **connexion.php** | Pending |
+| 3 | *`Login - Page`* | **connexion.php** | _*In progress*_ |
 | 4 | *`Profile - Page`* | **profil.php** | Pending |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
 
@@ -132,7 +132,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 1 | *`SplashScreen - Page`* | **splash-screen.php** | _*In progress*_ |
 | 2 | *`Logout - Page`* | **logout.php** | Pending |
 | 3 | *`Database - API`* | **database.php** | Pending |
-| 4 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](./assets/animations/pop-in-animation.css)_ |
+| 4 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](./assets/animations/pop-in-animation.css) |
 
 > NOTE: (\*) = still needs to be updated. <br>
 >       There are a few we must have forgotten or not added yet, <br>
