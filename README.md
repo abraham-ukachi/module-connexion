@@ -132,7 +132,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 1 | *`SplashScreen - Page`* | **splash-screen.php** | _*In progress*_ |
 | 2 | *`Logout - Page`* | **logout.php** | Pending |
 | 3 | *`Database - API`* | **database.php** | Pending |
-| 4 | *`Pop In - Animation`* | **pop-in-animation.css** | _*In progress*_ |
+| 4 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](./assets/animations/pop-in-animation.css)_ |
 
 > NOTE: (\*) = still needs to be updated. <br>
 >       There are a few we must have forgotten or not added yet, <br>
