@@ -94,7 +94,7 @@ git clone https://github.com/abraham-ukachi/module-connexion.git
 2. Now, create a symbolic link of **module-connexion** in the `XAMPP`'s **htdocs** folder:
 
 ```sh
-ln -s "$(pwd)/module-connextion" /opt/lampp/htdocs/module-connexion
+ln -s "$(pwd)/module-connexion" /opt/lampp/htdocs/module-connexion
 ```
 
 3. Open the **module-connexion** folder in your default browser:
