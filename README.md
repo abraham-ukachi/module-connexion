@@ -56,6 +56,7 @@ The folder & file structure of this project:
 - - ...
 - - [**animations**](./assets/animations/)
 - - * *fade-in-animation.css*
+- - * *pop-in-animation.css*
 - - * *slide-from-down-animation.css*
 - - [**theme**](./assets/theme/)
 - - * *color.css*
@@ -131,8 +132,11 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 1 | *`SplashScreen - Page`* | **splash-screen.php** | _*In progress*_ |
 | 2 | *`Logout - Page`* | **logout.php** | Pending |
 | 3 | *`Database - API`* | **database.php** | Pending |
+| 4 | *`Pop In - Animation`* | **pop-in-animation.css** | _*In progress*_ |
 
-> NOTE: There are a few we must have forgotten or not added yet, so I'll keep the above list updated obv. :)
+> NOTE: (\*) = still needs to be updated. <br>
+>       There are a few we must have forgotten or not added yet, <br>
+>       so I'll keep the above list updated obv. :)
 
 ## TODOs
 
