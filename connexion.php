@@ -23,24 +23,30 @@
 * SOFTWARE.
 *
 * @project module-connexion
-* @name Splash Screen Page - ddd
-* @file splash-screen.php
+* @name Login Page - ddd
+* @file connexion.php
 * @author: Abraham Ukachi <abraham.ukachi@laplateforme.io>
 * @version: 0.0.1
 * 
 * Usage:
-*   1-|> open http://localhost/module-connexion/splash-screen.php
+*   1-|> open http://localhost/module-connexion/connexion.php
 * 
 *
 * ============================
 *     >>> DESCRIPTION <<<
 * ~~~~~~~~ (French) ~~~~~~~~~
 * 
-* - 
+* - Le formulaire doit avoir deux inputs : “login” et “password”. 
+* - Lorsque le formulaire est validé, 
+*   s’il existe un utilisateur en bdd correspondant à ces informations, alors l’utilisateur est considéré 
+*   comme connecté et une (ou plusieurs) variables de session sont créées. 
 * 
 * ~~~~~~~~ (English) ~~~~~~~~~
 * 
-* - 
+* - A page containing a connection form (connection.php): 
+*   The form must have two inputs: “login” and “password”. 
+** - When the form is validated, if there is a user in db corresponding to this information, 
+*   then the user is considered to be connected and one (or more) session variables are created.
 * 
 * ============================
 * IMPORTANT: A Web App without a login / registration feature should never be deployed!!! :)
@@ -66,10 +72,10 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="SplashScreen page of ddd">
+    <meta name="description" content="Login page of ddd / module-connexion">
     
     <!-- Title -->
-    <title>Splash Screen - ddd - module-connexion | Abraham Ukachi</title>
+    <title>Connexion - ddd - module-connexion | Abraham Ukachi</title>
 
 
     <!-- Fonts -->
@@ -110,18 +116,21 @@
     <link rel="apple-touch-icon" sizes="96x96" href="assets/images/manifest/icon-96x96.png">
     <link rel="apple-touch-icon" sizes="144x144" href="assets/images/manifest/icon-144x144.png">
     <link rel="apple-touch-icon" sizes="192x192" href="assets/images/manifest/icon-192x192.png">
-    
+
+
+
+
     <!-- Theme -->
     <link rel="stylesheet" href="assets/theme/color.css">
     <link rel="stylesheet" href="assets/theme/typography.css">
     <link rel="stylesheet" href="assets/theme/styles.css">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/stylesheets/splash-screen-styles.css">
-    <!-- <link rel="stylesheet" href="assets/stylesheets/login-styles.css"> -->
+    <link rel="stylesheet" href="assets/stylesheets/login-styles.css">
     
     <!-- Animations -->
-    <link rel="stylesheet" href="assets/animations/fade-in-animation.css">
+    <!-- <link rel="stylesheet" href="assets/animations/fade-in-animation.css"> -->
+    <!-- <link rel="stylesheet" href="assets/animations/slide-from-down-animation.css"> -->
 
 
     <!-- Script -->
@@ -131,7 +140,6 @@
        * Once again, I'm well aware that this project doesn't require a script but
        * I couldn't help myself. So.... Bite me twice!! ;)
        */
-
 
       // Create `ddd` object variable with a `isReady` key 
       var ddd = { 
@@ -143,104 +151,41 @@
       // Let's do some stuff when this page loads...
       // NOTE: This is again, just a simulation!
       window.addEventListener('load', (event) => { 
-        // ...Define a couple of constants & variables
-
-        // Set some constants
-        const TIMEOUT_PROGRESS = 60; // <- in milliseconds (i.e. 1000ms = 1 second)
-        const INCREMENT_PROGRESS = 1;
-        
-        // Intialize the `progressCount` variable
-        let progressCount = 0;
-
-        // Now, get the document as doc
+        // ...get the document as doc
         let doc = event.target;
 
 
         // Get the app layout element as `appLayoutEl`
         let appLayoutEl = doc.getElementById('appLayout');
-        // Get the app Logo element as `appLogoEl`
-        let appLogoEl = doc.getElementById('appLogo');
-        // Get the progress bar element as `progressBarEl`
-        let progressBarEl = doc.getElementById('progressBar');
 
-        
-        
-        // Create a progress handler
-        let progressHandler = () => {
-          // Update the current progress with the progress bar's value
-          progressCount = progressBarEl.value;
-          
+
+        // if the browser supports it...
+        if (typeof(Storage) !== 'undefined') {
+          // ...get the theme from local storage as `theme`
+          let theme = localStorage.getItem('theme');
           // DEBUG [4dbsmaster]: tell me about it :)
-          console.log(`[progressHandler](1): progressCount => ${progressCount}`);
-
-          // NOTE: You can do something with `progressCount` here
-          // TODO: Import or load 'neccessary files' dynamically
-
-          switch (progressCount) {
-            case 5: // <- Do something at 5%
-              break;
-            case 25: // <- Do something at 25%
-              // Activate the app logo by adding or setting the attribute `active` to ''.
-              appLogoEl.setAttribute('active', true);
-              break;
-            case 60: // <- AT 60%...
-              
-              // First check for browser support of `Storage`
-              // if the browser supports it...
-              if (typeof(Storage) !== 'undefined') {
-                // ...get the theme from local storage as `theme`
-                let theme = localStorage.getItem('theme');
-                // DEBUG [4dbsmaster]: tell me about it :)
-                console.log(`[_progressHandler]: theme => ${theme}`);
-               
-                // if a theme was found in storage...
-                if (typeof(theme) == 'string') {
-                  // ...remove all the themes in body
-                  document.body.classList.remove('classic', 'light', 'dark');
-                  // update the theme
-                  document.body.classList.add(theme);
-                }
-              
-              }
-              break;
-            case 75: // <- Do something at 75%
-              break;
-            case 100: // <- AT 100%...
-
-              // ddd is READY!!!
-              ddd.isReady = true;
-
-              // call the `onReady` function of `ddd`
-              ddd.onReady();
-
-              // Hide the progress bar
-              progressBarEl.hidden = true;
-              
-              // Now, stop the progress Timer 
-              clearInterval(progressTimer);
-
-              // TODO: Do something else when the `progressCount` is at 100%
-
-              // DEBUG [4dbsmaster]: tell me about it :)
-              console.log(`[progressHandler](2): ddd is \x1b[32mReady\x1b[0m !!!`);
-              break;
-            default:
-              // Maybe do something otherwise
-          }
-
-
-          // Increase the progress value by the predefined `INCREMENT_PROGRESS`
-          progressBarEl.value += INCREMENT_PROGRESS;
-
+          console.log(`[_progressHandler]: theme => ${theme}`);
          
-        };
+          // if a theme was found in storage...
+          if (typeof(theme) == 'string') {
+            // ...remove all the themes in body
+            doc.body.classList.remove('classic', 'light', 'dark');
+            // update the theme
+            doc.body.classList.add(theme);
+          }
         
-        // Let's set an interval named `progressTimer` to run our
-        // `progressHandler` say, every 60 millisecond ?
-        progressTimer = setInterval(progressHandler, TIMEOUT_PROGRESS);
+        }
 
+
+        // ddd is READY!!!
+        ddd.isReady = true;
+
+        // call the `onReady` function of `ddd`
+        ddd.onReady('login');
+        
+        
       });
-
+      
     </script>
     
     <!-- Double Psych!!! Some more script for ya! #LOL -->
@@ -255,34 +200,73 @@
 
     <!-- App Layout -->
     <div id="appLayout" class="flex-layout horizontal" fit>
+      
+      <!-- Vertical Nav Bar -->
+      <nav class="nav-bar vertical flex-layout">
+        <!-- Icon-Wrapper -->
+        <a href=".#" class="icon-wrapper">
+          <!-- App-Logo -->
+          <span class="app-logo"></span>
+          <!-- End of App-Logo -->
+        </a>
+        <!-- End of Icon-Wrapper -->
 
+        <!-- Horizontal Divider -->
+        <span class="divider vertical right"></span>
+      </nav>
+      <!-- End of Vertical Nav Bar -->
 
       <!-- MAIN - App Layout -->
       <main class="flex-layout vertical">
-        
+
+        <!-- App Header -->
+        <div id="appHeader">
+
+          <!-- App Bar -->
+          <div id="appBar" class="bar">
+            <!-- Close - Icon Button -->
+            <button class="icon-button"><span class="material-icons icon">close</span></button>
+            <!-- Horizontal Divider -->
+            <span class="divider horizontal bottom"></span>
+          </div>
+          <!-- End of App Bar -->
+
+        </div>
+        <!-- End of App Header -->
+
         <!-- Content - App Layout -->
         <!-- NOTE: This is arguably the most important content ever!!! -->
         <!-- TODO: (scrollableTarget) - Make it the only scrollable `content` -->
         <div id="content">
 
-          <div class="wrapper flex-layout vertical centered">
-            <!-- App Logo -->
-            <svg id="appLogo" class="pop-in" xmlns="https://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 24 24">
-              <path d="m1.8 20.5 9.3-17v17zM22.2 7.7l-9.3-4.2v17l9.3-4.2-4.7-4.3z" />
-              <path d="m12.9 20.5 9.3-4.2-9.3-8.6z" opacity=".15" overlay/>
-            </svg>
-            <!-- End of App Logo -->
-            
-            <!-- Progress -->
-            <progress id="progressBar" class="bottom" value="10" max="100"></progress>
-          </div>
+          <div class="wrapper flex-layout vertical centered"></div>
 
         </div>
         <!-- End of Content - App Layout -->
+        
+        <!-- FOOTER -->
+        <footer class="vertical flex-layout centered">
 
+          <span class="divider horizontal top"></span>
+
+          <!-- App Logo -->
+          <span class="app-logo"></span>
+
+        </footer>
+        <!-- End of FOOTER -->
 
       </main>
       <!-- End of MAIN - App Layout -->
+
+      <aside>
+
+        <!-- Divider @ Vertical Left -->
+        <span class="divider vertical left"></span>
+
+        <!-- App Logo -->
+        <span class="app-logo"></span>
+        
+      </aside>
 
     </div>
     <!-- End of App Layout -->

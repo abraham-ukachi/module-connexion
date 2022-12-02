@@ -37,26 +37,26 @@
 /* Mulish - Light */
 @font-face {
   font-family: 'Mulish-Light';
-  src: url('../assets/fonts/mulish/static/Mulish-Light.ttf') format('truetype');
+  src: url('../fonts/mulish/static/Mulish-Light.ttf') format('truetype');
 }
 
 /* Mulish - Medium */
 @font-face {
   font-family: 'Mulish-Medium';
-  src: url('../assets/fonts/mulish/static/Mulish-Medium.ttf') format('truetype');
+  src: url('../fonts/mulish/static/Mulish-Medium.ttf') format('truetype');
 }
 
 
 /* Mulish - Regular */
 @font-face {
   font-family: 'Mulish-Regular';
-  src: url('../assets/fonts/mulish/static/Mulish-Regular.ttf') format('truetype');
+  src: url('../fonts/mulish/static/Mulish-Regular.ttf') format('truetype');
 }
 
 /* Mulish - Bold */
 @font-face {
   font-family: 'Mulish-Bold';
-  src: url('../assets/fonts/mulish/static/Mulish-Bold.ttf') format('truetype');
+  src: url('../fonts/mulish/static/Mulish-Bold.ttf') format('truetype');
 }
 
 /* ====>>> End of Mulish Font <<<=== */
@@ -74,7 +74,7 @@
   font-weight: 400;
   src: local('Material Icons'),
     local('MaterialIconsOutlined-Regular'),
-    url('../assets/material-icons/MaterialIconsOutlined-Regular.otf') format('opentype');
+    url('../material-icons/MaterialIconsOutlined-Regular.otf') format('opentype');
 }
 
 
@@ -85,7 +85,7 @@
   font-weight: 400;
   src: local('Material Icons Round'),
     local('MaterialIconsRound-Regular'),
-    url('../assets/material-icons/MaterialIconsRound-Regular.otf') format('opentype');
+    url('../material-icons/MaterialIconsRound-Regular.otf') format('opentype');
 }
 
 /* ====>>> End of Material Icons <<<==== */
