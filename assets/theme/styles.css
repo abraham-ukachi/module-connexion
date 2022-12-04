@@ -119,6 +119,12 @@
   display: none !important;
 }
 
+/* Flex SPAN */
+span[flex] {
+  display: flex;
+  flex: 1;
+}
+
 /* Naked Buttons */
 button[naked] {
   border: 0;
@@ -187,7 +193,6 @@ body {
   font-feature-settings: 'liga';
 }
 
-
 /* App Layout */
 #appLayout {}
 
@@ -196,6 +201,22 @@ body {
   flex: 1;
   width: 100%;
   height: 100%;
+}
+
+/* ASIDE part of App Layout */
+#appLayout > aside {
+  display: none;
+  position: relative;
+  width: var(--aside-width, 50%);
+  height: 100%;
+}
+
+
+/* App Logo of any ASIDE */
+aside > .app-logo {
+  --app-logo-color: var(--outline-color);
+  opacity: var(--opacity-md-icon-disabled);
+  --app-logo-size: 50%;
 }
 
 
@@ -219,22 +240,33 @@ body {
 /* ------ */
 
 
-/* Any Bar in App Header */
-#appHeader > .bar {
+/* all App Bars in App Header */
+#appHeader > .app-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
   width: 100%;
-  height: var(--bar-size, 60px);
+  height: var(--app-bar-size, 54px);
   box-sizing: border-box;
-  padding: 0 var(--bar-padding, 16px);
+  padding: 0 var(--app-bar-padding, 16px);
+}
+
+/* Title Wrappers in App Header */
+#appHeader .title-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 8px;
+    height: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* App Bar */
-#appBar {
-  height: var(--app-bar-size, var(--bar-size, 60px));
-}
+#appBar {}
 
 /* Nav Bar Styles & footer of Main */
 .nav-bar, main > footer {
@@ -245,12 +277,19 @@ body {
 /* Vertical Nav Bar */
 .nav-bar.vertical {
   display: none;
-  width: var(--nav-bar-size, 60px);
+  width: var(--nav-bar-size, 54px);
+}
+
+/* All horizontal dividers in vertical nav bar */
+.nav-bar.vertical span.divider.horizontal {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
 }
 
 /* Horizontal Nav Bar & Footer of Main */
 .nav-bar.horizontal, main > footer {
-  height: var(--nav-bar-size, 60px);
+  height: var(--nav-bar-size, 54px);
 }
 
 
@@ -258,11 +297,12 @@ body {
 span.app-logo {
   display: block;
   position: relative;
-  width: var(--app-logo-size, 24px);
-  height: var(--app-logo-size, 24px);
+  width: var(--app-logo-size, 32px);
+  height: var(--app-logo-size, 32px);
   max-width: var(--app-logo-size-max, 512px);
   max-height: var(--app-logo-size-max, 512px);
   background-color: var(--app-logo-color, var(--primary-color));
+
 
   -webkit-mask: url('../../assets/logos/logo.svg') no-repeat 50% 50%;
   -moz-mask: url('../../assets/logos/logo.svg') no-repeat 50% 50%;
@@ -271,6 +311,13 @@ span.app-logo {
   -webkit-mask-size: cover;
   -moz-mask-size: cover;
   mask-size: cover;
+}
+
+/* Outlined App Logo | SPAN */
+span[outlined].app-logo {
+  -webkit-mask: url('../../assets/logos/logo-outline.svg') no-repeat 50% 50%;
+  -moz-mask: url('../../assets/logos/logo-outline.svg') no-repeat 50% 50%;
+  mask: url('../../assets/logos/logo-outline.svg') no-repeat 50% 50%;
 }
 
 /* --- Dividers --- 
@@ -306,8 +353,8 @@ span.divider.vertical {
 button.icon-button {
   display: block;
   position: relative;
-  width: var(--icon-button-size, 48px);
-  height: var(--icon-button-size, 48px);
+  width: var(--icon-button-size, 40px);
+  height: var(--icon-button-size, 40px);
   background: none;
   border: 0;
   box-sizing: border-box;
@@ -330,7 +377,7 @@ button.icon-button .icon {
 
   /* for `.material-icons` */
   /* Calulate the font-size relative to the size of icon-button */
-  font-size: calc(var(--icon-button-size, 48px) - (var(--icon-button-padding, 8px) * 2));
+  font-size: calc(var(--icon-button-size, 40px) - (var(--icon-button-padding, 8px) * 2));
   color: inherit !important;
   fill: inherit !important;
   pointer-events: none;
@@ -351,6 +398,147 @@ button.icon-button .icon {
 
 
 
+/* ===<<< Form ..+.. Input Default Styles >>>=== */
+
+/* Form Styles */
+form {
+  --icon-button-size: 30px;
+  --icon-button-padding: 4px;
+
+  width: 100%;
+  height: auto;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  max-width: var(--form-max-width, 450px);
+  margin: 24px auto;
+}
+
+
+
+/* all labels next to an input */
+label {
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+
+/* Labels with [raised] attribute / property */
+label[raised] {
+  transform: translateY(-18px);
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+  margin: 12px 0 24px;
+  overflow: visible;
+}
+
+
+/* Input Styles */
+input {
+  background: inherit;
+  color: inherit;
+  border: 0;
+  outline: 0;
+  flex: 1;
+  margin-bottom: 8px;
+}
+
+/* Password Input */
+input[type="password"] {}
+
+/* Submit Button / Inputs */
+input[type="submit"] {
+  border: 2px solid var(--outline-color);
+  border-radius: 8px;
+  padding: 8px 16px;
+  opacity: var(--opacity-text-inactive);
+  cursor: pointer;
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+/* Hovered / Focused Submit Input */
+input[type="submit"]:hover, input[type="submit"]:focus {
+  opacity: 1; 
+}
+
+/* [contained] submit input or buttons */
+button[contained], input[type="submit"][contained] {
+  background: var(--primary-color);
+  color: var(--on-primary-color);
+  border: 0;
+}
+
+/* Iput Indicator */
+.input-indicator {
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  /* margin: 8px 0; */
+}
+
+/* Bar of Input Indicator*/
+.input-indicator span[bar] {
+  width: inherit;
+  height: inherit;
+  background: var(--outline-color);
+  display: block;
+  opacity: var(--opacity-md-icon-inactive);
+}
+
+/* Value of Input Indicator */
+.input-indicator span[val] {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  height: inherit;
+  width: 0%;
+  background: var(--indicator-color, var(--on-background-color));
+  opacity: 0;
+
+  -webkit-transition: width .2s ease, opacity .3s ease ;
+  -moz-transition: width .2s ease, opacity .3s ease;
+  transition: width .2s ease, opacity .3s ease;
+}
+
+
+/* Set the width of the indicator value (i.e. span[val]) to 100%, 
+ * whenever an input inside a form gains focus */
+input:focus ~ .input-indicator > span[val] {
+  width: 100%;
+  opacity: 1;
+}
+
+
+/* ===>>> End of Form ..+.. Input Default Styles  <<<=== */
+
 
 
 /* Backdrop */
@@ -363,8 +551,42 @@ button.icon-button .icon {
 #toast {}
 
 
-/* Icon Wrapper */
-.icon-wrapper {}
+/* Icon Wrapper  & Nav Links  */
+a.icon-wrapper, a.nav-link {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--app-bar-size, 54px);
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* Nav Links */
+a.nav-link {
+  width: var(--nav-link-width, 100%);
+  height: var(--nav-link-height, 60px);
+  margin: var(--nav-link-margin, 8px 0);
+  opacity: var(--nav-link-opacity, var(--opacity-icon-inactive));
+
+  color: var(--nav-icon-color, var(--on-background-color));
+  fill: var(--nav-icon-color, var(--on-background-color));
+  cursor: pointer;
+}
+
+a.nav-link:hover, a.nav-link:focus {
+ opacity: var(--nav-icon-opacity, 1);
+}
+
+/* Nav Icons */
+span.nav-icon {
+ font-size: var(--nav-icon-size, 24px);
+ color: inherit;
+ fill: inherit;
+}
+
 
 
 
@@ -381,15 +603,49 @@ button.icon-button .icon {
  */
 @media (min-width: 460px) {
   
-  /* Show the vertical nav bar */
+  /* Vertical Nav Bar */
   .nav-bar.vertical {
+    display: flex;
+    width: var(--nav-bar-size, 78px); /* b4: 68px */
+  }
+  
+  /* Horizontal Nav Bar & Footer of Main */
+  .nav-bar.horizontal, main > footer {
+    display: none !important;
+    height: var(--nav-bar-size, 68px);
+  }
+
+  /* all App Bars in App Header */
+  #appHeader > .app-bar {
+    height: var(--app-bar-size, 60px);
+  }
+
+  /* ASIDE part of App Layout */
+  #appLayout > aside {
     display: flex;
   }
 
-  /* Hide the horizontal nav bar & footer of Main */
-  .nav-bar.horizontal, main > footer {
-    display: none !important;
+  /* Icon-Button */
+  button.icon-button {
+    width: var(--icon-button-size, 48px);
+    height: var(--icon-button-size, 48px); 
   }
+
+  /* Icon in Icon-Button */
+  button.icon-button .icon {
+    font-size: calc(var(--icon-button-size, 48px) - (var(--icon-button-padding, 8px) * 2)); 
+  }
+
+  /* Icon Wrapper Links */
+  a.icon-wrapper {
+    height: var(--app-bar-size, 60px);
+  }
+
+  input[type="submit"] {
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+
 }
 
 
@@ -407,7 +663,13 @@ button.icon-button .icon {
  * Phone: ? (Responsive)
  * Width: 1024px <-to-> 2560px
  */
-@media (min-width: 1024px) and (max-width: 2560px) {}
+@media (min-width: 1024px) and (max-width: 2560px) {
+
+  /* ASIDE part of App Layout */
+  #appLayout > aside {
+    width: 60%;
+  }
+}
 
 
 /* ==== END of THEME STYLES ==== */

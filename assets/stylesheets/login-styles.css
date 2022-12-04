@@ -46,24 +46,6 @@ body {
   --fade-in-animation-delay: 0s;
 }
 
-/* Footer & Nav Bar */
-footer, .nav-bar {
-  --app-logo-size: 32px;
-}
-
-/* Icon Wrapper Links */
-a.icon-wrapper {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: var(--bar-size, 60px);
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
 
 /* App Logo */
 #appLogo {}
@@ -76,6 +58,10 @@ a.icon-wrapper {
   width: 100%;
   height: 100%;
 }
+
+
+
+
 
 
 
@@ -93,6 +79,7 @@ a.icon-wrapper {
  
   /* App Logo */
   #appLogo {}
+
 
 }
 

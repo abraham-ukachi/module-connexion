@@ -132,7 +132,7 @@
 
 /* Applying the Mulish, 'Mulish-Regular', system-ui, etc
  * font to all key elements by default... */
-body, h1, h2, p, button, span, input {
+body, h1, h2, h3, p, button, span, input {
   font-family: Mulish, 'Mulish-Regular', system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -158,11 +158,48 @@ h1 {
 /* H2 - default text styles */
 h2 {
   font-size: 24px;
+  font-weight: bold;
   line-height: 30px;
-  letter-spacing: normal;
+  letter-spacing: 0.8px;
   word-spacing: normal;
   margin: 20px 0;
+
 }
+
+/* H2 - app title */
+h2.app-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+  opacity: var(--opacity-text-active);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* H3 - default text styles */
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.7px;
+  word-spacing: normal;
+  margin: 16px 0;
+}
+
+/* H3 - app subtitle */
+h3.app-subtitle {
+  margin: 0;
+  font-size: 12px;
+  opacity: var(--opacity-text-inactive);
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+}
+
 
 /* Button - default text styles */
 button {
@@ -179,6 +216,41 @@ span {
   letter-spacing: inherit;
   word-spacing: inherit;
 }
+
+
+/* Form */
+form {
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+
+/* Input & Label Styles */
+input, label {
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 1.4px;
+}
+
+/* Label Styles */
+label {
+  /* font-size: 14px; */
+  opacity: var(--opacity-text-inactive);
+}
+
+
+/* Password Input */
+input[type="password"] {
+  letter-spacing: 4px;
+}
+
+/* Submit Input && Button */
+input[type="submit"], button[type="submit"] {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 
 /* Caption - Text */
 .txt.caption {

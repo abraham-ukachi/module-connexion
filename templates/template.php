@@ -277,7 +277,21 @@
         <div id="appHeader">
 
           <!-- App Bar -->
-          <div id="appBar" class="bar">
+          <div id="appBar" class="app-bar">
+
+            <!-- Close - Icon Button -->
+            <button id="closeIconButton" class="icon-button"><span class="material-icons icon">close</span></button>
+            <!-- Title Wrapper -->
+            <div class="title-wrapper">
+              <h2 id="appTitle" class="app-title">Log in</h2> <!-- App Title -->
+              <h3 id="appSubtitle" class="app-subtitle" hidden>abraham-ukachi</h3> <!-- App Subtitle -->
+            </div>
+            <!-- End of Title Wrapper -->
+            
+            <!-- <span flex></span> -->
+
+            <!-- More - Icon Button -->
+            <button id="moreIconButton" class="icon-button"><span class="material-icons icon">more_vert</span></button>
             <!-- Horizontal Divider -->
             <span class="divider horizontal bottom"></span>
           </div>
@@ -323,6 +337,18 @@
 
       </main>
       <!-- End of MAIN - App Layout -->
+
+      <!-- Details Container | ASIDE -->
+      <aside id="detailsContainer" class="vertical flex-layout centered">
+
+        <!-- Divider @ Vertical Left -->
+        <span class="divider vertical left"></span>
+
+        <!-- Outlined App Logo -->
+        <span class="app-logo" outlined></span>
+        
+      </aside>
+      <!-- Details Container | ASIDE -->
 
     </div>
     <!-- End of App Layout -->

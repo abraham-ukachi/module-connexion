@@ -321,7 +321,19 @@
 /* == END of MATERIAL ICONS == */
 
 
+/* Overriding Browser's Default TEXT HIGHTLIGHT COLOR... */
 
+/* For Brave / Chrome browsers*/
+::selection {
+  background: var(--surface-variant-color); /* b4: secondary-color */
+  color: var(--on-surface-variant-color); /* b4: on-secondary-color */
+}
+
+/* For Firefox browsers */
+::-moz-selection {
+  background: var(--surface-variant-color);
+  color: var(--on-surface-variant-color);
+}
 
 /* 
  * --> Wide - Layout <--

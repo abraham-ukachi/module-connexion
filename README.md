@@ -140,6 +140,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 
 ## TODOs
 
+- [ ] Change the default input text & background color for Brave's autocomplete
 - [ ] Create a project-specific logo 
 - [ ] Add localization / internationalization (at least: **english** & **french**)
 - [ ] Add mobile compatibility to all pages (i.e. make it responsive)

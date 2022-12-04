@@ -23,31 +23,25 @@
 * SOFTWARE.
 *
 * @project module-connexion
-* @name Login Page - ddd
-* @file connexion.php
+* @name Profile Page - ddd
+* @file profile.php
 * @author: Abraham Ukachi <abraham.ukachi@laplateforme.io>
 * @version: 0.0.1
 * 
 * Usage:
-*   1-|> open http://localhost/module-connexion/connexion.php
+*   1-|> open http://localhost/module-connexion/profile.php
 * 
 *
 * ============================
 *     >>> DESCRIPTION <<<
 * ~~~~~~~~ (French) ~~~~~~~~~
 * 
-* - Le formulaire doit avoir deux inputs : “login” et “password”. 
-* - Lorsque le formulaire est validé, 
-*   s’il existe un utilisateur en bdd correspondant à ces informations, alors l’utilisateur est considéré 
-*   comme connecté et une (ou plusieurs) variables de session sont créées. 
-* 
+* - 
+*
 * ~~~~~~~~ (English) ~~~~~~~~~
 * 
-* - A page containing a connection form (connection.php): 
-*   The form must have two inputs: “login” and “password”. 
-** - When the form is validated, if there is a user in db corresponding to this information, 
-*   then the user is considered to be connected and one (or more) session variables are created.
-* 
+* -
+*
 * ============================
 * IMPORTANT: A Web App without a login / registration feature should never be deployed!!! :)
 * ============================
@@ -72,10 +66,10 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Login page of ddd / module-connexion">
+    <meta name="description" content="Profile page of ddd / module-connexion">
     
     <!-- Title -->
-    <title>Connexion - ddd - module-connexion | Abraham Ukachi</title>
+    <title>Profile - ddd - module-connexion | Abraham Ukachi</title>
 
 
     <!-- Fonts -->
@@ -126,7 +120,7 @@
     <link rel="stylesheet" href="assets/theme/styles.css">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/stylesheets/login-styles.css">
+    <link rel="stylesheet" href="assets/stylesheets/profile-styles.css">
     
     <!-- Animations -->
     <!-- <link rel="stylesheet" href="assets/animations/fade-in-animation.css"> -->
@@ -181,81 +175,10 @@
         ddd.isReady = true;
 
         // call the `onReady` function of `ddd`
-        ddd.onReady('login');
+        ddd.onReady('profile');
         
         
       });
-
-
-      /*
-       * Toggles the password's visibility of password-input element with the given id.
-       *
-       * @param { String } id
-       */
-      let togglePassword = (id) => {
-        // get the password input element as `passwordInputEl`
-        let passwordInputEl = document.getElementById(id);
-
-        // Do nothing if `passwordInputEl` doesn't exist
-        if (!passwordInputEl) { return }
-        
-        // toggle the `type` of `passwordInputEl` between 'text' and 'password',
-        // using our beloved ternary statement :)
-        passwordInputEl.type = (passwordInputEl.type == 'password') ? 'text' : 'password';
-
-        // restore the focus of `passwordInputEl`
-        passwordInputEl.focus();
-
-        // DEBUG [4dbsmaster]: tell me about it :)
-        console.log(`[togglePassword](1): passwordInputEl.type => ${passwordInputEl.type}`);
-        console.log(`[togglePassword](2): passwordInputEl => `, passwordInputEl);
-
-      };
-
-
-      /**
-        * Handler that is called whenever the `value` of the given `inputEl` changes 
-        * 
-        * @param { Element } inputEl
-       */
-      let handleInputValue = (inputEl) => {
-        // Do nothing if there's no inputEl
-        if (typeof(inputEl) == 'undefined' || !inputEl) { return }
-
-        // get the value from the input element
-        let value = inputEl.value;
-        // get the label of this input element using its id
-        let labelEl = document.querySelector(`label[for="${inputEl.id}"]`);
-
-        // if the input has some value...
-        if (value.length) {
-          //...create and attribute named 'has-value'
-          // and add it to the given input element (i.e. `inputEl`)
-          inputEl.setAttribute('has-value', ''); // <- An empty value should turn our attribute into a 'property'
-            
-          // HACK: If this input element has an element...
-          if (labelEl) {
-            // ...set an attribute `raised` to the label element
-            labelEl.setAttribute('raised', '');
-          }
-
-        } else { // <- no value was found in input
-          // So, remove the 'has-value' attribute from `inputEl`
-          inputEl.removeAttribute('has-value');
-
-          // HACK: If this input element has an element...
-          if (labelEl) {
-            // ...remove the attribute `raised` from the label element
-            labelEl.removeAttribute('raised');
-          }
-
-        }
-
-        // DEBUG [4dbsmaster]: tell me about it :)
-        console.log(`[handleInputValue](1): value => ${value}`);
-        // console.log(`[handleInputValue](2): inputEl => `, inputEl);
-
-      };
       
     </script>
     
@@ -281,40 +204,6 @@
           <!-- End of App-Logo -->
         </a>
         <!-- End of Icon-Wrapper -->
-        
-        <span flex></span>
-         
-        <!-- Home - Nav-Link -->
-        <a title="Home" href="" class="nav-link">
-          <span class="material-icons nav-icon">view_in_ar</span> <!-- TODO: Use `home` instead later -->
-        </a>
-        <!-- End of Home Nav-Link -->
-
-        
-        <!-- Profile - Nav-Link -->
-        <a title="Profile" href="profile.php" class="nav-link">
-          <span class="material-icons nav-icon">account_circle</span>
-        </a>
-        <!-- End of Profile Nav-Link -->
-
-        <span class="divider horizontal"></span>
-
-        
-        <!-- Settings - Nav-Link -->
-        <a title="Settings" href="settings.php" class="nav-link">
-          <span class="material-icons nav-icon">settings</span>
-        </a>
-        <!-- End of Settings Nav-Link -->
-        
-
-        <span flex></span>
-
-        
-        <!-- LogOut - Nav-Link -->
-        <a title="Log out" href="logout.php" class="nav-link"> 
-          <span class="material-icons nav-icon">power_settings_new</span>
-        </a>
-        <!-- End of Profile Nav-Link -->
 
         <!-- Horizontal Divider -->
         <span class="divider vertical right"></span>
@@ -333,15 +222,15 @@
             <button id="closeIconButton" class="icon-button"><span class="material-icons icon">close</span></button>
             <!-- Title Wrapper -->
             <div class="title-wrapper">
-              <h2 id="appTitle" class="app-title">Log in</h2> <!-- App Title -->
-              <h3 id="appSubtitle" class="app-subtitle" hidden>abraham-ukachi</h3> <!-- App Subtitle -->
+              <h2 id="appTitle" class="app-title">Abraham Ukachi</h2> <!-- App Title -->
+              <h3 id="appSubtitle" class="app-subtitle">abilasco</h3> <!-- App Subtitle -->
             </div>
             <!-- End of Title Wrapper -->
             
             <!-- <span flex></span> -->
 
-            <!-- More - Icon Button -->
-            <button id="moreIconButton" class="icon-button"><span class="material-icons icon">more_vert</span></button>
+            <!-- Edit - Icon Button -->
+            <button id="editIconButton" class="icon-button"><span class="material-icons icon">edit</span></button>
 
             <!-- Horizontal Divider -->
             <span class="divider horizontal bottom"></span>
@@ -355,70 +244,8 @@
         <!-- NOTE: This is arguably the most important content ever!!! -->
         <!-- TODO: (scrollableTarget) - Make it the only scrollable `content` -->
         <div id="content">
-          <!-- Login Form -->
-          <form id="loginForm" class="flex-layout vertical" action="" method="get" target="_self">
-            
-            <!-- Username / Input-Wrapper -->
-            <div class="input-wrapper vertical flex-layout">
-              <!-- Username Input -->
-              <label for="usernameInput">Username</label>
-              <input required oninput="handleInputValue(this)" 
-                id="usernameInput" 
-                type="text" 
-                name="login" 
-              />
-              
-              <!-- Username Indicator --> 
-              <span id="usernameIndicator" class="input-indicator">
-                <span bar></span> <!-- 1st - Indicator Bar -->
-                <span val></span> <!-- 2nd - Indicator Value -->
-              </span>
-              <!-- End of Username Indicator -->
 
-            </div>
-            <!-- End of Username / Input-Wrapper -->
-            
-            
-            <!-- Password / Input-Wrapper -->
-            <div class="input-wrapper vertical flex-layout">
-              <!-- Password Input -->
-              <label for="passwordInput">Password</label>
-              
-              <div class="horizontal flex-layout">
-                <input required oninput="handleInputValue(this)"
-                  id="passwordInput" 
-                  type="password" 
-                  name="password" 
-                />
-                <!-- Toggle Password - Icon button -->
-                <button class="icon-button" onclick="togglePassword('passwordInput')" 
-                  id="togglePasswordIconButton" 
-                  type="button"
-                  tabIndex="-1">
-                  <span class="material-icons">visibility</span>
-                </button>
-
-                <!-- Password Indicator --> 
-                <span id="passwordIndicator" class="input-indicator">
-                  <!-- Indicator Bar -->
-                  <span bar></span>             
-                  <!-- Indicator Value -->
-                  <span val></span> 
-                </span>
-                <!-- End of Password Indicator -->
-
-
-              </div>
-              
-
-            </div>
-            <!-- End of Password / Input-Wrapper -->
-
-            <!-- Login Button -->
-            <input id="loginButton" type="submit" value="Log In" />
-
-          </form>
-          <!-- End of Login Form -->
+          <div class="wrapper flex-layout vertical centered"></div>
 
         </div>
         <!-- End of Content - App Layout -->
@@ -444,7 +271,7 @@
         <span class="divider vertical left"></span>
 
         <!-- Outlined App Logo -->
-        <span class="app-logo" outlined></span>
+        <span class="app-logo outlined" outlined></span>
         
       </aside>
       <!-- Details Container | ASIDE -->
