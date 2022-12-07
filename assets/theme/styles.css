@@ -278,6 +278,7 @@ aside > .app-logo {
 .nav-bar.vertical {
   display: none;
   width: var(--nav-bar-size, 54px);
+  padding: var(--nav-bar-padding-vertical, 0);
 }
 
 /* All horizontal dividers in vertical nav bar */
@@ -290,6 +291,16 @@ aside > .app-logo {
 /* Horizontal Nav Bar & Footer of Main */
 .nav-bar.horizontal, main > footer {
   height: var(--nav-bar-size, 54px);
+}
+
+/* Horizontal Nav Bar */
+.nav-bar.horizontal {
+  padding: 0 var(--nav-bar-padding-horizontal, 16px);
+}
+
+/* Nav Links in a Horizontal Nav Bar */
+.nav-bar.horizontal .nav-link {
+  width: var(--nav-bar-size, 54px);
 }
 
 
@@ -414,6 +425,72 @@ form {
 }
 
 
+/* All the children of form */
+form > * {
+  opacity: 0;
+  -webkit-animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) forwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s);
+  -moz-animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) forwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s);
+  animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) forwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s);
+}
+
+
+/* Let's gradually assign an animation delay to up to 10 children of `<form>` */
+/* TODO: Find a better way to do this :) */
+
+/* First child of form */
+form > *:nth-child(1) {
+  --form-animation-delay: 0.2s;
+}
+
+/* Second child of form */
+form > *:nth-child(2) {
+  --form-animation-delay: 0.3s; /* 0.2 + 0.1 */
+}
+
+
+/* Third child of form */
+form > *:nth-child(3) {
+  --form-animation-delay: 0.4s; /* 0.3 + */
+}
+
+/* Fourth child of form */
+form > *:nth-child(4) {
+  --form-animation-delay: 0.5s;
+}
+
+
+/* Fifth child of form */
+form > *:nth-child(5) {
+  --form-animation-delay: 0.6s;
+}
+
+
+/* First child of form */
+form > *:nth-child(6) {
+  --form-animation-delay: 0.7s;
+}
+
+/* Second child of form */
+form > *:nth-child(7) {
+  --form-animation-delay: 0.8s;
+}
+
+
+/* Third child of form */
+form > *:nth-child(8) {
+  --form-animation-delay: 0.9s;
+}
+
+/* Fourth child of form */
+form > *:nth-child(9) {
+  --form-animation-delay: 1s;
+}
+
+
+/* Fifth child of form */
+form > *:nth-child(10) {
+  --form-animation-delay: 1.1s;
+}
 
 /* all labels next to an input */
 label {
@@ -446,8 +523,16 @@ label[raised] {
   position: relative;
   margin: 12px 0 24px;
   overflow: visible;
+
+  -webkit-transition: margin .2s ease;
+  -moz-transition: margin .2s ease;
+  transition: margin .2s ease;
 }
 
+/* If the Input Wrapper has an error */
+.input-wrapper[has-error] {
+  margin-bottom: var(--input-wrapper-error-margin, 48px);
+}
 
 /* Input Styles */
 input {
@@ -479,7 +564,9 @@ input[type="submit"] {
 
 /* Hovered / Focused Submit Input */
 input[type="submit"]:hover, input[type="submit"]:focus {
-  opacity: 1; 
+  opacity: 1;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 /* [contained] submit input or buttons */
@@ -504,6 +591,11 @@ button[contained], input[type="submit"][contained] {
   /* margin: 8px 0; */
 }
 
+/* Error style of Input Indicator */
+.input-indicator.error {
+  --input-indicator-color: var(--error-color);
+}
+
 /* Bar of Input Indicator*/
 .input-indicator span[bar] {
   width: inherit;
@@ -520,7 +612,7 @@ button[contained], input[type="submit"][contained] {
   margin: 0 auto;
   height: inherit;
   width: 0%;
-  background: var(--indicator-color, var(--on-background-color));
+  background: var(--input-indicator-color, var(--primary-color));
   opacity: 0;
 
   -webkit-transition: width .2s ease, opacity .3s ease ;
@@ -529,13 +621,32 @@ button[contained], input[type="submit"][contained] {
 }
 
 
-/* Set the width of the indicator value (i.e. span[val]) to 100%, 
- * whenever an input inside a form gains focus */
-input:focus ~ .input-indicator > span[val] {
+/* Set the width of the indicator value (i.e. span[val]) to 100%:
+ * 1. whenever an input inside a form gains focus
+ * 2. if the input indicator has a `no-effect` attribute
+ * */
+input:focus ~ .input-indicator > span[val], .input-indicator[no-effect] span[val]  {
   width: 100%;
   opacity: 1;
 }
 
+
+/* Input Message */
+p.input-message {
+  margin: 8px 4px;
+  width: 100%;
+  height: 35px;
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  color: var(--error-color);
+  transform: translateY(150%);
+  line-height: 16px;
+  pointer-events: none;
+}
 
 /* ===>>> End of Form ..+.. Input Default Styles  <<<=== */
 
@@ -550,6 +661,18 @@ input:focus ~ .input-indicator > span[val] {
 /* Toast */
 #toast {}
 
+/* Default Links - A */
+a {
+  color: var(--link-color, var(--primary-color));
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hover over default links - A */
+a:hover {
+  text-decoration: underline;
+}
+
 
 /* Icon Wrapper  & Nav Links  */
 a.icon-wrapper, a.nav-link {
@@ -561,7 +684,6 @@ a.icon-wrapper, a.nav-link {
   width: 100%;
   height: var(--app-bar-size, 54px);
   box-sizing: border-box;
-  text-decoration: none;
 }
 
 /* Nav Links */
@@ -573,11 +695,17 @@ a.nav-link {
 
   color: var(--nav-icon-color, var(--on-background-color));
   fill: var(--nav-icon-color, var(--on-background-color));
-  cursor: pointer;
+}
+
+/* Material Icons in Nav Link */
+a.nav-link .material-icons {
+  color: inherit !important;
+  fill: inherit !important;
 }
 
 a.nav-link:hover, a.nav-link:focus {
  opacity: var(--nav-icon-opacity, 1);
+ text-decoration: none;
 }
 
 /* Nav Icons */
@@ -613,6 +741,11 @@ span.nav-icon {
   .nav-bar.horizontal, main > footer {
     display: none !important;
     height: var(--nav-bar-size, 68px);
+  }
+
+  /* Nav Links in a Horizontal Nav Bar */
+  .nav-bar.horizontal .nav-link {
+    width: var(--nav-bar-size, 68px);
   }
 
   /* all App Bars in App Header */

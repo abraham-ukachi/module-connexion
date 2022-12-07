@@ -321,6 +321,27 @@
 /* == END of MATERIAL ICONS == */
 
 
+
+
+
+
+
+/* ====<< OTHER COLORS STYLES >>==== */
+
+/* Error Color */
+.error {
+  color: var(--error-color);
+  fill: var(--error-color);
+}
+
+/* ====>> END of OTHER COLOR STYLES <<==== */
+
+
+
+
+
+
+
 /* Overriding Browser's Default TEXT HIGHTLIGHT COLOR... */
 
 /* For Brave / Chrome browsers*/
