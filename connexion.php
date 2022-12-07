@@ -286,7 +286,7 @@
          
         <!-- Home - Nav-Link -->
         <a title="Home" href="" class="nav-link">
-          <span class="material-icons nav-icon">view_in_ar</span> <!-- TODO: Use `home` instead later -->
+          <span class="material-icons nav-icon">view_in_ar</span> <!-- UX: Use `home` instead -->
         </a>
         <!-- End of Home Nav-Link -->
 
@@ -359,33 +359,44 @@
           <form id="loginForm" class="flex-layout vertical" action="" method="get" target="_self">
             
             <!-- Username / Input-Wrapper -->
-            <div class="input-wrapper vertical flex-layout">
+            <!-- NOTE: Use `[has-error]` attribute on `.input-wrapper` when there's an error --> 
+            <div class="username input-wrapper vertical flex-layout">
               <!-- Username Input -->
               <label for="usernameInput">Username</label>
-              <input required oninput="handleInputValue(this)" 
+              <input required aria-required="true" oninput="handleInputValue(this)" 
                 id="usernameInput" 
                 type="text" 
                 name="login" 
               />
               
-              <!-- Username Indicator --> 
+              <!-- Username Indicator -->
+              <!-- NOTE: Use `error` class and `[no-effect]` attribute on `.input-indicator`
+                         when there's an error --> 
               <span id="usernameIndicator" class="input-indicator">
-                <span bar></span> <!-- 1st - Indicator Bar -->
-                <span val></span> <!-- 2nd - Indicator Value -->
+                <!-- Indicator Bar -->
+                <span bar></span> 
+                <!-- Indicator Value -->
+                <span val></span>
               </span>
               <!-- End of Username Indicator -->
+
+              <!-- Input Message -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in" hidden>Please enter a valid username</p>
+              <!-- End of Input Message -->
 
             </div>
             <!-- End of Username / Input-Wrapper -->
             
             
             <!-- Password / Input-Wrapper -->
-            <div class="input-wrapper vertical flex-layout">
+            <div class="password input-wrapper vertical flex-layout">
               <!-- Password Input -->
               <label for="passwordInput">Password</label>
-              
+
+              <!-- DIV w/ Horizontal Flex-Layout -->
               <div class="horizontal flex-layout">
-                <input required oninput="handleInputValue(this)"
+                <input required aria-required="true" oninput="handleInputValue(this)"
                   id="passwordInput" 
                   type="password" 
                   name="password" 
@@ -407,33 +418,63 @@
                 </span>
                 <!-- End of Password Indicator -->
 
-
               </div>
-              
+              <!-- End of DIV w/ Horizontal Flex-Layout -->
+
+              <!-- Input Message  -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in error" hidden>Incorrect password</p>
+              <!-- End of Input Message -->
 
             </div>
             <!-- End of Password / Input-Wrapper -->
 
-            <!-- Login Button -->
-            <input id="loginButton" type="submit" value="Log In" />
+
+            <!-- Login-Button / Input-Wrapper -->
+            <div class="login-button input-wrapper vertical flex-layout">
+              <!-- Login Button -->
+              <!-- TODO: Use a `<button>` to submit the form -->
+              <input id="loginButton" type="submit" value="Log In" />
+            </div>
+            <!-- End of Login-Button / Input-Wrapper -->
+            
+            
+            <!-- Register Link -->
+            <a class="register-link" title="Register / Sign Up" href="inscription.php">Create an account</a>
 
           </form>
           <!-- End of Login Form -->
 
         </div>
         <!-- End of Content - App Layout -->
-        
-        <!-- FOOTER -->
-        <footer class="vertical flex-layout centered">
 
+        <!-- Nav Bar -->
+        <nav class="nav-bar horizontal flex-layout center">
           <span class="divider horizontal top"></span>
 
+          <!-- Home - Nav-Link -->
+          <a title="Home" href="" class="nav-link">
+            <span class="material-icons nav-icon">view_in_ar</span> <!-- UX: Use `home` instead -->
+          </a>
+          <!-- End of Home Nav-Link -->
+
+
+          <span flex></span> <!-- HACK: Just a temp. fix :) -->
+          
           <!-- App Logo -->
           <span class="app-logo"></span>
+           
+          <span flex></span> <!-- HACK: Just a temp. fix :) -->
+          
+          <!-- Profile - Nav-Link -->
+          <a title="Profile" href="profile.php" class="nav-link">
+            <span class="material-icons nav-icon">account_circle</span>
+          </a>
+          <!-- End of Profile Nav-Link -->
 
-        </footer>
-        <!-- End of FOOTER -->
-
+        </nav>
+        <!-- End of Nav Bar -->
+        
       </main>
       <!-- End of MAIN - App Layout -->
 
