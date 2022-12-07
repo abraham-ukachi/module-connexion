@@ -37,7 +37,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
 | 1 | *`Home - Page`* | **index.php** | Pending |
-| 2 | *`Register - Page`* | **inscription.php** | Pending |
+| 2 | *`Register - Page`* | **inscription.php** | _*In progress*_ |
 | 3 | *`Login - Page`* | **connexion.php** | _*In progress*_ |
 | 4 | *`Profile - Page`* | **profil.php** | Pending |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
@@ -133,6 +133,8 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 2 | *`Logout - Page`* | **logout.php** | Pending |
 | 3 | *`Database - API`* | **database.php** | Pending |
 | 4 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](./assets/animations/pop-in-animation.css) |
+| 5 | *`Fade In - Animation`* | **fade-in-animation.css** | [Done](./assets/animations/fade-in-animation.css) |
+| 6 | *`Slide From Down - Animation`* | **slide-from-down-animation.css** | [Done](./assets/animations/slide-from-down-animation.css) |
 
 > NOTE: (\*) = still needs to be updated. <br>
 >       There are a few we must have forgotten or not added yet, <br>
