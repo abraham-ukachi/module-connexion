@@ -252,6 +252,7 @@ aside > .app-logo {
   padding: 0 var(--app-bar-padding, 16px);
 }
 
+
 /* Title Wrappers in App Header */
 #appHeader .title-wrapper {
     display: flex;
@@ -392,6 +393,12 @@ button.icon-button .icon {
   color: inherit !important;
   fill: inherit !important;
   pointer-events: none;
+}
+
+/* active links of Icon Buttons  */
+a[active] .icon-button {
+  --icon-button-opacity: 1;
+  --icon-button-color: var(--primary-color);
 }
 
 /* ------ */
@@ -696,6 +703,12 @@ a.nav-link {
   color: var(--nav-icon-color, var(--on-background-color));
   fill: var(--nav-icon-color, var(--on-background-color));
 }
+
+/* Active Nav Links */
+a.nav-link[active] {
+  opacity: 1;
+}
+
 
 /* Material Icons in Nav Link */
 a.nav-link .material-icons {
