@@ -293,7 +293,7 @@
 
         
         <!-- Profile - Nav-Link -->
-        <a title="Profile" href="profile.php" class="nav-link">
+        <a title="Profile" href="profil.php" class="nav-link">
           <span class="material-icons nav-icon">account_circle</span>
         </a>
         <!-- End of Profile Nav-Link -->
@@ -578,7 +578,7 @@
           <span flex></span> <!-- HACK: Just a temp. fix :) -->
           
           <!-- Profile - Nav-Link -->
-          <a title="Profile" href="profile.php" class="nav-link">
+          <a title="Profile" href="profil.php" class="nav-link">
             <span class="material-icons nav-icon">account_circle</span>
           </a>
           <!-- End of Profile Nav-Link -->
