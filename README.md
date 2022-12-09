@@ -23,8 +23,8 @@ These are a couple of the main requirements for this school project:
 
 1. Create a user who will be able to access all the information. His login, first name, last name and password are “admin”.
 2. A home page that presents your site (index.php)
-3. A page containing a registration form (registration.php): The form must contain all the fields present in the “users” table (except “id”) + a password confirmation. As soon as a user fills out this form, the data is inserted into the database and the user is redirected to the login page.
-4. A page containing a connection form (connection.php): The form must have two inputs: “login” and “password”. When the form is validated, if there is a user in db corresponding to this information, then the user is considered to be connected and one (or more) session variables are created.
+3. A page containing a registration form (register.php): The form must contain all the fields present in the “users” table (except “id”) + a password confirmation. As soon as a user fills out this form, the data is inserted into the database and the user is redirected to the login page.
+4. A page containing a connection form (login.php): The form must have two inputs: “login” and “password”. When the form is validated, if there is a user in db corresponding to this information, then the user is considered to be connected and one (or more) session variables are created.
 5. A page allowing you to modify your profile (profil.php): This page has a form allowing the user to modify his information. This form is by default pre-filled with the information that is currently stored in the database.
 6. An administration page (admin.php): This page is accessible ONLY for the “admin” user. It is used to list all the user information present in the database.
 
@@ -142,10 +142,10 @@ These are some of the things I did or plan to do, in addition to this project's 
 
 ## TODOs
 
-- [ ] Change the default input text & background color for Brave's autocomplete
-- [ ] Create a project-specific logo 
+- [x] Change the default input text & background color for Brave's autocomplete
+- [x] Create a project-specific logo 
 - [ ] Add localization / internationalization (at least: **english** & **french**)
-- [ ] Add mobile compatibility to all pages (i.e. make it responsive)
+- [x] Add mobile compatibility to all pages (i.e. make it responsive)
 - [ ] Optimize all `.php` files
 - [ ] Optimize all `.css` files
 - [ ] Optimize all `.js` files
