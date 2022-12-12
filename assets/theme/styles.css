@@ -273,13 +273,21 @@ aside > .app-logo {
 .nav-bar, main > footer {
   position: relative;
   box-sizing: border-box;
+  background: var(--background-color);
 }
 
 /* Vertical Nav Bar */
 .nav-bar.vertical {
-  display: none;
   width: var(--nav-bar-size, 54px);
+  height: 100%;
   padding: var(--nav-bar-padding-vertical, 0);
+}
+
+
+/* Responsive Vertical Nav Bar */
+/* HACK: allows me to display the nav bar in it's [demo page](component/demo/nav-bar.php) */
+.nav-bar.vertical[responsive] {
+  display: none;
 }
 
 /* All horizontal dividers in vertical nav bar */
@@ -297,6 +305,7 @@ aside > .app-logo {
 /* Horizontal Nav Bar */
 .nav-bar.horizontal {
   padding: 0 var(--nav-bar-padding-horizontal, 16px);
+  width: 100%;
 }
 
 /* Nav Links in a Horizontal Nav Bar */
@@ -704,6 +713,33 @@ a.nav-link {
   fill: var(--nav-icon-color, var(--on-background-color));
 }
 
+/* Initials in Nav Link */
+a.nav-link span.initials {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 2px var(--on-background-color);
+  color: var(--on-background-color);
+  border-style: dotted dashed;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: center;
+  letter-spacing: 1px;
+  align-items: center;
+  border-radius: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+/* Active Initials */
+a.nav-link[active] span.initials {
+  border: 0;
+  background: var(--initials-background-color, var(--surface-variant-color));
+  color: var(--initials-text-color, var(--on-surface-variant-color));
+}
+
 /* Active Nav Links */
 a.nav-link[active] {
   opacity: 1;
@@ -746,14 +782,24 @@ span.nav-icon {
   
   /* Vertical Nav Bar */
   .nav-bar.vertical {
-    display: flex;
     width: var(--nav-bar-size, 78px); /* b4: 68px */
+  }
+
+
+  /* Responsive Vertical Nav Bar */
+  .nav-bar.vertical[responsive] {
+    display: flex;
   }
   
   /* Horizontal Nav Bar & Footer of Main */
   .nav-bar.horizontal, main > footer {
-    display: none !important;
     height: var(--nav-bar-size, 68px);
+  }
+
+  /* Responsive Horizontal Nav Bar */
+  /* HACK: allows me to display the nav bar in it's [demo page](component/demo/nav-bar.php) */
+  .nav-bar.horizontal[responsive] {
+    display: none !important;
   }
 
   /* Nav Links in a Horizontal Nav Bar */

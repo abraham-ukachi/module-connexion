@@ -52,6 +52,11 @@ form {
   margin-top: 0;
 }
 
+/* Password Form */
+#passwordForm {
+  margin-top: 24px;
+}
+
 /* Input Indicator sibling of a disabled <input> */
 input[disabled] ~ .input-indicator {
   opacity: var(--opacity-md-icon-disabled);
@@ -95,10 +100,10 @@ span.caption {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   width: 100%;
   height: var(--profile-photo-height, 150px);
   position: relative;
+  cursor: default;
 }
 
 
@@ -124,6 +129,7 @@ span.caption {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 /** ===>> Profile Photo Styles <<=== **/

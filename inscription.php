@@ -511,7 +511,7 @@
                 />
                 <!-- Toggle Password - Icon button -->
                 <button class="icon-button" onclick="togglePassword('confirmPasswordInput')" 
-                  id="toggleConfirmPasswordIconButton" 
+                  id="toggleConfirmPasswordIconButton"
                   type="button"
                   tabIndex="-1">
                   <span class="material-icons">visibility</span>

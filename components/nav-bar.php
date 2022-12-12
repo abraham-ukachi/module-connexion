@@ -139,12 +139,19 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 
   <span flex></span>
 
-  
+
+  <!-- PHP: If the nav bar *IS CONNECTED* ...-->
+  <?php if ($_GET['navbar_connected'] == 'true'): ?>
+  <!-- PHP: ...show the log out nav-link -->
+
   <!-- LogOut - Nav-Link -->
   <a title="Log out" href="logout.php" class="nav-link">
     <span class="material-icons nav-icon">power_settings_new</span>
   </a>
   <!-- End of Profile Nav-Link -->
+
+  <?php endif; ?>
+  <!-- End of PHP: If the nav bar *IS CONNECTED* -->
 
   <!-- Horizontal Divider -->
   <span class="divider vertical right"></span>

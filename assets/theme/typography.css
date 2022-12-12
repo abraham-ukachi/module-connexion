@@ -169,7 +169,7 @@ h2 {
 /* H2 - app title */
 h2.app-title {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 26px;
   opacity: var(--opacity-text-active);
   white-space: nowrap;
@@ -374,6 +374,11 @@ input[type="submit"], button[type="submit"] {
     line-height: 40px; 
     letter-spacing: normal;
     word-spacing: normal;
+  }
+
+  /* H2 - app title */
+  h2.app-title {
+    font-size: 20px;
   }
 
   /* Button - default text styles */

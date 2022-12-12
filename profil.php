@@ -273,54 +273,16 @@
     <!-- App Layout -->
     <div id="appLayout" class="flex-layout horizontal" fit>
       
-      <!-- Vertical Nav Bar -->
-      <nav class="nav-bar vertical flex-layout">
-        <!-- Icon-Wrapper -->
-        <a href=".#" class="icon-wrapper">
-          <!-- App-Logo -->
-          <span class="app-logo"></span>
-          <!-- End of App-Logo -->
-        </a>
-        <!-- End of Icon-Wrapper -->
-        
-        <span flex></span>
-         
-        <!-- Home - Nav-Link -->
-        <a title="Home" href="" class="nav-link">
-          <span class="material-icons nav-icon">view_in_ar</span> <!-- UX: Use `home` instead -->
-        </a>
-        <!-- End of Home Nav-Link -->
+      <!-- PHP: Include the vertical & responsive `nav-bar` component here -->
+      <?php 
+        $_GET['navbar_type'] = 'vertical'; 
+        $_GET['navbar_page'] = 'profil'; 
+        $_GET['navbar_init'] = 'au'; 
+        $_GET['navbar_connected'] = 'true'; 
+        $_GET['navbar_res'] = 'true'; 
+      ?>
 
-        
-        <!-- Profile - Nav-Link -->
-        <a title="Profile" href="profil.php" class="nav-link" active>
-          <span class="material-icons nav-icon">account_circle</span>
-        </a>
-        <!-- End of Profile Nav-Link -->
-
-        <span class="divider horizontal"></span>
-
-        
-        <!-- Settings - Nav-Link -->
-        <a title="Settings" href="settings.php" class="nav-link">
-          <span class="material-icons nav-icon">settings</span>
-        </a>
-        <!-- End of Settings Nav-Link -->
-        
-
-        <span flex></span>
-
-        
-        <!-- LogOut - Nav-Link -->
-        <a title="Log out" href="logout.php" class="nav-link"> 
-          <span class="material-icons nav-icon">power_settings_new</span>
-        </a>
-        <!-- End of Profile Nav-Link -->
-
-        <!-- Horizontal Divider -->
-        <span class="divider vertical right"></span>
-      </nav>
-      <!-- End of Vertical Nav Bar -->
+      <?php include 'components/nav-bar.php'; ?>
 
       <!-- MAIN - App Layout -->
       <main class="flex-layout vertical">
@@ -362,12 +324,12 @@
               <h2 id="appTitle" class="app-title">
                 <?php echo isset($_GET['edit']) ? 'Edit Profile' : (isset($_GET['chgpwd']) ? 'Change Password' : 'Abraham Ukachi'); ?>
               </h2> <!-- App Title -->
-              <h3 id="appSubtitle" class="app-subtitle" <?php echo (isset($_GET['edit']) || isset($_GET['chgpwd'])) ? 'hidden' : ''; ?> >abraham-ukachi</h3> <!-- App Subtitle -->
+              <h3 id="appSubtitle" class="app-subtitle" <?php echo isset($_GET['edit']) ? 'hidden' : ''; ?> >abraham-ukachi</h3> <!-- App Subtitle -->
             </div>
             <!-- End of Title Wrapper -->
             
             <!-- <span flex></span> -->
-
+            
             <!-- Edit - Icon Button -->
             <a href="profil.php?edit" title="Edit Profile" <?php echo isset($_GET['edit']) ? 'active' : ''; ?> >
               <button id="editIconButton" class="icon-button">
@@ -398,7 +360,7 @@
         <div id="content">
           
           <!-- Profile Photo  -->
-          <div class="profile-photo">
+          <div class="profile-photo" <?php echo isset($_GET['chgpwd']) ? 'hidden' : '' ; ?> >
             <!-- Profile Cover -->
             <!-- <span cover></span> -->
             
@@ -410,20 +372,287 @@
 
           </div>
           <!-- End of Profile Photo -->
+
           
+
+          <!-- PHP (1): If the `chgpwd` variable was passed through GET...-->
+          <?php if (isset($_GET['chgpwd'])) { ?>
+          <!-- PHP (1): ...show the Password Form -->
           
-          <!-- Register Form -->
-          <form id="registerForm" class="flex-layout vertical" action="" method="get" target="_self">
+          <!-- Password Form -->
+          <form id="passwordForm" class="flex-layout vertical" action="" method="get" target="_self">
+
+            <!-- Password / Input-Wrapper -->
+            <div class="password input-wrapper vertical flex-layout">
+              
+              <!-- Password Input - LABEL -->
+              <label for="passwordInput">Current Password</label>
+              
+              <!-- DIV w/ Horizontal Flex-Layout -->
+              <div class="horizontal flex-layout">
+                <input required aria-required="true" oninput="handleInputValue(this)"
+                  id="passwordInput" 
+                  type="password" 
+                  name="password" 
+                />
+                <!-- Toggle Password - Icon button -->
+                <button class="icon-button" onclick="togglePassword('passwordInput')" 
+                  id="togglePasswordIconButton" 
+                  type="button"
+                  tabIndex="-1">
+                  <span class="material-icons">visibility</span>
+                </button>
+                
+                <!-- Password Indicator --> 
+                <span id="passwordIndicator" class="input-indicator">
+                  <!-- Indicator Bar -->
+                  <span bar></span>
+                  <!-- Indicator Value -->
+                  <span val></span>
+                </span>
+                <!-- End of Password Indicator -->
+
+              </div>
+              <!-- End of DIV w/ Horizontal Flex-Layout -->
+
+              <!-- Input Message  -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in error" hidden>Incorrect password</p>
+              <!-- End of Input Message -->
+
+            </div>
+            <!-- End of Password / Input-Wrapper -->
+
+
+            
+            <!-- New-Password / Input-Wrapper -->
+            <div class="new-password input-wrapper vertical flex-layout">
+              <!-- New Password Input - LABEL -->
+              <label for="newPasswordInput">New Password</label>
+              
+              <!-- DIV w/ Horizontal Flex-Layout -->
+              <div class="horizontal flex-layout">
+                <input required aria-required="true" oninput="handleInputValue(this)"
+                  id="newPasswordInput" 
+                  type="password" 
+                  name="new_password" 
+                /> 
+                <!-- Toggle Password - Icon button -->
+                <button class="icon-button" onclick="togglePassword('newPasswordInput')" 
+                  id="toggleNewPasswordIconButton"
+                  type="button"
+                  tabIndex="-1">
+                  <span class="material-icons">visibility</span>
+                </button>
+
+                <!-- New Password Indicator --> 
+                <span id="newPasswordIndicator" class="input-indicator">
+                  <!-- Indicator Bar -->
+                  <span bar></span>             
+                  <!-- Indicator Value -->
+                  <span val></span> 
+                </span>
+                <!-- End of New Password Indicator -->
+                
+              </div>
+              <!-- End of DIV w/ Horizontal Flex-Layout -->
+
+              <!-- Input Message  -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in error" hidden>Incorrect new password</p>
+              <!-- End of Input Message -->
+
+            </div>
+            <!-- End of New-Password / Input-Wrapper -->
+
+
+
+            <!-- Confirm-New-Password / Input-Wrapper -->
+            <div class="confirm-new-password input-wrapper vertical flex-layout">
+              <!-- Confirm New Password Input -->
+              <label for="confirmNewPasswordInput">Confirm New Password</label>
+
+              <!-- DIV w/ Horizontal Flex-Layout -->
+              <div class="horizontal flex-layout">
+                <input required aria-required="true" oninput="handleInputValue(this)"
+                  id="confirmNewPasswordInput" 
+                  type="password" 
+                  name="confirm_new_password" 
+                />
+                <!-- Toggle Password - Icon button -->
+                <button class="icon-button" onclick="togglePassword('confirmNewPasswordInput')" 
+                  id="toggleConfirmNewPasswordIconButton"
+                  type="button"
+                  tabIndex="-1">
+                  <span class="material-icons">visibility</span>
+                </button>
+                
+                <!-- Confirm New Password Indicator --> 
+                <span id="confirmNewPasswordIndicator" class="input-indicator">
+                  <!-- Indicator Bar -->
+                  <span bar></span>             
+                  <!-- Indicator Value -->
+                  <span val></span>
+                </span>
+                <!-- End of Confirm New Password Indicator -->
+                
+              </div>
+              <!-- End of DIV w/ Horizontal Flex-Layout -->
+
+              <!-- Input Message  -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in error" hidden>Incorrect confirm new password</p>
+              <!-- End of Input Message -->
+
+            </div>
+            <!-- End of Confirm-New-Password / Input-Wrapper -->
+            
+
+            <!-- Save-Button / Input-Wrapper -->
+            <div class="save-button input-wrapper vertical flex-layout">
+              <!-- Save Button -->
+              <!-- TODO: Use a `<button>` instead, to submit the form -->
+              <input id="saveButton" type="submit" name="chgpwd" value="save" />
+            </div>
+            <!-- End of Save-Button / Input-Wrapper -->
+            
+          </form>
+          <!-- End of Password Form -->
+          
+          <!-- PHP (2): Else If the `edit` variable was passed through GET...-->
+          <?php } elseif (isset($_GET['edit'])) { ?>
+          <!-- PHP (2): ...show the Edit Form -->
+          
+          <!-- Edit Form (DEFAULT) -->
+          <!-- NOTE: I'm aware that `action`, `method`, and `target` attributes are not needed in this form -->
+          <!--       due to their default value; they were added as personal preference -->
+          <form id="editForm" class="flex-layout vertical" action="" method="get" target="_self">
             
             <!-- Username / Input-Wrapper -->
             <!-- NOTE: Use `[has-error]` attribute on `.input-wrapper` when there's an error --> 
             <div class="username input-wrapper vertical flex-layout">
               <!-- Username Input -->
               <label for="usernameInput" raised>Username</label>
-              <input required autofocus disabled aria-required="true" oninput="handleInputValue(this)" 
+              <input required autofocus aria-required="true" spellcheck="false" oninput="handleInputValue(this)" 
                 id="usernameInput" 
                 type="text" 
-                name="username"
+                name="uname"
+                value="abilasco" 
+              />
+              
+              <!-- Username Indicator -->
+              <!-- NOTE: Use `error` class and `[no-effect]` attribute on `.input-indicator` \
+              when there's an error -->  
+              <span id="usernameIndicator" class="input-indicator">
+                <!-- Indicator Bar -->
+                <span bar></span>
+                <!-- Indicator Value -->
+                <span val></span>
+              </span>
+              <!-- End of Username Indicator -->
+
+              <!-- Input Message -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in" hidden>Please enter a valid username</p>
+              <!-- End of Input Message -->
+
+            </div>
+            <!-- End of Username / Input-Wrapper -->
+            
+
+
+            <!-- Firstname / Input-Wrapper -->
+            <!-- NOTE: Use `[has-error]` attribute on `.input-wrapper` when there's an error --> 
+            <div class="firstname input-wrapper vertical flex-layout">
+              <!-- Firstname Input -->
+              <label for="firstnameInput" raised>First name</label>
+              <input required aria-required="true" oninput="handleInputValue(this)" 
+                id="firstnameInput" 
+                type="text" 
+                name="fname"
+                value="Abraham"
+              />
+              
+              <!-- Firstname Indicator -->
+              <!-- NOTE: Use `error` class and `[no-effect]` attribute on `.input-indicator` \
+              when there's an error -->  
+              <span id="firstnameIndicator" class="input-indicator">
+                <!-- Indicator Bar -->
+                <span bar></span> 
+                <!-- Indicator Value -->
+                <span val></span>
+              </span>
+              <!-- End of Firstname Indicator -->
+
+              <!-- Input Message -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in" hidden>Please enter a valid first name</p>
+              <!-- End of Input Message -->
+
+            </div>
+            <!-- End of Firstname / Input-Wrapper -->
+
+
+
+            <!-- Lastname / Input-Wrapper -->
+            <!-- NOTE: Use `[has-error]` attribute on `.input-wrapper` when there's an error --> 
+            <div class="lastname input-wrapper vertical flex-layout">
+              <!-- Lastname Input -->
+              <label for="lastnameInput" raised>Last name</label>
+              <input required aria-required="true" oninput="handleInputValue(this)" 
+                id="lastnameInput" 
+                type="text" 
+                name="lname"
+                value="Ukachi"
+              />
+              
+              <!-- Lastname Indicator -->
+              <!-- NOTE: Use `error` class and `[no-effect]` attribute on `.input-indicator` \
+              when there's an error -->  
+              <span id="lastnameIndicator" class="input-indicator">
+                <!-- Indicator Bar -->
+                <span bar></span> 
+                <!-- Indicator Value -->
+                <span val></span>
+              </span>
+              <!-- End of Lastname Indicator -->
+
+              <!-- Input Message -->
+              <!-- NOTE: Use `error` class to make turn this `.input-message` an error -->
+              <p class="input-message fade-in" hidden>Please enter a valid last name</p>
+              <!-- End of Input Message -->
+               
+            </div>
+            <!-- End of Lastname / Input-Wrapper -->
+            
+            
+            <!-- Update-Button / Input-Wrapper -->
+            <div class="update-button input-wrapper vertical flex-layout">
+              <!-- Update Button -->
+              <!-- TODO: Use a `<button>` instead, to submit the form -->
+              <input id="updateButton" type="submit" name="edit" value="update profile" />
+            </div>
+            <!-- End of Update-Button / Input-Wrapper -->
+
+          </form>
+          <!-- End of Edit Form -->
+
+          <!-- PHP (3): Otherwise (neither `chgpwd` nor `edit` in GET)... -->
+          <?php } else { ?>
+          <!-- PHP (3): ...show the default Profile Form -->
+
+          <!-- Profile Form (DEFAULT) -->
+          <form id="profileForm" class="flex-layout vertical">
+            
+            <!-- Username / Input-Wrapper -->
+            <!-- NOTE: Use `[has-error]` attribute on `.input-wrapper` when there's an error --> 
+            <div class="username input-wrapper vertical flex-layout">
+              <!-- Username Input -->
+              <label for="usernameInput" raised>Username</label>
+              <input required autofocus disabled aria-required="true" spellcheck="false" oninput="handleInputValue(this)" 
+                id="usernameInput" 
+                type="text" 
+                name="uname"
                 value="abilasco" 
               />
               
@@ -456,7 +685,7 @@
               <input required disabled aria-required="true" oninput="handleInputValue(this)" 
                 id="firstnameInput" 
                 type="text" 
-                name="firstname"
+                name="fname"
                 value="Abraham"
               />
               
@@ -489,7 +718,7 @@
               <input required disabled aria-required="true" oninput="handleInputValue(this)" 
                 id="lastnameInput" 
                 type="text" 
-                name="lastname"
+                name="lname"
                 value="Ukachi"
               />
               
@@ -514,36 +743,26 @@
 
           </form>
           <!-- End of Profile Form -->
+          
+          
+          <!-- End of PHP (3): show the default Profile Form -->
+          <!-- NOTE: Use an alternative syntax like `endif; for control structures ? -->
+          <?php } ?>
 
-
+            
         </div>
         <!-- End of Content - App Layout -->
 
-        <!-- Nav Bar -->
-        <nav class="nav-bar horizontal flex-layout center">
-          <span class="divider horizontal top"></span>
+        <!-- PHP: Include the horizontal `nav-bar` component here -->
+        <?php 
+          $_GET['navbar_type'] = 'horizontal'; 
+          $_GET['navbar_page'] = 'profil'; 
+          $_GET['navbar_init'] = 'au'; 
+          $_GET['navbar_connected'] = 'true'; 
+          $_GET['navbar_res'] = 'true'; 
+        ?>
 
-          <!-- Home - Nav-Link -->
-          <a title="Home" href="" class="nav-link">
-            <span class="material-icons nav-icon">view_in_ar</span> <!-- UX: Use `home` instead -->
-          </a>
-          <!-- End of Home Nav-Link -->
-          
-          <span flex></span> <!-- HACK: Just a temp. fix :) -->
-           
-          <!-- App Logo -->
-          <span class="app-logo"></span>
-           
-          <span flex></span> <!-- HACK: Just a temp. fix :) -->
-          
-          <!-- Profile - Nav-Link -->
-          <a title="Profile" href="profil.php" class="nav-link" active>
-            <span class="material-icons nav-icon">account_circle</span>
-          </a>
-          <!-- End of Profile Nav-Link -->
-          
-        </nav>
-        <!-- End of Nav Bar -->
+        <?php include 'components/nav-bar.php'; ?>
         
       </main>
       <!-- End of MAIN - App Layout -->
