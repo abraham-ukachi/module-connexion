@@ -42,14 +42,7 @@
 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 * MOTTO: I'll always do more 😜!!!
 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
-
-// Using our own APIs ;)
-require 'api/internationalization.php';
-
-// Create an object of Internationalization named `i18n`
-$i18n = new Internationalization('en');
-
+*/
 
 // Define a couple of constant variables for this settings page
 define('SETTINGS_VIEW_DEFAULT', 'home');
@@ -58,13 +51,12 @@ define('SETTINGS_VIEW_LANGUAGE', 'lang');
 define('SETTINGS_VIEW_THEME', 'theme');
 
 // Define the currently supported lanugages by this app as `LANGUAGES`
-// NOTE: This is an associative array which contains a `name` (e.g 'English') 
-// and `text` (e.g 'Red is my favorite color')
+// NOTE: This is an associative array which contains an `id` (e.g 'en'), 
+// `name` (e.g 'English') and `text` (e.g 'Red is my favorite color')
 define('LANGUAGES', [
-  'en' => ["Hi!", "Red is my favorite color" ],
-  'fr' => ["Salut!", "Le rouge est ma couleur préférée"],
-  'ru' => ["Привет!", "Красный мой любимый цвет"],
-  'es' => ["Hola!", "Красный мой любимый цвет"]
+  'en' => ['English', "Red is my favorite color" ],
+  'fr' => ['French', "Le rouge est ma couleur préférée"],
+  'ru' => ['Russian', "Красный мой любимый цвет"]
 ]);
 
 // Define the currently supported themes by this app as `THEMES`
@@ -88,12 +80,12 @@ function getCurrentView($defaultView = SETTINGS_VIEW_DEFAULT) {
 
 
 /**
- * Returns the language greeting of the given `langId`
+ * Returns the language name of the given `langId`
  *
  * @param string $langId : 'en', 'fr', 'ru', ...
- * @return string $languageGreeting
+ * @return string $languageName
  */
-function getLanguageGreeting($langId) {
+function getLanguageName($langId) {
   // TODO: Make sure the given `langId` is valid before proceeding
   return LANGUAGES[$langId][0];
  }
@@ -103,6 +95,7 @@ function getLanguageGreeting($langId) {
  * Returns the language text of the given `langId`
  *
  * @param string $langId : 'en', 'fr', 'ru', ...
+ * @return string $languageText
  */
  function getLanguageText($langId) {
   // TODO: Make sure the given `langId` is valid before proceeding
@@ -111,15 +104,8 @@ function getLanguageGreeting($langId) {
 
 // DEBUG [4dbsmaster]: tell me anout it :)
 // echo getCurrentView();
-// echo getLanguageGreeting('fr');
+// echo getLanguageName('fr');
 // echo getLanguageText('fr');
-//
-
-// $motto = $i18n->getString('motto');
-
-// DEBUG [4dbsmaster]: tell me about it :)
-// echo $motto;
-// var_dump($i18n::LANGUAGES);
 
 ?><!DOCTYPE html>
 
@@ -147,8 +133,8 @@ function getLanguageGreeting($langId) {
     <!-- Material Icons - https://github.com/google/material-design-icons/tree/master/font -->
     <!-- https://material.io/resources/icons/?style=baseline -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    
+  
+     
     <!-- Base -->
     <base href="module-connexion">
 
@@ -203,8 +189,7 @@ function getLanguageGreeting($langId) {
        */
 
       // Create `ddd` object variable with a `isReady` key 
-      var ddd = {
-        page: 'settings',
+      var ddd = { 
         isReady: false,
         onReady: () => {} 
       }; // <- `false` 'cause duh!! We ain't ready yet!! 
@@ -243,7 +228,7 @@ function getLanguageGreeting($langId) {
         ddd.isReady = true;
 
         // call the `onReady` function of `ddd`
-        ddd.onReady();
+        ddd.onReady('profile');
         
         
       });
@@ -266,7 +251,7 @@ function getLanguageGreeting($langId) {
       <!-- PHP: Include the vertical & responsive `nav-bar` component here -->
       <?php 
         $_GET['navbar_type'] = 'vertical'; 
-        $_GET['navbar_page'] = 'settings'; 
+        $_GET['navbar_page'] = 'profil'; 
         $_GET['navbar_init'] = 'au'; 
         $_GET['navbar_connected'] = 'true'; 
         $_GET['navbar_res'] = 'true'; 
@@ -296,7 +281,7 @@ function getLanguageGreeting($langId) {
                 <span class="material-icons icon">arrow_back</span>
               </button>
             </a>
-            
+
             <!-- Title Wrapper -->
             <div class="title-wrapper">
               <h2 id="appTitle" class="app-title">Languages</h2> <!-- App Title -->
@@ -307,15 +292,11 @@ function getLanguageGreeting($langId) {
             <!-- <span flex></span> -->
             
             <!-- Done - Icon Button -->
-            <button id="doneButton" class="icon-button">
-              <span class="material-icons icon">done</span>
-            </button>
-            <!--
-            <a href="settings.php?view=lang" title="Done">
+            <a href="settings.php" title="Done">
               <button id="doneButton" class="icon-button">
                 <span class="material-icons icon">done</span>
               </button>
-            </a> -->
+            </a>
             <!-- End of Done - Icon Button -->
                         
             <!-- Horizontal Divider -->
@@ -347,7 +328,7 @@ function getLanguageGreeting($langId) {
             <!-- <span flex></span> -->
             
             <!-- Done - Icon Button -->
-            <a href="settings.php?view=theme" title="Done">
+            <a href="settings.php" title="Done">
               <button id="doneButton" class="icon-button">
                 <span class="material-icons icon">done</span>
               </button>
@@ -440,31 +421,31 @@ function getLanguageGreeting($langId) {
           <!-- PHP: ...show the language content -->
 
           <!-- Languages Grid -->
-          <div id="languagesGrid" class="grid languages">
-            <!-- PHP: For each language Id in `LANGAUGES` ...-->
-            <?php foreach ($i18n->getSupportedLanguages() as $langId) : ?>
-            <!-- PHP: ...show the corresponding langauge list item -->
-
-            <!-- Language Button -->
-            <button lang="<?php echo $langId ?>" class="language flex-layout vertical" <?php echo ($langId == 'en') ? 'selected' : '' ?>>
-              <!-- HACK: Background -->
-              <span class="bg" fit></span>
-              
-              <!-- Language Greeting -->
-              <h2 class="greeting"><?php echo $i18n::LANGUAGES[$langId]['greeting'] ?></h2>
-              <!-- Language Text -->
-              <p class="text"><?php echo $i18n::LANGUAGES[$langId]['text'] ?></p>
-              <!-- Language Name -->
-              <h4 class="name"><?php echo $i18n->getString($langId) ?></h4>
-
-            </button>
-            <!-- End of Language - LI -->
-            
-            <?php endforeach; ?>
-            <!-- End of PHP: If the current setting's view is language -->
-
-          </div>
+          <ul id="languagesGrid" class="grid">
+            <li>English</li>
+            <li>French</li>
+            <li>Russian</li>
+            <li>Spanish</li>
+          </ul>
           <!-- End of Languages Grid -->
+
+          <!-- Languages Form -->
+          <form id="languagesForm" class="vertical flex-layout">
+            <?php foreach (LANGUAGES as $langId => $langData) : ?>
+            <!-- Input-Wrapper -->
+            <label class="input-wrapper">
+              <!-- Label -->
+              <div>
+                <span name><?php echo getLanguageName($langId) ?></span>
+                <span text><?php echo getLanguageText($langId) ?></span>
+              </div>
+              <!-- Radio Input -->
+              <input type="radio" name="lang" value="<?php echo $langId ?>">
+            </label>
+            <!-- End of Input-Wrapper -->
+            <?php endforeach; ?>
+          </form>
+          <!-- End of Languages Form -->
           
           <!-- PHP: If the current setting's view is theme...-->
           <?php elseif (getCurrentView() == SETTINGS_VIEW_THEME): ?>
@@ -555,7 +536,7 @@ function getLanguageGreeting($langId) {
         <!-- PHP: Include the horizontal `nav-bar` component here -->
         <?php 
           $_GET['navbar_type'] = 'horizontal'; 
-          $_GET['navbar_page'] = 'settings'; 
+          $_GET['navbar_page'] = 'profil'; 
           $_GET['navbar_init'] = 'au'; 
           $_GET['navbar_connected'] = 'true'; 
           $_GET['navbar_res'] = 'true'; 

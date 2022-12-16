@@ -140,6 +140,113 @@ li.setting:hover .icon {
 
 
 
+/** === Grid + Languages Styles === **/
+
+/* Default Grid */
+.grid {
+  display: grid;
+}
+
+/* Grid Languages */
+.grid.languages {
+  list-style: none;
+  margin: 16px 24px;
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+/* Language Button  */
+button.language {
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  outline: 0 solid var(--outline-color);
+  color: var(--language-text-color, var(--on-background-color));
+
+  -webkit-tap-highlight-color: transparent;
+
+  transform: scale(1);
+
+  -webkit-transition: transform .2s ease;
+  -moz-transition: transform .2s ease;
+  transition: transform .2s ease;
+}
+
+/* Hover & Focus Language Button */
+button.language:hover, button.language:focus {
+  outline-width: 3px;
+}
+/* Just focused language button */
+button.language:focus {
+  outline-color: var(--tertiary-color);  
+}
+
+button.language:active {
+  transform: scale(0.95);
+}
+
+/* Background of Language Button */
+button.language > span.bg {
+  background: var(--language-background-color, var(--surface-variant-color));
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--opacity-md-icon-disabled);
+}
+
+/* Greeting (H2) of Language Button */
+button.language > h2.greeting {
+  margin: 16px 0;
+}
+
+
+/* Text (P) of Language Button */
+button.language > p.text {
+  margin: 0;
+  flex: 1;
+  opacity: var(--opacity-text-inactive);
+  letter-spacing: normal;
+}
+
+
+/* Name (H4) of Language Button */
+button.language > h4.name {
+  color: var(--language-accent-color, var(--primary-color));
+  margin: 12px 0;
+  font-size: 16px;
+  opacity: var(--opacity-text-inactive);
+}
+
+
+
+/* Selected Language - List Item in grid */
+button.language[selected] {
+  --language-background-color: var(--primary-container-color);
+  --language-text-color: var(--on-primary-container-color);
+  --language-accent-color: var(--primary-color);
+}
+
+/* Background of Selected Language - List Item in grid */
+button.language[selected] > span.bg {
+  opacity: var(--opacity-md-active);
+}
+
+/* Name (H4) of Selected Language */
+button.language[selected] > h4.name {
+  opacity: var(--opacity-text-active);
+}
+
+/** ==> End of Languages Grid Styles <== **/
+
+
+
 /* Wrapper of Content */
 #content > .wrapper {
   position: relative;
@@ -180,6 +287,12 @@ li.setting:hover .icon {
   /* P details of settings list */
   li.setting p {
     font-size: 14px;
+  }
+
+
+  /* Name (H4) of Language Button */
+  button.language > h4.name {
+    font-size: 24px;
   }
 
 }
