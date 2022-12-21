@@ -44,38 +44,84 @@
 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
+// start a session
+// session_start();
 
-// Using our own APIs ;)
-require 'api/ddd.php';
+// Importing our APIs... ;)
 require 'api/internationalization.php';
 
+// Create a constant variable for the current language as `APP_LANGUAGE`
+// get the value of `lang` session variable (if it exists),
+// else use 'en' (English) as default
+// define('APP_LANGUAGE', isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en');
 
-// Create an instance or object of `DDD` class
-$ddd = new DDD();
-// get the current language from $ddd as `currentLanguage`
-$currentLanguage = $ddd->getCurrentLanguage(); // <- returns eg. 'en', 'fr', ...
-// get the current theme from $ddd as `currentTheme`
-$currentTheme = $ddd->getCurrentTheme(); // <- returns eg. 'dark', 'light' or 'classic', ...
-// get the current page and view of the from $ddd as `page` and `view` respectively;
-$currentPage = $ddd->getCurrentPage(DDD::PAGE_SETTINGS, false); // SUGGESTION: create & use a `setCurrentPage()` instead ? 
-$currentView = $ddd->getCurrentView(DDD::VIEW_SETTINGS_DEFAULT);
+//define('APP_LANGUAGE', 'en');
+
+// Define a couple of constant variables for this settings page
+define('SETTINGS_VIEW_DEFAULT', 'home');
+define('SETTINGS_VIEW_ABOUT', 'about');
+define('SETTINGS_VIEW_LANGUAGE', 'lang');
+define('SETTINGS_VIEW_THEME', 'theme');
+
+// Define the currently supported themes by this app as `THEMES`
+// NOTE: This is a short syntax index array which only contains the name or key of the themes (e.g. 'dark')
+define('THEMES', ['classic', 'light', 'dark']);
 
 
-// Create an object of Internationalization named `i18n` with the current language (i.e. $currentLanguage)
-$i18n = new Internationalization($currentLanguage);
-// get our motto from `i18n`
-$motto = $i18n->getString('motto');
 
+// Create an object of Internationalization named `i18n` using the `APP_LANGUAGE`
+$i18n = new Internationalization('en');
+
+
+/**
+ * Returns the current view of this settings page from the GET parameters.
+ *
+ * @param string $defaultView
+ * @return string : 'home', 'language', 'about', ...
+ */
+function getCurrentView($defaultView = SETTINGS_VIEW_DEFAULT) {
+  // Using our beloved ternary statment, return the value of `view` parameter 
+  // from PHP's global variable GET,only if `view` exists,
+  // otherwise, just return the given default view
+  return isset($_GET['view']) ? $_GET['view'] : $defaultView;
+}
+
+
+
+/**
+ * Returns the language greeting of the given `langId`
+ *
+ * @param string $langId : 'en', 'fr', 'ru', ...
+ * @return string $languageGreeting
+ */
+function getLanguageGreeting($langId) {
+  // TODO: Make sure the given `langId` is valid before proceeding
+  return LANGUAGES[$langId][0];
+ }
+
+
+/**
+ * Returns the language text of the given `langId`
+ *
+ * @param string $langId : 'en', 'fr', 'ru', ...
+ */
+ function getLanguageText($langId) {
+  // TODO: Make sure the given `langId` is valid before proceeding
+  return LANGUAGES[$langId][1];
+}
 
 // DEBUG [4dbsmaster]: tell me anout it :)
-// echo "currentLanguage => $currentLanguage";
-// echo "currentTheme => $currentTheme";
-// echo "currentPage => $currentPage";
-// echo "currentView => $currentView";
-// echo "motto => $motto";
-// 
+//
+echo getCurrentView() . '<br>';
+//
+$motto = $i18n->getString('motto');
+$supportedLanguages = $i18n->getSupportedLanguages();
+//
+echo $motto . '<br>';
+var_dump($supportedLanguages);
 // var_dump($i18n::LANGUAGES);
-
+//
+// echo APP_LANGUAGE . '<br>';
 
 ?><!DOCTYPE html>
 
@@ -240,7 +286,7 @@ $motto = $i18n->getString('motto');
           <!-- TODO: Use PHP's switch/case statement instead -->
 
           <!-- PHP: If the current setting's view is language...-->
-        <?php if ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_LANGUAGE): ?>
+          <?php if (getCurrentView() == SETTINGS_VIEW_LANGUAGE): ?>
           <!-- PHP: ...show the language header -->
 
           <!-- App Bar -->
@@ -256,14 +302,14 @@ $motto = $i18n->getString('motto');
             <!-- Title Wrapper -->
             <div class="title-wrapper">
               <h2 id="appTitle" class="app-title">Languages</h2> <!-- App Title -->
-              <h3 id="appSubtitle" class="app-subtitle"><?= $i18n->getString($currentLanguage) ?>&nbsp;&bull;&nbsp;default</h3> <!-- App Subtitle -->
+              <h3 id="appSubtitle" class="app-subtitle">english&nbsp;&bull;&nbsp;default</h3> <!-- App Subtitle -->
             </div>
             <!-- End of Title Wrapper -->
             
             <!-- <span flex></span> -->
             
             <!-- Done - Icon Button -->
-            <button id="doneIconButton" class="icon-button" lang="<?= $currentLanguage ?>" disabled>
+            <button id="doneIconButton" class="icon-button" lang="<?= $i18n->lang ?>" disabled>
               <span class="material-icons icon">done</span>
             </button>
             <!--
@@ -280,7 +326,7 @@ $motto = $i18n->getString('motto');
           <!-- End of App Bar -->
 
           <!-- PHP: If the current setting's view is theme...-->
-          <?php elseif ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_THEME): ?>
+          <?php elseif (getCurrentView() == SETTINGS_VIEW_THEME): ?>
           <!-- PHP: ...show the theme header -->
 
           <!-- App Bar -->
@@ -303,7 +349,7 @@ $motto = $i18n->getString('motto');
             <!-- <span flex></span> -->
             
             <!-- Done - Icon Button -->
-            <a href="settings.php?view=theme" title="Done" hidden>
+            <a href="settings.php?view=theme" title="Done">
               <button id="doneIconButton" class="icon-button">
                 <span class="material-icons icon">done</span>
               </button>
@@ -316,7 +362,7 @@ $motto = $i18n->getString('motto');
           <!-- End of App Bar -->
 
           <!-- PHP: If the current setting's view is about...-->
-          <?php elseif ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_ABOUT): ?>
+          <?php elseif (getCurrentView() == SETTINGS_VIEW_ABOUT): ?>
           <!-- PHP: ...show the about header -->
 
           <!-- App Bar -->
@@ -392,19 +438,18 @@ $motto = $i18n->getString('motto');
           <!-- TODO: Use PHP's switch/case statement instead -->
 
           <!-- PHP: If the current setting's view is language...-->
-          <?php if ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_LANGUAGE): ?>
-          <!-- PHP: ...show the languages grid -->
-          
+          <?php if (getCurrentView() == SETTINGS_VIEW_LANGUAGE): ?>
+          <!-- PHP: ...show the language content -->
+
           <!-- Languages Grid -->
-          <!-- TODO: Seperate this content from the main thread by creating a 'view_settings_language.php' 
-                     file in 'components/' folder, and include or require it here -->
           <div id="languagesGrid" class="grid languages">
-            <!-- PHP: For each supported language Id in `$i18n` ...-->
+            <button>love</button>
+            <!-- PHP: For each language Id in `LANGAUGES` ...-->
             <?php foreach ($i18n->getSupportedLanguages() as $langId) : ?>
             <!-- PHP: ...show the corresponding langauge list item -->
 
             <!-- Language Button -->
-            <button lang="<?php echo $langId ?>" class="language flex-layout vertical" <?php echo ($langId == $currentLanguage) ? 'selected' : '' ?>>
+            <button lang="<?php echo $langId ?>" class="language flex-layout vertical" <?php echo ($langId == 'en') ? 'selected' : '' ?>>
               <!-- HACK: Background -->
               <span class="bg" fit></span>
               
@@ -416,7 +461,7 @@ $motto = $i18n->getString('motto');
               <h4 class="name"><?php echo $i18n->getString($langId) ?></h4>
 
             </button>
-            <!-- End of Languages Grid -->
+            <!-- End of Language - LI -->
             
             <?php endforeach; ?>
             <!-- End of PHP: If the current setting's view is language -->
@@ -425,39 +470,12 @@ $motto = $i18n->getString('motto');
           <!-- End of Languages Grid -->
           
           <!-- PHP: If the current setting's view is theme...-->
-          <?php elseif ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_THEME): ?>
+          <?php elseif (getCurrentView() == SETTINGS_VIEW_THEME): ?>
           <!-- PHP: ...show the theme content -->
-
-          <!-- Themes List -->
-          <!-- TODO: Seperate this content from the main thread by creating a 'view_settings_theme.php' 
-                     file in 'components/' folder, and include or require it here -->
-          <ul id="themesList" class="list themes">
-
-            <!-- PHP: For each theme in `THEMES` from `DDD` ...-->
-            <?php foreach (DDD::THEMES as $index => $theme) : ?>
-            <!-- PHP: ...show the corresponding theme as a list item -->
-
-            <!-- Theme -->
-            <li tabIndex="<?= $index ?>" class="theme center flex-layout" theme="<?= $theme ?>" <?= $theme == $currentTheme ? 'selected' : '' ?>>
-              <!-- Icon -->
-              <span class="material-icons icon">
-                <?= $theme == DDD::THEME_DARK ? 'dark_mode' : ($theme == DDD::THEME_LIGHT ? 'light_mode' : 'star_border') ?>
-              </span>
-              <!-- Label -->
-              <p class="label"><?= $i18n->getString($theme) ?></p>
-              <!-- Done Icon Button -->
-              <button class="icon-button" tabIndex="-1"><span class="material-icons icon">done</span></button>
-            </li>
-            <!-- End of Theme -->
-
-            <?php endforeach; ?>
-            <!-- End of PHP: If the current setting's view is language -->
-
-          </ul>
-          <!-- End of Themes List -->
+          
 
           <!-- PHP: If the current setting's view is about...-->
-          <?php elseif ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_ABOUT): ?>
+          <?php elseif (getCurrentView() == SETTINGS_VIEW_ABOUT): ?>
           <!-- PHP: ...show the about content -->
 
 

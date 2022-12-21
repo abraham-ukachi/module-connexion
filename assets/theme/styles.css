@@ -115,8 +115,15 @@
   height: 100%;
 }
 
+/* Hidden */
 [hidden] {
   display: none !important;
+}
+
+/* Disabled */
+[disabled] {
+  pointer-events: none !important;
+  cursor: default !important;
 }
 
 /* Flex SPAN */
@@ -384,10 +391,11 @@ button.icon-button {
   fill: var(--icon-button-color, var(--on-background-color));
   opacity: var(--icon-button-opacity, var(--opacity-md-icon-inactive));
   cursor: pointer;
+  user-select: none;
 }
 
 /* Hover over Icon-Button */
-button.icon-button:hover {
+button.icon-button:not(:disabled):hover {
   opacity: var(--icon-button-hover-opacity, var(--opacity-md-active));
 }
 

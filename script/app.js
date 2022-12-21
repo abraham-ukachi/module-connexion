@@ -1,4 +1,33 @@
-'use-strict'; /* <- This keeps me on my toes, as it forces me to use all pre-defined variables 😅 */
+/* 
+* @license
+* ddd / module-connexion
+* Copyright (c) 2022 Abraham Ukachi
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* @name: App
+* @type: script
+* @author: Abraham Ukachi <abraham.ukachi@laplateforme.com>
+*/
+
+
+"use strict"; /* <- This keeps me on my toes, as it forces me to use all pre-defined variables 😅 */
 
 /* > I'm so hungry 😭 ...
  * > Guess what I wanna eat right now ? [hint]: JS
@@ -21,6 +50,7 @@ const PAGE_REGISTER = 'inscription';
 const PAGE_PROFILE = 'profil';
 const PAGE_SETTINGS = 'settings';
 const PAGE_SPLASH_SCREEN = 'splash-screen';
+
 const EXT_PAGE = 'php'; // <- File extension of the above pages. Use 'html' for HTML Pages. 
 // layouts
 const LAYOUT_MOBILE = 'mobile';
@@ -29,6 +59,12 @@ const LAYOUT_LAPTOP = 'laptop';
 const DIALOG_THEME = 'theme';
 const DIALOG_TRANSLATE = 'translate';
 
+
+// directories
+const DIR_BASE = 'module-connexion'; // <- base
+const DIR_API = 'api'; // <- api
+// php files
+const PHP_LANGUAGE_UPDATE = 'lang_update.php';
 
 
 // Create a `ConnectionModuleApp` class
@@ -48,7 +84,7 @@ class ConnectionModuleApp {
    * @param { String } theme - The theme of the web App
    * @param { String } page - The default or home page of the web App
    */
-  constructor(lang = 'en', theme = 'dark', page = 'index.html') {
+  constructor(lang = 'en', theme = 'dark', page = 'index') {
     // Initialize public attributes
     this.lang = lang;
     this.theme = theme;
@@ -174,6 +210,18 @@ class ConnectionModuleApp {
   get dialogsView() {
     return document.getElementById('dialogsContainer');
   }
+  
+  
+  /**
+   * Returns the done button of the current `page`.
+   * NOTE: This element doesn't always exist in all pages, and if so will return `null`.
+   *  
+   * @return { Element } doneIconButtonEl
+   *
+   */
+  get doneIconButtonEl() {
+    return document.getElementById('doneIconButton');
+  }
 
   /**
    * Returns the backdrop element
@@ -215,8 +263,24 @@ class ConnectionModuleApp {
     this._setLocalStorageItem('page', page, true);
     // Update the private `_page` variable
     this._page = page;
+
+    // do something after `page` has been updated.
   }
 
+  
+  /**
+   * Updates the `lang` of the web App.
+   *
+   * @param { String } lang
+   */
+  updateLang(lang) {
+    // Set the `lang` from localStorage to the given `lang`
+    this._setLocalStorageItem('lang', lang, true);
+    // Update the private `_lang` variable
+    this._lang = lang;
+
+    // do something after `lang` specifically has been update.
+  }
 
 
   /**
@@ -278,21 +342,67 @@ class ConnectionModuleApp {
       case PAGE_SETTINGS:
         // adding listeners for the settings page...
          
-        // TODO: Create a `_addSettingsPageListeners()` function to clean the mess below
+        // TODO: Create a `_addSettingsPageListeners('')` or `_addLanguageSettingsListeners()` functions
+        //       to clean up the mess below
+        
+        // Do nothing if there's no 'lang' in the location's search
+        if (!location.search.includes('lang')) { return }
         
         // Get a list of all the buttons with `.language` class
         let languageButtons = document.querySelectorAll('button.language');
         
         // For each button element as `buttonEl` in `languageButtons`...
         languageButtons.forEach(buttonEl => {
-          // ... Add the `_languageButtonClickHandler()` functionLor ei
-          // ... a          
-          // ...listen to the `click` pointer events and handle them with the `_languageButtonClickHandler()` function
+          // ... Use the `_languageButtonClickHandler()` function to the handle any 
+          // 'click' pointer event fired or dispatched by the `buttonEl`
           buttonEl.addEventListener('click', (event) => this._languageButtonClickHandler(event));
         });
         
         // DEBUG [4dbsmaster]: tell me about it :)
-        console.log(`[addListenersPage] (PAGE_SETTINGS):\x1b[32m language buttons => \x1b[0m`, languageButtons);
+        // console.log(`\x1b[32m[addListenersByPage]: location.search => ${location.search} & languageButtons => \x1b[0m `, languageButtons);
+
+        // If there's a done icon button ...
+        if (this.doneIconButtonEl) {
+          // ...handle the 'click' events of the DONE icon-button element:
+          // So, Whenever the `doneIconButtonEl` is clicked...
+          this.doneIconButtonEl.onclick = (event) => {
+            // .. get this done icon button element as `el`
+            let el = event.target;
+
+            // get the value of `lang` attribute from `el`
+            let lang = el.getAttribute('lang');
+
+            // update the language of this app
+            this.updateLang(lang);
+            
+
+            // For redundancy purposes, update the `lang` and `redirect` values of PHP's global SESSION variable,
+            // by passing `lang` to the `lang_update.php` file in the `api/` folder via the `GET` method 
+            //
+            // Example: 
+            //    `api/lang_update.php?lang=en&redirect=settings.php?view=lang`
+
+            // create seperately the search string for location as `searchStr`
+            let searchStr = `?lang=${lang}&redirect=${PAGE_SETTINGS}.php?view=lang`;
+            
+            // create the URL to the `lang_update.php` api with `searchStr`
+            let url = `${DIR_API}/${PHP_LANGUAGE_UPDATE}` + searchStr;
+             
+            // Update the `lang` on the server-side of things (i.e. PHP) by redirecting to `url`
+            location.href = url;
+
+            // DEBUG [4dbsmaster]: tell me about it :)
+            console.log(`\x1b[32m[addListersByPage] (PAGE_SETTINGS|1): lang => ${lang} & url => ${url} & el => \x1b[0m`, el);
+
+          };
+
+          // DEBUG[4dbsmaster]: tell me about it :)
+          console.log(`\x1b[32m[addListenersByPage] (PAGE_SETTINGS|2): this.doneIconButtonEl =>  \x1b[0m`, this.doneIconButtonEl);
+
+        }
+        
+        // DEBUG [4dbsmaster]: tell me about it :)
+        console.log(`\x1b[32m[addListenersByPage] (PAGE_SETTINGS|3): language buttons => \x1b[0m`, languageButtons);
 
         break;
       case PAGE_SPLASH_SCREEN:
@@ -338,7 +448,8 @@ class ConnectionModuleApp {
 
    // DEBUG [4dbsmaster]: tell me about it :)
    // console.log(`[openDialogById](3): dialogEl => `, dialogEl);
-   
+  
+
  }
 
  
@@ -528,6 +639,9 @@ class ConnectionModuleApp {
     let languageButtonEl = event.currentTarget;
     // get the value of `lang` attribute from `languageButtonEl` as `langId`
     let langId = languageButtonEl.getAttribute('lang');
+    // Set the old & new langs / languages to `this.lang` and `langId` respectively
+    let oldLang = this.lang;
+    let newLang = langId;
 
     // Check if the language button is selected or has the `selected` attribute,
     // using our beloved ternary statment ;)
@@ -545,18 +659,17 @@ class ConnectionModuleApp {
       // Now, select this language button by adding a `selected` attribute to `languageButtonEl`
       languageButtonEl.setAttribute('selected', '');
     }
-    
-    // Generating a language setting URL or link...
-    // let langSettingURL = isSelected ? 'settings.php?view=lang' : `settings.php?view=lang&lang=${langId}`;
 
-    // Notify the done button of this 'language' page
+
+    if (!this.doneIconButtonEl) { return } // <- At this point, We don't wanna do anything else, if there's no done button 
     
-    // Update the 
-    // If the language button is not
-    
-    // Get the `lang` attribute from `buttonEl`
+    // update the `doneIconButtonEl`'s value of `lang` attribute to the new lang (i.e. newLang)
+    this.doneIconButtonEl.setAttribute('lang', newLang);
+    // disable the `doneIconButtonEl` only if `oldLang` is the same as `newLang`
+    this.doneIconButtonEl.disabled = (oldLang == newLang) ? true : false;
+             
     // DEBUG [4dbsmaster]: tell me about it :)
-    console.log(`\x1b[36m[_languageButtonClickHandler](1): this.lang => ${this.lang} & langId => ${langId} \x1b[0m`, self);
+    console.log(`\x1b[36m[_languageButtonClickHandler](1): oldLang => ${oldLang} & newLang => ${newLang} \x1b[0m`, self);
     // console.log(`\x1b[36m[_languageButtonClickHandler](2): languageButtonEl => \x1b[0m`, languageButtonEl);
     // console.log(`\x1b[36m[_languageButtonClickHandler](3): event => \x1b[0m`, event);
     console.log(`\x1b[36m[_languageButtonClickHandler](4): isSelected ? ${isSelected}`);

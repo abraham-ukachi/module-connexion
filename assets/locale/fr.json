@@ -4,5 +4,8 @@
   "en": "Anglais",
   "fr": "Français",
   "ru": "Russe",
-  "es": "Espagnol"
+  "es": "Espagnol",
+  "classic": "Classique",
+  "light": "Lumière",
+  "dark": "Sombre"
 }

@@ -247,6 +247,80 @@ button.language[selected] > h4.name {
 
 
 
+/** ==< Themes List Styles >== **/
+
+/* Themes Lists  - UL */
+ul.themes.list {
+  list-style: none;
+  padding: 8px 16px;
+}
+
+/* Theme - List Item */
+ul.themes > li.theme {
+  width: 100%;
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+  margin: 12px 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  cursor: pointer;
+  
+  --icon-button-opacity: var(--opacity-icon-disabled);
+}
+
+/* [selected] Theme - List Item */
+ul.themes > li.theme[selected] {
+  --icon-button-color: var(--primary-color);
+  --icon-button-opacity: var(--opacity-icon-active);
+
+  background: var(--primary-container-color);
+  color: var(--on-primary-container-color);
+}
+
+/* Icon of all Theme list items */
+ul.themes > li.theme > .icon {
+  margin: 8px;
+}
+
+/* Label of all Theme list items */
+ul.themes > li.theme > .label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Icon Button of all Theme list items */
+ul.themes > li.theme > .icon-button {}
+
+
+
+/* ON Hover - Theme - List Item */
+ul.themes > li.theme:not([selected]):hover {
+  --icon-button-color: var(--on-surface-variant-color);
+  background: var(--surface-variant-color);
+  color: var(--on-surface-variant-color);
+}
+
+/** ==> End of Themes List Styles <== **/
+
+
+
+/* Done Icon Button */
+#doneIconButton:not(:disabled) {
+  --icon-button-opacity: var(--opacity-icon-active);
+  --icon-button-color: var(--primary-color);
+}
+
+/* Disabled - Done Icon Button */
+#doneIconButton:disabled {
+
+}
+
+
 /* Wrapper of Content */
 #content > .wrapper {
   position: relative;
@@ -295,6 +369,10 @@ button.language[selected] > h4.name {
     font-size: 24px;
   }
 
+  /* Theme - List Item */
+  ul.themes > li.theme {
+    height: 80px;
+  }
 }
 
 

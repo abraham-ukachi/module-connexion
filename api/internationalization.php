@@ -48,7 +48,11 @@
 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 * MOTTO: I'll always do more 😜!!!
 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-*/
+ */
+
+
+// TODO: Create a `Language` or `Lang` parent class 
+//       with at least a `changeLanguage()` or `updateLanguage()` method
 
 // Declare a class named `Internationalization`
 class Internationalization {

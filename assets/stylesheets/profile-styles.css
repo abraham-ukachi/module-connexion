@@ -31,7 +31,7 @@
 @import '../animations/fade-in-animation.css'; /* <- fade in animation */
 @import '../animations/slide-from-down-animation.css'; /* <- slide from down animation */
 
-/* ====  LOGIN STYLES === */
+/* ====  PROFILE STYLES === */
 
 
 /* BODY */
@@ -183,4 +183,4 @@ span.caption {
 }
 
 
-/* ====  END of LOGIN STYLES === */
+/* ====  END of PROFILE STYLES === */
