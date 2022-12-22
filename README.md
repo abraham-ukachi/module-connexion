@@ -135,9 +135,11 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 4 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](./assets/animations/pop-in-animation.css) |
 | 5 | *`Fade In - Animation`* | **fade-in-animation.css** | [Done](./assets/animations/fade-in-animation.css) |
 | 6 | *`Slide From Down - Animation`* | **slide-from-down-animation.css** | [Done](./assets/animations/slide-from-down-animation.css) |
+| 7 | *`Language Update - API`* | **lang_update.php** | [Done](./api/lang_update.php)\* |
+| 8 | *`Theme Update - API`* | **theme_update.php** | [Done](./api/theme_update.php)\* |
 
 > NOTE: (\*) = still needs to be updated. <br>
->       There are a few we must have forgotten or not added yet, <br>
+>       There are a few we must have forgotten or not added yet,
 >       so I'll keep the above list updated obv. :)
 
 ## TODOs
