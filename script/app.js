@@ -24,6 +24,12 @@
 * @name: App
 * @type: script
 * @author: Abraham Ukachi <abraham.ukachi@laplateforme.com>
+*
+* Example usage:
+*   1-|> let cmApp = new ConnectionModuleApp('en', 'dark', PAGE_HOME);
+*    -|>
+*    -|> cmApp.installMediaQueryWatcher(460, _onMobileLayout, _onWideLayout);
+*
 */
 
 
@@ -63,8 +69,9 @@ const DIALOG_TRANSLATE = 'translate';
 // directories
 const DIR_BASE = 'module-connexion'; // <- base
 const DIR_API = 'api'; // <- api
-// php files
+// PHP files
 const PHP_LANGUAGE_UPDATE = 'lang_update.php';
+const PHP_THEME_UPDATE = 'theme_update.php';
 
 
 // Create a `ConnectionModuleApp` class
@@ -284,6 +291,22 @@ class ConnectionModuleApp {
 
 
   /**
+   * Updates the `theme` of the web App.
+   *
+   * @param { String } theme
+   */
+  updateTheme(theme) {
+    // Set the `theme` from localStorage to the given `theme`
+    this._setLocalStorageItem('theme', theme, true);
+    // Update the private `_theme` variable
+    this._theme = theme;
+
+    // do something after `theme` specifically has been update.
+  }
+
+
+
+  /**
    * Method used to install a media-query watcher.
    * This method listens for changes in the media-query result of the given `breakpoint`.
    *
@@ -341,69 +364,13 @@ class ConnectionModuleApp {
         break;
       case PAGE_SETTINGS:
         // adding listeners for the settings page...
+
+        // add language settings listeners
+        this._addLanguageSettingsListeners();
+        
+        // add theme settings listeners
+        this._addThemeSettingsListeners();
          
-        // TODO: Create a `_addSettingsPageListeners('')` or `_addLanguageSettingsListeners()` functions
-        //       to clean up the mess below
-        
-        // Do nothing if there's no 'lang' in the location's search
-        if (!location.search.includes('lang')) { return }
-        
-        // Get a list of all the buttons with `.language` class
-        let languageButtons = document.querySelectorAll('button.language');
-        
-        // For each button element as `buttonEl` in `languageButtons`...
-        languageButtons.forEach(buttonEl => {
-          // ... Use the `_languageButtonClickHandler()` function to the handle any 
-          // 'click' pointer event fired or dispatched by the `buttonEl`
-          buttonEl.addEventListener('click', (event) => this._languageButtonClickHandler(event));
-        });
-        
-        // DEBUG [4dbsmaster]: tell me about it :)
-        // console.log(`\x1b[32m[addListenersByPage]: location.search => ${location.search} & languageButtons => \x1b[0m `, languageButtons);
-
-        // If there's a done icon button ...
-        if (this.doneIconButtonEl) {
-          // ...handle the 'click' events of the DONE icon-button element:
-          // So, Whenever the `doneIconButtonEl` is clicked...
-          this.doneIconButtonEl.onclick = (event) => {
-            // .. get this done icon button element as `el`
-            let el = event.target;
-
-            // get the value of `lang` attribute from `el`
-            let lang = el.getAttribute('lang');
-
-            // update the language of this app
-            this.updateLang(lang);
-            
-
-            // For redundancy purposes, update the `lang` and `redirect` values of PHP's global SESSION variable,
-            // by passing `lang` to the `lang_update.php` file in the `api/` folder via the `GET` method 
-            //
-            // Example: 
-            //    `api/lang_update.php?lang=en&redirect=settings.php?view=lang`
-
-            // create seperately the search string for location as `searchStr`
-            let searchStr = `?lang=${lang}&redirect=${PAGE_SETTINGS}.php?view=lang`;
-            
-            // create the URL to the `lang_update.php` api with `searchStr`
-            let url = `${DIR_API}/${PHP_LANGUAGE_UPDATE}` + searchStr;
-             
-            // Update the `lang` on the server-side of things (i.e. PHP) by redirecting to `url`
-            location.href = url;
-
-            // DEBUG [4dbsmaster]: tell me about it :)
-            console.log(`\x1b[32m[addListersByPage] (PAGE_SETTINGS|1): lang => ${lang} & url => ${url} & el => \x1b[0m`, el);
-
-          };
-
-          // DEBUG[4dbsmaster]: tell me about it :)
-          console.log(`\x1b[32m[addListenersByPage] (PAGE_SETTINGS|2): this.doneIconButtonEl =>  \x1b[0m`, this.doneIconButtonEl);
-
-        }
-        
-        // DEBUG [4dbsmaster]: tell me about it :)
-        console.log(`\x1b[32m[addListenersByPage] (PAGE_SETTINGS|3): language buttons => \x1b[0m`, languageButtons);
-
         break;
       case PAGE_SPLASH_SCREEN:
         // add listeners for the splash-screen page
@@ -624,9 +591,76 @@ class ConnectionModuleApp {
     console.log(`\x1b[36m[_notifyLayoutChange](3): isLaptop ? ${this.isLaptop}\x1b[0m`);
   }
 
-  /* *>> END of Private Methods << */
   
   
+  /**
+   * Method used to add or install listeners for `lang` view of the settings page.
+   */
+  _addLanguageSettingsListeners() {
+
+      // Do nothing if there's no 'lang' in the location's search
+      if (!location.search.includes('lang')) { return }
+      
+      // Get a list of all the buttons with `.language` class
+      let languageButtons = document.querySelectorAll('button.language');
+      
+      // For each button element as `buttonEl` in `languageButtons`...
+      languageButtons.forEach(buttonEl => {
+        // ... Use the `_languageButtonClickHandler()` function to the handle any 
+        // 'click' pointer event fired or dispatched by the `buttonEl`
+        buttonEl.addEventListener('click', (event) => this._languageButtonClickHandler(event));
+      });
+      
+      // DEBUG [4dbsmaster]: tell me about it :)
+      // console.log(`\x1b[32m[_addLanguageSettingsListeners]: location.search => ${location.search} & languageButtons => \x1b[0m `, languageButtons);
+
+      // If there's a done icon button ...
+      if (this.doneIconButtonEl) {
+        // ...handle the 'click' events of the DONE icon-button element:
+        // So, Whenever the `doneIconButtonEl` is clicked...
+        this.doneIconButtonEl.onclick = (event) => {
+          // .. get this done icon button element as `el`
+          let el = event.target;
+
+          // get the value of `lang` attribute from `el`
+          let lang = el.getAttribute('lang');
+
+          // update the language of this app
+          this.updateLang(lang);
+          
+
+          // For redundancy purposes, update the `lang` and `redirect` values of PHP's global SESSION variable,
+          // by passing `lang` to the `lang_update.php` file in the `api/` folder via the `GET` method 
+          //
+          // Example: 
+          //    `api/lang_update.php?lang=en&redirect=settings.php?view=lang`
+
+          // create seperately the search string for location as `searchStr`
+          let searchStr = `?lang=${lang}&redirect=${PAGE_SETTINGS}.php?view=lang`;
+          
+          // create the URL to the `lang_update.php` api with `searchStr`
+          let url = `${DIR_API}/${PHP_LANGUAGE_UPDATE}` + searchStr;
+           
+          // Update the `lang` on the server-side of things (i.e. PHP) by redirecting to `url`
+          location.href = url;
+
+          // DEBUG [4dbsmaster]: tell me about it :)
+          console.log(`\x1b[32m[_addLanguageSettingsListeners] (PAGE_SETTINGS|1): lang => ${lang} & \
+            url => ${url} & el => \x1b[0m`, el);
+
+        };
+
+        // DEBUG[4dbsmaster]: tell me about it :)
+        console.log(`\x1b[32m[_addLanguageSettingsListeners] (PAGE_SETTINGS|2): this.doneIconButtonEl =>  \x1b[0m`, 
+          this.doneIconButtonEl);
+      } // <- end of `this.doneIconButtonEl.onclick` event handler
+      
+      // DEBUG [4dbsmaster]: tell me about it :)
+      console.log(`\x1b[32m[_addLanguageSettingsListeners] (PAGE_SETTINGS|3): language buttons => \x1b[0m`, 
+        languageButtons);
+
+  }
+
   
   /**
    * Handler that is called whenever the `<button class='language'>` is clicked.
@@ -674,6 +708,87 @@ class ConnectionModuleApp {
     // console.log(`\x1b[36m[_languageButtonClickHandler](3): event => \x1b[0m`, event);
     console.log(`\x1b[36m[_languageButtonClickHandler](4): isSelected ? ${isSelected}`);
   }
+
+
+  /**
+   * Method used to add or install listeners for `theme` view of the settings page.
+   */
+  _addThemeSettingsListeners() {
+    // Do nothing if there's no 'theme' in the location's search
+    if (!location.search.includes('theme')) { return }
+
+    // Get a list of all the buttons in `ul.themes` as `themeButtons`
+    let themeButtons = document.querySelectorAll('ul.themes button');
+    
+    // For each button element as `buttonEl` in `themeButtons`...
+    themeButtons.forEach(buttonEl => {
+      // ... Use the `_themeButtonClickHandler()` function to the handle any 
+      // 'click' pointer event fired or dispatched by the `buttonEl`
+      buttonEl.addEventListener('click', (event) => this._themeButtonClickHandler(event));
+    });
+
+  }
+
+
+  /**
+   * Handler that is called whenever a button (eg. `<button theme='light'>`) is clicked.
+   * NOTE: The button elements are located in the "settings?view=theme" page.
+   * 
+   * @param { PointerEvent } event
+   */
+  _themeButtonClickHandler(event) {
+    // get the theme button element as `themeButtonEl`
+    let themeButtonEl = event.currentTarget;
+    // get the value of `theme` attribute from `themeButtonEl`
+    let theme = themeButtonEl.getAttribute('theme');
+    
+
+    // Check if the theme button is selected or has the `selected` attribute,
+    // using our beloved ternary statement ;)
+    let isSelected = themeButtonEl.hasAttribute('selected') ? true : false;
+
+   
+    // Do nothing if the button is already selected
+    if (isSelected) { return }
+
+    // ...get the currently selected theme button element 
+    // from the  page as `selectedThemeButtonEl` 
+    let selectedThemeButtonEl = document.querySelector('ul.themes button[selected]');
+    // unselect it or remove its `selected` attribute
+    selectedThemeButtonEl.removeAttribute('selected');
+
+    // Now, select this `themeButtonEl` by adding a `selected` attribute
+    themeButtonEl.setAttribute('selected', '');
+
+    // update the theme of this app
+    this.updateTheme(theme);
+    
+    // For redundancy purposes, update the `theme` and `redirect` values of PHP's global SESSION variable,
+    // by passing `theme` to the `theme_update.php` file in the `api/` folder via the `GET` method 
+    //
+    // Example: 
+    //    `api/theme_update.php?theme=dark&redirect=settings.php?view=theme`
+
+    // create seperately the search string for location as `searchStr`
+    let searchStr = `?theme=${theme}&redirect=${PAGE_SETTINGS}.php?view=theme`;
+    
+    // create the URL to the `theme_update.php` api with `searchStr`
+    let url = `${DIR_API}/${PHP_THEME_UPDATE}` + searchStr;
+     
+    // Update the `lang` on the server-side of things (i.e. PHP) by redirecting to `url`
+    location.href = url;
+ 
+    // DEBUG [4dbsmaster]: tell me about it :)
+    console.log(`\x1b[35m[_themeButtonClickHandler] (PAGE_SETTINGS|1): theme => ${theme} & themeButtonEl =>`, themeButtonEl);
+   
+  }
+
+
+
+  /* *>> END of Private Methods << */
+
+
+
 
 
 

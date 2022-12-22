@@ -437,18 +437,27 @@ $motto = $i18n->getString('motto');
             <?php foreach (DDD::THEMES as $index => $theme) : ?>
             <!-- PHP: ...show the corresponding theme as a list item -->
 
-            <!-- Theme -->
-            <li tabIndex="<?= $index ?>" class="theme center flex-layout" theme="<?= $theme ?>" <?= $theme == $currentTheme ? 'selected' : '' ?>>
-              <!-- Icon -->
-              <span class="material-icons icon">
-                <?= $theme == DDD::THEME_DARK ? 'dark_mode' : ($theme == DDD::THEME_LIGHT ? 'light_mode' : 'star_border') ?>
-              </span>
-              <!-- Label -->
-              <p class="label"><?= $i18n->getString($theme) ?></p>
-              <!-- Done Icon Button -->
-              <button class="icon-button" tabIndex="-1"><span class="material-icons icon">done</span></button>
+            <!-- List Item -->
+            <li class="flex-layout">
+              <!-- Button -->
+              <button tabIndex="<?= $index + 1 ?>" class="center flex-layout" theme="<?= $theme ?>" <?= $theme == $currentTheme ? 'selected' : '' ?>>
+
+                <!-- Icon -->
+                <span class="material-icons icon">
+                  <?= $theme == DDD::THEME_DARK ? 'dark_mode' : ($theme == DDD::THEME_LIGHT ? 'light_mode' : 'star_border') ?>
+                </span>
+                <!-- Label -->
+                <p class="label"><?= $i18n->getString($theme) ?></p>
+                <!-- Done Icon Button -->
+                <span class="material-icons check icon">done</span>
+
+                <!-- HACK: Background -->
+                <span class="bg" fit></span>
+
+              </button>
+              <!-- End of Button -->
             </li>
-            <!-- End of Theme -->
+            <!-- End of List Item -->
 
             <?php endforeach; ?>
             <!-- End of PHP: If the current setting's view is language -->

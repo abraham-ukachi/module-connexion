@@ -193,12 +193,16 @@ button.language:active {
   transform: scale(0.95);
 }
 
-/* Background of Language Button */
-button.language > span.bg {
-  background: var(--language-background-color, var(--surface-variant-color));
+/* All background span in buttons */
+button > span.bg {
   z-index: -1;
   pointer-events: none;
   opacity: var(--opacity-md-icon-disabled);
+}
+
+/* Background of Language Button */
+button.language > span.bg {
+  background: var(--language-background-color, var(--surface-variant-color));
 }
 
 /* Greeting (H2) of Language Button */
@@ -255,54 +259,86 @@ ul.themes.list {
   padding: 8px 16px;
 }
 
-/* Theme - List Item */
-ul.themes > li.theme {
-  width: 100%;
-  align-items: center;
-  height: 50px;
-  font-size: 20px;
+ul.themes > li {
   margin: 12px 0;
-  border-radius: 8px;
+  padding: 4px 12px;
   box-sizing: border-box;
-  padding: 8px 16px;
-  cursor: pointer;
-  
-  --icon-button-opacity: var(--opacity-icon-disabled);
 }
 
-/* [selected] Theme - List Item */
-ul.themes > li.theme[selected] {
-  --icon-button-color: var(--primary-color);
-  --icon-button-opacity: var(--opacity-icon-active);
+/* Button in Themes UL */
+ul.themes button {
+  --material-icon-color: var(--on-background-color);
 
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  color: inherit;
+  align-items: center;
+  text-align: left;
+  font-size: 20px;
+  cursor: pointer;
+  border: 0; 
+  outline: 0 solid;
+  padding: 0 12px;
+}
+
+/* Button & Background SPAN in Themes UL */
+ul.themes button, ul.themes span.bg {
+  border-radius: 8px;
+}
+
+ul.themes span.bg {
+  opacity: 0.08;
+}
+
+/* [selected] Button in Themes UL */
+ul.themes button[selected] {
   background: var(--primary-container-color);
   color: var(--on-primary-container-color);
+  --material-icon-color: var(--on-primary-container-color);
 }
 
-/* Icon of all Theme list items */
-ul.themes > li.theme > .icon {
+/* Icon of all Buttons in Themes UL */
+ul.themes button > .icon {
   margin: 8px;
 }
 
-/* Label of all Theme list items */
-ul.themes > li.theme > .label {
+ul.themes button > .check.icon {
+  opacity: var(--opacity-md-icon-inactive);
+}
+
+/* Icon of all [selected] Buttons in Themes UL*/
+ul.themes button[selected] > .check.icon {
+  --material-icon-color: var(--primary-color);
+  opacity: var(--opacity-md-icon-active);
+} 
+
+/* Label of all Buttons in Themes UL */
+ul.themes button > .label {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-left: 8px;
+  margin: 0 8px;
 }
 
-/* Icon Button of all Theme list items */
-ul.themes > li.theme > .icon-button {}
+
+/* ON Hover - Buttons in Themes UL */
+ul.themes button:not([selected]):hover {
+  /* background: var(--surface-variant-color);
+  color: var(--on-surface-variant-color); */
+}
+
+ul.themes button:not([selected]):hover > span.bg {
+  background: var(--on-background-color);
+}
 
 
-
-/* ON Hover - Theme - List Item */
-ul.themes > li.theme:not([selected]):hover {
-  --icon-button-color: var(--on-surface-variant-color);
-  background: var(--surface-variant-color);
-  color: var(--on-surface-variant-color);
+/* On Focus - Buttons in Themes UL */
+ul.themes button:focus {
+  outline-color: var(--tertiary-color);
+  outline-width: 3px;
 }
 
 /** ==> End of Themes List Styles <== **/
@@ -369,10 +405,26 @@ ul.themes > li.theme:not([selected]):hover {
     font-size: 24px;
   }
 
-  /* Theme - List Item */
-  ul.themes > li.theme {
-    height: 80px;
+  ul.themes > li {
+    padding: 8px 16px;
   }
+  
+  /* Buttons in Themes UL */
+  ul.themes button {
+    height: 80px;
+    padding: 0 24px;
+  }
+
+  /* Icon of all Buttons in Themes UL */
+  ul.themes button > .icon {
+    font-size: 32px;
+  }
+
+  /* Label of all Buttons in Themes UL */
+  ul.themes button > .label {
+    margin: 0 12px;
+  }
+
 }
 
 

@@ -288,14 +288,14 @@
 .material-icons-round.md-dark,
 .theme.light .material-icons,
 .theme.light .material-icons-round {
-  color: rgba(0, 0, 0, 0.68); 
-  fill: rgba(0, 0, 0, 0.68); 
+  color: var(--material-icon-color, rgba(0, 0, 0, 0.68)); 
+  fill: var(--material-icon-color, rgba(0, 0, 0, 0.68)); 
 } /* b4: 0.54 */
 
 .material-icons.md-dark.md-inactive,
 .material-icons-round.md-dark.md-inactive { 
-  color: rgba(0, 0, 0, 0.26);
-  fill: rgba(0, 0, 0, 0.26);
+  color: var(--material-icon-color, rgba(0, 0, 0, 0.26));
+  fill: var(--material-icon-color, rgba(0, 0, 0, 0.26));
 }
 
 /* Rules for using icons as white on a dark background. */
@@ -303,8 +303,8 @@
 .material-icons-round.md-light,
 .theme.dark .material-icons,
 .theme.dark .material-icons-round { 
-  color: rgba(255, 255, 255, 0.8);
-  fill: rgba(255, 255, 255, 0.8);
+  color: var(--material-icon-color, rgba(255, 255, 255, 0.8));
+  fill: var(--material-icon-color, rgba(255, 255, 255, 0.8));
 
   /* opacity: var(--opacity-md-light-active, 0.8); */
   /* opacity: var(--opacity-md-light-inactive, 0.3); */
@@ -312,8 +312,8 @@
 
 .material-icons.md-light.md-inactive,
 .material-icons-round.md-light.md-inactive { 
-  color: rgba(255, 255, 255, 0.3);
-  fill: rgba(255, 255, 255, 0.3);
+  color: var(--material-icon-color, rgba(255, 255, 255, 0.3));
+  fill: var(--material-icon-color, rgba(255, 255, 255, 0.3));
 
   /* opacity: var(--opacity-md-light-inactive, 0.3); */
 }
