@@ -467,7 +467,40 @@ $motto = $i18n->getString('motto');
 
           <!-- PHP: If the current setting's view is about...-->
           <?php elseif ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_ABOUT): ?>
-          <!-- PHP: ...show the about content -->
+          <!-- PHP: ...show the about container -->
+
+          <!-- About Container -->
+          <div class="about container vertical flex-layout">
+            <!-- Logo Wrapper -->
+            <div class="logo-wrapper vertical centered flex-layout">
+              <!-- App Logo | 144x144 | Launcher Icon -->
+              <img id="appLogo" src="assets/images/manifest/icon-144x144.png" alt="App Logo" class="launcher-icon" />
+            </div>
+            <!-- End of Logo Wrapper -->
+
+            <!-- App Name -->
+            <h2 class="app-name">ddd &bull; module-connexion</h2>
+
+            <!-- App Version -->
+            <h6 class="app-version caption">version 0.0.1</h6>
+
+            <!-- App Author -->
+            <a href="abraham-ukachi.students-laplateform.io" class="app-author center flex-layout">
+              <span>Made by </span>
+              <span class="material-icons icon">favorite</span>
+              <img src="assets/pic.png" alt="Photo of Abraham Ukachi"/>
+              <span>Abraham Ukachi</span>
+            </a>
+            
+            
+
+            <!-- Copyright -->
+            <div class="copyright vertical flex-layout">
+              <p>Copyright © 2022 Abraham Ukachi. All rights reserved.</p>
+              <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so</p>
+            </div>
+          </div>
+          <!-- End of About Container -->
 
 
           <!-- PHP: Otherwise...-->

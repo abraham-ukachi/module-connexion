@@ -751,6 +751,9 @@ class ConnectionModuleApp {
     // Do nothing if the button is already selected
     if (isSelected) { return }
 
+    // DEBUG [4dbsmaster]: tell me about it :)
+    // console.log(`\x1b[37m[_themeButtonclickHandler]: isSelected ? ${isSelected}  \x1b[0m`);
+
     // ...get the currently selected theme button element 
     // from the  page as `selectedThemeButtonEl` 
     let selectedThemeButtonEl = document.querySelector('ul.themes button[selected]');

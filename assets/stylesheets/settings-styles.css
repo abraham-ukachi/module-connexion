@@ -138,6 +138,79 @@ li.setting:hover .icon {
 }
 
 
+/** ==|> Container Styles   <|== **/
+
+/* Container in Contents */
+#content > .container {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  overflow: hidden;
+}
+
+/* Logo Wrapper */
+.logo-wrapper {
+  padding: 24px;
+}
+
+/* App Name */
+.app-name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px;
+}
+
+/* App Version */
+.app-version {
+  padding: 0;
+  margin: 0 auto;
+  font-size: 14px;
+  opacity: var(--opacity-text-inactive);
+  font-weight: 400;
+}
+
+/* App Author */
+a.app-author {
+  margin: 12px auto;
+  font-size: 12px;
+}
+
+/* Icon in App Author */
+a.app-author .icon {
+  --material-icon-color: #cd4d4d;
+  font-size: 16px;
+  margin: 2px;
+}
+
+/* Image of app-author */
+a.app-author img {
+  width: 22px;
+  height: 22px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50px;
+  margin: 0 8px;
+  padding: 1px;
+}
+
+/* Span of app-author */
+a.app-author span {}
+
+/* Copyright */
+.copyright {
+  margin-top: 100px;
+  text-align: justify;
+}
+
+/* Paragraphs in copyright */
+.copyright p {
+  font-size: 10px;
+  margin: 0;
+  line-height: 16px;
+  opacity: var(--opacity-text-inactive);
+}
+
+
+/** ==<| End of Container Styles  |>== **/
 
 
 /** === Grid + Languages Styles === **/

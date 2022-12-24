@@ -137,6 +137,10 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 6 | *`Slide From Down - Animation`* | **slide-from-down-animation.css** | [Done](./assets/animations/slide-from-down-animation.css) |
 | 7 | *`Language Update - API`* | **lang_update.php** | [Done](./api/lang_update.php)\* |
 | 8 | *`Theme Update - API`* | **theme_update.php** | [Done](./api/theme_update.php)\* |
+| 9 | *`Internationalization - API`* | **internationalization.php** | [Done](./api/internationalization.php)\* |
+| 10 | *`DDD - API`* | **ddd.php** | [Done](./api/ddd.php)\* |
+| 11 | *`Settings - Page`* | **settings.php** | _*In progress*_ |
+ 
 
 > NOTE: (\*) = still needs to be updated. <br>
 >       There are a few we must have forgotten or not added yet,
