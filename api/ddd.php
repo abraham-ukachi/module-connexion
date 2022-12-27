@@ -87,7 +87,13 @@ class DDD {
   const PAGE_SETTINGS = 'settings';
   const PAGE_SPLASH_SCREEN = 'splash-screen';
   
-  
+  // QUERIES
+  const QUERY_VIEW = 'view';
+  const QUERY_DIALOG = 'dialog';
+
+  // DIALOGS
+  const DIALOG_DELETE_ACCOUNT = 666;
+
   
   /* ----< VIEWS >---- */
 
@@ -98,6 +104,9 @@ class DDD {
   const VIEW_SETTINGS_THEME = 'theme';
 
   /* ---> End of VIEWS <--- */
+
+
+
 
 
   // the base directory of this app (from the 'api/' folder)
