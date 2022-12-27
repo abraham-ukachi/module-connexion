@@ -141,7 +141,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 10 | *`DDD - API`* | **ddd.php** | [Done](./api/ddd.php)\* |
 | 11 | *`Settings - Page`* | **settings.php** | [Done](./settings.php)\* |
 | 12 | *`Welcome - Page`* | **welcome.php** | Pending |
-| 13 | *`Goodbye - Page`* | **goodbye.php** | _*In progress*_ |
+| 13 | *`Goodbye - Page`* | **goodbye.php** | [Done](./goodbye.php)\* |
 | 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
  
 
@@ -151,6 +151,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 
 ## TODOs
 
+- [ ] Add a **log out button** in the **narrow layout** of *`Settings - Page`* 
 - [ ] Show toast after a preference change or settings update.
 - [ ] Apply the **slide-from-up** animation to dialogs.
 - [x] Change the default input text & background color for Brave's autocomplete

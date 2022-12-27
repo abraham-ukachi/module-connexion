@@ -258,6 +258,21 @@ input[type="submit"], button[type="submit"] {
   font-size: 18px;
 }
 
+/* Links as BUTTON */
+a[role="button"] {
+  width: fit-content;
+  padding: 8px 16px;
+  min-width: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  user-select: none;
+  box-sizing: border-box;
+  margin: 12px 0;
+}
+
 
 /* Caption - Text */
 .txt.caption {
@@ -337,6 +352,20 @@ input[type="submit"], button[type="submit"] {
 .material-icons.md-48, .material-icons-round.md-48 { font-size: 48px; }
 
 
+/* Display Title */
+.display-title {
+  line-height: 35px;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Display Subtitle */
+.display-subtitle {
+  opacity: var(--opacity-text-inactive);
+  margin: 8px 0 24px;
+}
+
 
 /* 
  * --> Wide - Layout <--
@@ -400,6 +429,21 @@ input[type="submit"], button[type="submit"] {
   /* SPAN Caption */
   span.caption {
     font-size: 16px;
+  }
+
+
+  /* Display Title */
+  .display-title {
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+
+  /* Display Subtitle */
+  .display-subtitle {
+    font-size: 18px;
+    line-height: 26px;
   }
 
 }

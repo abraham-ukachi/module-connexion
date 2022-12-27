@@ -33,6 +33,33 @@
 
 /* ==== SETTINGS STYLES === */
 
+/* Classic Theme */
+.classic.theme {
+  /* social logo colors */
+  --github-color: white;
+  --linkedin-color: darkblue;
+  --instagram-color: purple;
+  --twitter-color: #2887EC;
+}
+
+/* Dark Theme */
+.dark.theme {
+  /* social logo colors */
+  --github-color: white;
+  --linkedin-color: cyan;
+  --instagram-color: #de60a9;
+  --twitter-color: #2887EC;
+}
+
+/* Light Theme */
+.light.theme {
+  /* social logo colors */
+  --github-color: black;
+  --linkedin-color: darkblue;
+  --instagram-color: #740b28;
+  --twitter-color: #34add8
+}
+
 /* BODY */
 body {
   
@@ -142,14 +169,17 @@ li.setting:hover .icon {
 
 /* Container in Contents */
 #content > .container {
+  width: 100%;
+  height: calc(100vh - var(--app-bar-size, 54px));
   box-sizing: border-box;
   padding: 8px 16px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Logo Wrapper */
 .logo-wrapper {
   padding: 24px;
+  margin-top: 48px;
 }
 
 /* App Name */
@@ -169,21 +199,96 @@ li.setting:hover .icon {
   font-weight: 400;
 }
 
+
+/* Social List */
+
+ul.social.list {
+  margin-top: 100px;
+}
+
+/* Logos LI in Social list */
+
+.social.list li.logo {
+  margin: 0 12px;
+}
+
+.social.list a {
+  opacity: var(--opacity-icon-disabled);
+}
+
+.social.list a:hover {
+  opacity: var(--opacity-icon-active);
+}
+
+.social.list a:hover span.icon {
+  background-color: var(--social-logo-color, inherit);
+}
+
+/* Icons in Social List */
+.social.list span.icon {
+  display: block;
+  position: relative;
+  width: var(--social-logo-size, 24px);
+  height: var(--social-logo-size, 24px);
+
+  background-color: var(--on-background-color);
+
+  -webkit-mask: var(--social-logo-icon) no-repeat 50% 50%;
+  -moz-mask: var(--social-logo-icon) no-repeat 50% 50%;
+  mask: var(--social-logo-icon) no-repeat 50% 50%;
+
+  -webkit-mask-size: cover;
+  -moz-mask-size: cover;
+  mask-size: cover;
+
+
+  -webkit-transition: background-color 0.1s ease;
+  -moz-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+
+/* Github Logo Icon */
+li.logo.github .icon {
+  --social-logo-icon: url('../../assets/logos/svg/logo-github.svg');
+  --social-logo-color: var(--github-color);
+}
+
+/* LinkedIn Logo Icon */
+li.logo.linkedin .icon {
+  --social-logo-icon: url('../../assets/logos/svg/logo-linkedin.svg');
+  --social-logo-color: var(--linkedin-color);
+}
+
+/* InstaGram Logo Icon */
+li.logo.instagram .icon {
+  --social-logo-icon: url('../../assets/logos/svg/logo-instagram.svg');
+  --social-logo-color: var(--instagram-color);
+}
+
+/* Twitter Logo Icon */
+li.logo.twitter .icon {
+  --social-logo-icon: url('../../assets/logos/svg/logo-twitter.svg');
+  --social-logo-color: var(--twitter-color);
+}
+
+
 /* App Author */
-a.app-author {
+.app-author {
   margin: 12px auto;
   font-size: 12px;
 }
 
-/* Icon in App Author */
-a.app-author .icon {
-  --material-icon-color: #cd4d4d;
+/* Heart Emoji in App Author */
+.app-author .heart-emoji {
+  color: #cd4d4d;
   font-size: 16px;
   margin: 2px;
 }
 
+
+
 /* Image of app-author */
-a.app-author img {
+.app-author img {
   width: 22px;
   height: 22px;
   background: rgba(0,0,0,0.3);
@@ -193,12 +298,13 @@ a.app-author img {
 }
 
 /* Span of app-author */
-a.app-author span {}
+.app-author span {}
 
 /* Copyright */
 .copyright {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   text-align: justify;
+  user-select: none;
 }
 
 /* Paragraphs in copyright */
@@ -206,7 +312,7 @@ a.app-author span {}
   font-size: 10px;
   margin: 0;
   line-height: 16px;
-  opacity: var(--opacity-text-inactive);
+  opacity: var(--opacity-text-disabled);
 }
 
 
@@ -418,6 +524,73 @@ ul.themes button:focus {
 
 
 
+/* Delete Account - Button Wrapper */
+.delete-account.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  height: 200px;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+/* Link of Delete Account - Button Wrapper */
+.delete-account.button-wrapper > a {
+  width: 100%;
+  height: auto;
+  outline: none;
+}
+
+
+/* Delete Your Account - BUTTON  */
+button#deleteYourAccount {
+
+  background: var(--error-container-color);
+  color: var(--on-error-container-color);
+  /*
+  background: var(--error-color);
+  color: var(--on-error-color);
+  */
+  border: 0;
+  padding: 6px 12px;
+
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  height: inherit;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+
+
+  -webkit-transition: background 200ms ease;
+  -moz-transition: background 200ms ease;
+  transition: background 200ms ease;
+
+}
+
+.button-wrapper > a:hover button#deleteYourAccount, 
+.button-wrapper > a:focus button#deleteYourAccount {
+  background: var(--error-color);
+  color: var(--on-error-color);
+}
+
+    
+#deleteAccountDialog {
+  --dialog-button-color-hover: transparent;
+  --dialog-button-text-color: inherit;
+}
+
+/* Confirm dialog button of Delete Account Dialog */
+#deleteAccountDialog .dialog-button[confirm] {
+  --dialog-button-text-color: var(--error-color);
+ /* --dialog-button-color-hover: var(--error-container-color);
+  --dialog-button-text-color: var(--error-color); */
+}
+
 /* Done Icon Button */
 #doneIconButton:not(:disabled) {
   --icon-button-opacity: var(--opacity-icon-active);
@@ -498,6 +671,16 @@ ul.themes button:focus {
     margin: 0 12px;
   }
 
+  /* Delete Your Account - BUTTON */
+  button#deleteYourAccount {
+    font-size: 20px;
+    padding: 12px 16px;
+  }
+
+  /* Link of Delete Account - Button Wrapper */
+  .delete-account.button-wrapper > a {
+    width: 90%;
+  }
 }
 
 

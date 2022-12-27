@@ -39,14 +39,20 @@
 .theme {}
 
 /* Classic Theme */
-.theme.classic {}
+.theme.classic {
+  --opacity-backdrop: 0.4;
+}
 
 
 /* Light Theme */
-.theme.light {}
+.theme.light {
+  --opacity-backdrop: 0.3;
+}
 
 /* Dark Theme */
-.theme.dark {}
+.theme.dark {
+  --opacity-backdrop: 0.7;
+}
 
 
 
@@ -207,6 +213,7 @@ body {
 
 /* MAIN part of App Layout */
 #appLayout > main {
+  position: relative;
   flex: 1;
   width: 100%;
   height: 100%;
@@ -433,6 +440,13 @@ a[active] .icon-button {
   scroll-behavior: smooth;
 }
 
+/* Container of Content */
+#content > .container {
+  width: 100%;
+  height: calc(100vh - var(--app-bar-size, 54px));
+  box-sizing: border-box;
+  padding: 8px 16px;
+}
 
 
 /* ===<<< Form ..+.. Input Default Styles >>>=== */
@@ -677,12 +691,88 @@ p.input-message {
 /* ===>>> End of Form ..+.. Input Default Styles  <<<=== */
 
 
+/* === Dialog Styles === */
 
 /* Backdrop */
-#backdrop {}
+#backdrop, .backdrop {
+  z-index: 100;
+  background: var(--backdrop-color, rgba(0, 0, 0, var(--opacity-backdrop, 0.7)));
+}
 
 /* Dialogs Container */
-#dialogsContainer {}
+#dialogsContainer, .dialogs-container {
+  z-index: 101;
+  pointer-events: none;
+  box-sizing: border-box;
+  padding: var(--dialogs-container-padding, 24px);
+}
+
+/* Dialog */
+#dialog, .dialog {
+  position: relative;
+  user-select: none;
+  pointer-events: auto;
+  background: var(--dialog-color-background, var(--background-color));
+  color: var(--dialog-color-on-background, var(--on-background-color));
+  box-sizing: border-box;
+  padding: var(--dialog-padding, 8px 16px);
+  border-radius: var(--dialog-border-radius, 12px);
+  opacity: 0;
+  text-align: center;
+
+  --fade-in-animation-delay: var(--dialog-animation-delay, 200ms);
+}
+
+/* Dialog Title */
+.dialog-title {
+  margin: 16px 0;
+}
+
+/* Dialog Message */
+.dialog-message, .dialog-msg {
+  opacity: var(--opacity-text-inactive);
+}
+
+/* Dialog Buttons */
+.dialog-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Each Dialog Button */
+a.dialog-button, a[role="button"].dialog-button {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 8px 0;
+  background: var(--dialog-button-background-color, inherit);
+  color: var(--dialog-button-text-color, inherit);
+  font-size: 20px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+}
+
+/* Dialog Button with default attribute */
+a.dialog-button[default], a[role="button"][default].dialog-button {
+  color: var(--dialog-button-color-default, var(--primary-color));
+}
+
+/* Hover on Dialog Button */
+a.dialog-button:hover, a[role="button"].dialog-button:hover {
+  background: var(--dialog-button-color-hover, var(--surface-variant-color));
+}
+
+a.dialog-button:focus, a[role="button"].dialog-button:focus {
+  outline: 3px solid;
+  outline-color: var(--tertiary-color);
+}
+
+/* === End of Dialog Styles === */
+
 
 /* Toast */
 #toast {}
@@ -848,6 +938,11 @@ span.nav-icon {
     margin-bottom: 24px;
   }
 
+  /* Container of Content */
+  #content > .container {
+    padding: 24px;
+  }
+
 }
 
 
@@ -857,7 +952,37 @@ span.nav-icon {
  * Phone: ? (Responsive)
  * Width: 768px <-to-> 1024px
  */
-@media (min-width: 768px) and (max-width: 1024px) {}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* Dialog */
+  .dialog {
+    text-align: left;
+  }
+
+  /* Divider of Dialog */
+  .dialog span.divider {
+    display: none;
+  }
+
+  /* Dialog Title */
+  .dialog-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  /* Dialog Message */
+  .dialog-message, .dialog-msg {
+    font-size: 20px;
+    line-height: 26px;
+    margin: 12px 0;
+  }
+
+  /* Dialog Buttons */
+  .dialog-buttons {
+    flex-direction: row;
+  }
+
+}
 
 
 /* 
@@ -871,6 +996,41 @@ span.nav-icon {
   #appLayout > aside {
     width: 60%;
   }
+
+  /* Dialog Container */
+  #dialogsContainer, .dialogs-container {
+    padding: var(--dialogs-container-padding, 24px 48px);
+  }
+
+  /* Dialog */
+  .dialog {
+    padding: 12px 24px;
+    text-align: left;
+  }
+
+  /* Divider of Dialog */
+  .dialog span.divider {
+    display: none;
+  }
+
+  /* Dialog Title */
+  .dialog-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  /* Dialog Message */
+  .dialog-message, .dialog-msg {
+    font-size: 20px;
+    line-height: 26px;
+    margin: 12px 0;
+  }
+
+  /* Dialog Buttons */
+  .dialog-buttons {
+    flex-direction: row;
+  }
+
 }
 
 
