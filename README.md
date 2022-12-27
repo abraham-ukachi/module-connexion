@@ -141,8 +141,8 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 10 | *`DDD - API`* | **ddd.php** | [Done](./api/ddd.php)\* |
 | 11 | *`Settings - Page`* | **settings.php** | [Done](./settings.php)\* |
 | 12 | *`Welcome - Page`* | **welcome.php** | Pending |
-| 13 | *`Goodbye - Page`* | **goodbye.php** | Pending |
-| 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | Pending |
+| 13 | *`Goodbye - Page`* | **goodbye.php** | _*In progress*_ |
+| 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
  
 
 > NOTE: (\*) = still needs to be updated. <br>
@@ -151,8 +151,10 @@ These are some of the things I did or plan to do, in addition to this project's 
 
 ## TODOs
 
+- [ ] Show toast after a preference change or settings update.
+- [ ] Apply the **slide-from-up** animation to dialogs.
 - [x] Change the default input text & background color for Brave's autocomplete
-- [x] Create a project-specific logo 
+- [ ] Create a project-specific logo 
 - [ ] Add localization / internationalization (at least: **english** & **french**)
 - [x] Add mobile compatibility to all pages (i.e. make it responsive)
 - [ ] Optimize all `.php` files
