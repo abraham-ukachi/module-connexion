@@ -139,7 +139,10 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 8 | *`Theme Update - API`* | **theme_update.php** | [Done](./api/theme_update.php)\* |
 | 9 | *`Internationalization - API`* | **internationalization.php** | [Done](./api/internationalization.php)\* |
 | 10 | *`DDD - API`* | **ddd.php** | [Done](./api/ddd.php)\* |
-| 11 | *`Settings - Page`* | **settings.php** | _*In progress*_ |
+| 11 | *`Settings - Page`* | **settings.php** | [Done](./settings.php)\* |
+| 12 | *`Welcome - Page`* | **welcome.php** | Pending |
+| 13 | *`Goodbye - Page`* | **goodbye.php** | Pending |
+| 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | Pending |
  
 
 > NOTE: (\*) = still needs to be updated. <br>
