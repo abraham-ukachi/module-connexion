@@ -214,6 +214,7 @@ $motto = $i18n->getString('motto');
   
   
   <!-- BODY | Default Theme: light -->
+  <!-- TODO: replace 'light' with `currentTheme` PHP variable (eg. < ?= $currentTheme ? >) -->
   <body class="theme light" fullbleed>
 
     <!-- App Layout -->
@@ -240,7 +241,7 @@ $motto = $i18n->getString('motto');
           <!-- TODO: Use PHP's switch/case statement instead -->
 
           <!-- PHP: If the current setting's view is language...-->
-        <?php if ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_LANGUAGE): ?>
+          <?php if ($ddd->getCurrentView() == DDD::VIEW_SETTINGS_LANGUAGE): ?>
           <!-- PHP: ...show the language header -->
 
           <!-- App Bar -->
@@ -480,23 +481,60 @@ $motto = $i18n->getString('motto');
 
             <!-- App Name -->
             <h2 class="app-name">ddd &bull; module-connexion</h2>
-
+            
             <!-- App Version -->
             <h6 class="app-version caption">version 0.0.1</h6>
 
+
+            <span flex></span>
+
+            <!-- Social list -->
+            <ul class="social list horizontal flex-layout centered" naked>
+              <!-- Github Logo -->
+              <li class="logo github">
+                <a target="_blank" href="https://github.com/abraham-ukachi/module-connexion" title="view code on github">
+                  <span class="icon"></span>
+                </a>
+              </li>
+
+              <!-- LinkedIn Logo -->
+              <li class="logo linkedin">
+                <a target="_blank" href="https://linkedin.com/in/abraham-ukachi" title="view my linkedIn profile">
+                  <span class="icon"></span>
+                </a>
+              </li>
+
+              <!-- InstaGram Logo-->
+              <li class="logo instagram">
+                <a target="_blank" href="https://instagram.com/abrahamukachi" title="See my instagram page">
+                  <span class="icon"></span>
+                </a>
+              </li>
+
+              <!-- Twitter -->
+              <li class="logo twitter">
+                <a target="_blank" href="https://twitter.com/abrahamukachi" title="See my twitter page">
+                  <span class="icon"></span>
+                </a>
+              </li>
+
+            </ul>
+
             <!-- App Author -->
-            <a href="abraham-ukachi.students-laplateform.io" class="app-author center flex-layout">
-              <span>Made by </span>
-              <span class="material-icons icon">favorite</span>
-              <img src="assets/pic.png" alt="Photo of Abraham Ukachi"/>
-              <span>Abraham Ukachi</span>
-            </a>
+            <div class="app-author center flex-layout">
+              <span>Made with <span class="heart-emoji">&#10084;</span> by</span>
+              <a href="abraham-ukachi.students-laplateforme.io" class="flex-layout center" target="_blank">
+                <img src="assets/pic.png" alt="Photo of Abraham Ukachi"/>
+                <span>Abraham Ukachi</span>
+              </a>
+            </div>
             
             
 
             <!-- Copyright -->
+            <!-- HACK: To keep my copyright up to date, I used the year from PHP's `date()` function -->
             <div class="copyright vertical flex-layout">
-              <p>Copyright © 2022 Abraham Ukachi. All rights reserved.</p>
+              <p>Copyright © <?= date('Y') ?> Abraham Ukachi. All rights reserved.</p>
               <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so</p>
             </div>
           </div>
@@ -559,20 +597,34 @@ $motto = $i18n->getString('motto');
               <!-- HACK: Background 4 Theme -->
               <span class="bg" fit></span>
               <!-- Link -->
-              <a class="link" href="settings.php?view=about">
+              <a class="link">
                 <div>
                   <h5>Version</h5>
                   <p><strong>0.0.1</strong></p>
                 </div>
-                <span class="material-icons icon">arrow_forward_ios</span>
               </a>
             </li>
             <!-- End of Version Setting -->
           </ul>
           <!-- End of Settings list - UL -->
 
-          <!-- TODO: Add a delete account button here -->
+      
+          
+          <!-- Adding a "Delete Your Accout" - Button... -->
+          <!-- IDEA: The user should be able to delete his/her account easily. -->
+          <!--       I personally hate when website's make it soo difficult to delete your account -->
+          <!--       after you were able to easily create it -->
 
+          <!-- TODO: Position this 'deleteYourAccount' button at the bottom of the page -->
+          <!-- Delete Account - Button Wrapper -->
+          <div class="delete-account button-wrapper">
+            <!-- Delete Your Account - Button -->
+            <a href="settings.php?dialog=<?= DDD::DIALOG_DELETE_ACCOUNT ?>">
+              <button id="deleteYourAccount" tabIndex="-1">Delete your account</button>
+            </a>
+          </div>
+
+      
           <?php endif; ?>
           <!-- End of PHP: If the current setting's view is language -->
 
@@ -589,7 +641,61 @@ $motto = $i18n->getString('motto');
         ?>
          
         <?php include 'components/nav-bar.php'; ?>
+
+
+
+
+
+        <!-- NOTE: I run outta time, so decided to use PHP (instead of JS) to quickly display specific dialogs -->
         
+        <!-- Backdrop -->
+        <div class="backdrop fade-in" fit <?= !isset($_GET[DDD::QUERY_DIALOG]) ? 'hidden' : '' ?>>
+          <a href="settings.php" fit></a>
+        </div>
+
+        <!-- PHP: If there's a DIALOG query in GET... -->
+        <?php if (isset($_GET[DDD::QUERY_DIALOG])) : ?>
+        <!-- PHP: show the dialogs-container -->
+        
+        <!-- Dialogs-Container -->
+        <div class="dialogs-container vertical flex-layout centered" fit>
+          
+          <!-- PHP: Switch / handle all dialog queries  -->
+          <?php switch ($_GET[DDD::QUERY_DIALOG]) : 
+           
+          case DDD::DIALOG_DELETE_ACCOUNT: ?>
+              
+            <!-- Dialog -->
+            <!-- TODO: Create & Use a slide-from-up w/ fade-in animation for each dialog -->
+            <div id="deleteAccountDialog" class="dialog fade-in">
+              <!-- Dialog Title -->
+              <h2 class="dialog-title">Delete Account</h2>
+              <!-- Dialog Message -->
+              <p class="dialog-msg">Are you sure you want to delete your account? This will permanently erase your account.</p>
+              
+              <!-- Dialog Buttons -->
+              <div class="dialog-buttons">
+                <!-- Cancel Button -->
+                <a role="button" tabindex="0" href="settings.php" class="dialog-button" default autofocus>Cancel</a>
+                <span class="divider horizontal left"></span>
+                <!-- Delete Button -->
+                <!-- B4: href = api/user_del.php?redirect=settings.php -->
+                <a role="button" tabindex="0" href="goodbye.php?token=f8S9283201957393" class="dialog-button" confirm>Delete</a>
+              </div>
+              <!-- End of Dialog Buttons -->
+           </div>
+           <!-- End of Dialog -->
+
+         <!-- PHP: switch BREAK of DIALOG_DELETE_ACCOUNT -->
+         <?php break; ?>
+
+
+         <?php endswitch; ?>
+
+        </div>
+        <!-- End of Dialogs Container -->
+
+      <?php endif; ?>
       </main>
       <!-- End of MAIN - App Layout -->
 
@@ -607,14 +713,13 @@ $motto = $i18n->getString('motto');
     <!-- End of App Layout -->
 
 
-    <!-- Backdrop -->
-    <div id="backdrop" hidden></div>
+
+    <!-- Main Backdrop -->
+    <div id="backdrop"></div>
 
 
-    <!-- Dialogs Container -->
-    <div id="dialogsContainer" hidden></div>
-    <!-- End of Dialogs Container -->
-
+    <!-- Main Dialogs Container -->
+    <div id="dialogsContainer"></div>
 
     <!-- Toast -->
     <div id="toast" hidden></div>
