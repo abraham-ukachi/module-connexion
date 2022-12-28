@@ -159,6 +159,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 - [ ] Create a project-specific logo 
 - [ ] Add localization / internationalization (at least: **english** & **french**)
 - [x] Add mobile compatibility to all pages (i.e. make it responsive)
+- [ ] Optimize `.svg` doodles
 - [ ] Optimize all `.php` files
 - [ ] Optimize all `.css` files
 - [ ] Optimize all `.js` files
