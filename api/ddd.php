@@ -90,6 +90,7 @@ class DDD {
   // QUERIES
   const QUERY_VIEW = 'view';
   const QUERY_DIALOG = 'dialog';
+  const QUERY_STEP = 'step';
 
   // DIALOGS
   const DIALOG_DELETE_ACCOUNT = 666;
@@ -112,9 +113,10 @@ class DDD {
   // the base directory of this app (from the 'api/' folder)
   const DIR_BASE = '../';
   // defaults
+  // TODO: Get the default lang with `substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)` (https://stackoverflow.com/questions/3770513/detect-browser-language-in-php)
   const LANGUAGE_DEFAULT = 'en'; // <- english
 
- 
+  
   // Define the current language variable as `LANGUAGE`
   // Get the currrent language from SESSION as `lang`
   // if it exists, else use 'en' (English) as default
