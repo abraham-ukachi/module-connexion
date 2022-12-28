@@ -112,7 +112,7 @@ open http://localhost/module-connexion
 
 | Browser | Version | Status | Date | Time
 |:--------|:--------|:-------|:-----|:-----
-| *`Brave`* | **1.45.127** | [Tested](http://localhost/module-connexion/splash-screen.php) | 28-11-2022 | 12:50
+| *`Brave`* | **1.45.127** | [Tested](http://localhost/module-connexion/welcome.php) | 28-12-2022 | 18:42:00
 | *`Chrome`* | **-** | *Pending* | - | -
 | *`Firefox`* | **-** | *Pending* | - | -
 | *`Safari`* | **-** | *Pending* | - | -
@@ -140,7 +140,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 9 | *`Internationalization - API`* | **internationalization.php** | [Done](./api/internationalization.php)\* |
 | 10 | *`DDD - API`* | **ddd.php** | [Done](./api/ddd.php)\* |
 | 11 | *`Settings - Page`* | **settings.php** | [Done](./settings.php)\* |
-| 12 | *`Welcome - Page`* | **welcome.php** | _*In progress*_ |
+| 12 | *`Welcome - Page`* | **welcome.php** | [Done](./welcome.php)\* |
 | 13 | *`Goodbye - Page`* | **goodbye.php** | [Done](./goodbye.php)\* |
 | 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
 | 15 | *`Welcome - Stylesheet`* | **welcome-styles.css** | [Done](./assets/stylesheets/welcome-styles.css)\* |
