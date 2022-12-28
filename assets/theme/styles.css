@@ -145,6 +145,12 @@ button[naked] {
   list-style: none;
 }
 
+a[naked] {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  outline: none;
+}
+
 /* Naked Lists */
 ul[naked], li[naked] {
   padding: 0;
@@ -284,6 +290,19 @@ aside > .app-logo {
 
 /* App Bar */
 #appBar {}
+
+/* Links as Button in App Bar */
+#appBar a[role="button"] {
+  margin: 0;
+  color: var(--on-background-color);
+  opacity: var(--opacity-md-icon-inactive);
+}
+
+#appBar a[role="button"]:hover {
+  color: var(--primary-color);
+  opacity: var(--opacity-md-active);
+  text-decoration: none;
+}
 
 /* Nav Bar Styles & footer of Main */
 .nav-bar, main > footer {
@@ -609,11 +628,61 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   color: var(--primary-color);
 }
 
-/* [contained] submit input or buttons */
-button[contained], input[type="submit"][contained] {
+/* [contained] submit input  */
+input[type="submit"][contained] {
   background: var(--primary-color);
   color: var(--on-primary-color);
   border: 0;
+}
+
+/* Contained Button */
+button[contained] {
+  background: var(--button-background-color, var(--primary-container-color));
+  color: var(--button-text-color, var(--on-primary-container-color));
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 18px; /* b4: 16px */
+  line-height: 32px;
+  width: 100%;
+  border: 0;
+  outline: none;
+  height: inherit;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+/* Whenever a button that shrinks is pressed */
+button[contained][shrinks]:active {
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+
+/* Contained Button */
+button[contained]:hover {
+  background: var(--button-background-color-hover, var(--primary-color));
+  color: var(--button-text-color-hover, var(--on-primary-color));
+}
+
+/* Whenever a contained button gains focus */
+button[contained]:focus-visible {
+  outline: none;
+  background: var(--button-color-focus, var(--tertiary-color));
+  color: var(--button-color-focus, var(--on-tertiary-color));
 }
 
 /* Iput Indicator */
@@ -941,6 +1010,12 @@ span.nav-icon {
   /* Container of Content */
   #content > .container {
     padding: 24px;
+  }
+
+  /* Contained Button */
+  button[contained] {
+    font-size: 20px;
+    padding: 8px 16px; /* b4: 12px 16px */
   }
 
 }
