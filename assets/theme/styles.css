@@ -41,17 +41,20 @@
 /* Classic Theme */
 .theme.classic {
   --opacity-backdrop: 0.4;
+  --em-background: rgba(0,0,0,0.1);
 }
 
 
 /* Light Theme */
 .theme.light {
   --opacity-backdrop: 0.3;
+  --em-background: rgba(0,0,0,0.15);
 }
 
 /* Dark Theme */
 .theme.dark {
   --opacity-backdrop: 0.7;
+  --em-background: rgba(255,255,255,0.1);
 }
 
 
@@ -934,7 +937,14 @@ span.nav-icon {
 }
 
 
-
+/* Emphasis */
+em {
+  background: var(--em-background, var(--surface-variant-color));
+  color: var(--on-background-color);
+  padding: 2px 4px;
+  border-radius: 6px;
+  font-weight: bold;
+}
 
 
 /* 
