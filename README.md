@@ -140,7 +140,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 9 | *`Internationalization - API`* | **internationalization.php** | [Done](./api/internationalization.php)\* |
 | 10 | *`DDD - API`* | **ddd.php** | [Done](./api/ddd.php)\* |
 | 11 | *`Settings - Page`* | **settings.php** | [Done](./settings.php)\* |
-| 12 | *`Welcome - Page`* | **welcome.php** | Pending |
+| 12 | *`Welcome - Page`* | **welcome.php** | _*In progress*_ |
 | 13 | *`Goodbye - Page`* | **goodbye.php** | [Done](./goodbye.php)\* |
 | 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
  
