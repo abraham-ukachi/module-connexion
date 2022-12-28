@@ -143,7 +143,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 12 | *`Welcome - Page`* | **welcome.php** | _*In progress*_ |
 | 13 | *`Goodbye - Page`* | **goodbye.php** | [Done](./goodbye.php)\* |
 | 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
-| 15 | *`Welcome - Stylesheet`* | **welcome-styles.css** | _*In progress*_ |
+| 15 | *`Welcome - Stylesheet`* | **welcome-styles.css** | [Done](./assets/stylesheets/welcome-styles.css)\* |
  
 
 > NOTE: (\*) = still needs to be updated. <br>
