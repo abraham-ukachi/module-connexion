@@ -129,7 +129,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`SplashScreen - Page`* | **splash-screen.php** | _*In progress*_ |
+| 1 | *`SplashScreen - Page`* | **splash-screen.php** | [Done](./splash-screen.php)\* |
 | 2 | *`Logout - Page`* | **logout.php** | Pending |
 | 3 | *`Database - API`* | **database.php** | Pending |
 | 4 | *`Pop In - Animation`* | **pop-in-animation.css** | [Done](./assets/animations/pop-in-animation.css) |
@@ -147,13 +147,12 @@ These are some of the things I did or plan to do, in addition to this project's 
  
 
 > NOTE: (\*) = still needs to be updated. <br>
->       There are a few we must have forgotten or not added yet,
->       so I'll keep the above list updated obv. :)
+> There are a few we must have forgotten or not added yet,so I'll keep the above list updated obv. :)
 
 ## TODOs
 
 - [ ] Add a **log out button** in the **narrow layout** of *`Settings - Page`* 
-- [ ] Show toast after a preference change or settings update.
+- [ ] Show a toast after a preference change or settings update.
 - [ ] Apply the **slide-from-up** animation to dialogs.
 - [x] Change the default input text & background color for Brave's autocomplete
 - [ ] Create a project-specific logo 
