@@ -1,9 +1,7 @@
 # `module-connexion`
 > IMPORTANT: This is a working progress and subject to major changes until the specified deadline below.
 
-A school project to create a simple website with PHP &amp; SQL (via phpmyadmin) which includes **login**, **register** and **home** pages.
-
-For this project, I decided to create a simple 3D creator page titled **ddd**. 
+A school project to create a simple website with PHP &amp; SQL (via phpmyadmin) which includes **login**, **register** and **home** pages. In addition to this project's [requirements](#Requirements), I decided to create a simple 3D creator page named **DDD Studio**. 
 
 ## Description 
 > Original text in French: Vous décidez de créer un module de connexion permettant aux utilisateurs de créer leur compte, de se connecter et de modifier leurs informations. Pour commencer, créez votre base de données nommée “moduleconnexion” à l’aide de phpmyadmin. Dans cette bdd, créez une table “utilisateurs” qui contient les champs suivants : id, int, clé primaire et Auto Incrément; login, varchar de taille 255; prenom, varchar de taille 255; nom, varchar de taille 255; password, varchar de taille 255
@@ -64,11 +62,12 @@ The folder & file structure of this project:
 - - * *typography.css*
 - - * *styles.css*
 - - [**stylesheets**](./assets/stylesheets)
+- - * *home-styles.css*
+- - * *ddd-studio-styles.css*
 - - * *splash-screen-styles.css*
 - - * *login-styles.css*
 - - * *register-styles.css*
 - - * *profile-styles.css*
-- - * *login-styles.css*
 - [**script**](./script/)
 - - *app.js*
 - ...
@@ -167,3 +166,20 @@ These are some of the things I did or plan to do, in addition to this project's 
 - [ ] Add screenshots
 
 
+## Some random screenshots
+
+
+## On Mobile
+
+| Classic Mode | Light Mode | Dark Mode |
+|:-------------|:-----------|:----------|
+| ![Welcome Mobile Screenshot - Classic Mode](./screenshots/mobile/welcome_mobile_classic.png) | ![Welcome Mobile Screenshot - Light Mode](./screenshots/mobile/welcome_mobile_light.png) | ![Welcome Mobile Screenshot - Dark Mode](./screenshots/mobile/welcome_mobile_dark.png) |
+| ![Home Mobile Screenshot - Classic Mode](./screenshots/mobile/home_mobile_classic.png) | ![Home Mobile Screenshot - Light Mode](./screenshots/mobile/home_mobile_light.png) | ![Home Mobile Screenshot - Dark Mode](./screenshots/mobile/home_mobile_dark.png) |
+
+
+## On Laptop
+
+| Classic Mode | Light Mode | Dark Mode |
+|:-------------|:-----------|:----------|
+| ![Welcome Laptop Screenshot - Classic Mode](./screenshots/laptop/welcome_laptop_classic.png) | ![Welcome Laptop Screenshot - Light Mode](./screenshots/laptop/welcome_laptop_light.png) | ![Welcome Laptop Screenshot - Dark Mode](./screenshots/laptop/welcome_laptop_dark.png) |
+| ![Home Laptop Screenshot - Classic Mode](./screenshots/laptop/home_laptop_classic.png) | ![Home Laptop Screenshot - Light Mode](./screenshots/laptop/home_laptop_light.png) | ![Home Laptop Screenshot - Dark Mode](./screenshots/laptop/home_laptop_dark.png) |
