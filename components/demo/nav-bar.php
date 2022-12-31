@@ -47,6 +47,7 @@ define('TYPE_VERTICAL', 'vertical');
 define('TYPE_HORIZONTAL', 'horizontal');
 // Pages
 define('PAGE_HOME', 'home');
+define('PAGE_DDD', 'ddd');
 define('PAGE_PROFILE', 'profil');
 define('PAGE_SETTINGS', 'settings');
 // toggles
@@ -408,6 +409,12 @@ $navbarResponsive = 'false';
               <!-- Home - Page - Button -->
               <button onclick="updateSearch('page', 'home')" <?php echo ($page === PAGE_HOME) ? ACTIVE : '' ; ?>>
                 <span>Home</span>
+              </button>
+
+
+              <!-- DDD - Page - Button -->
+              <button onclick="updateSearch('page', 'ddd')" <?php echo ($page === PAGE_DDD) ? ACTIVE : '' ; ?>>
+               <span>DDD</span> 
               </button>
 
               <!-- Profil - Page - Button -->

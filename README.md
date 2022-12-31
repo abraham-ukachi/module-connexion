@@ -41,6 +41,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 | 3 | *`Login - Page`* | **connexion.php** | _*In progress*_ |
 | 4 | *`Profile - Page`* | **profil.php** | *_In progress*_ |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
+| 6 | *`DDD - Page`* | **ddd.php** | Pending |
 
 > NOTE: (\*) = still needs to be updated
 

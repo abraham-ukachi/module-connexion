@@ -342,7 +342,7 @@ aside > .app-logo {
 
 /* Horizontal Nav Bar */
 .nav-bar.horizontal {
-  padding: 0 var(--nav-bar-padding-horizontal, 16px);
+  padding: 0 var(--nav-bar-padding-horizontal, 48px);
   width: 100%;
 }
 
@@ -360,8 +360,8 @@ span.app-logo {
   height: var(--app-logo-size, 32px);
   max-width: var(--app-logo-size-max, 512px);
   max-height: var(--app-logo-size-max, 512px);
-  background-color: var(--app-logo-color, var(--primary-color));
-
+  background-color: var(--app-logo-color, var(--on-background-color));
+  opacity: var(--app-logo-opacity, inherit);
 
   -webkit-mask: url('../../assets/logos/logo.svg') no-repeat 50% 50%;
   -moz-mask: url('../../assets/logos/logo.svg') no-repeat 50% 50%;
@@ -885,6 +885,12 @@ a.nav-link {
   fill: var(--nav-icon-color, var(--on-background-color));
 }
 
+/* App Logo in an Nav Link */
+a.nav-link span.app-logo {
+  opacity: inherit;
+}
+
+
 /* Initials in Nav Link */
 a.nav-link span.initials {
   display: flex;
@@ -915,8 +921,15 @@ a.nav-link[active] span.initials {
 /* Active Nav Links */
 a.nav-link[active] {
   opacity: 1;
+  color: var(--nav-icon-color-active, var(--primary-color));
+  
 }
 
+/* App Logo in an active Nav Link */
+a.nav-link[active] span.app-logo {
+  background-color: var(--app-logo-color-active, var(--primary-color));
+  opacity: inherit;
+}
 
 /* Material Icons in Nav Link */
 a.nav-link .material-icons {
@@ -925,6 +938,7 @@ a.nav-link .material-icons {
 }
 
 a.nav-link:hover, a.nav-link:focus {
+ --app-logo-opacity: 1;
  opacity: var(--nav-icon-opacity, 1);
  text-decoration: none;
 }
