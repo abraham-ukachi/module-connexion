@@ -23,7 +23,7 @@
 *
 * @name: App
 * @type: script
-* @author: Abraham Ukachi <abraham.ukachi@laplateforme.com>
+* @author: Abraham Ukachi <abraham.ukachi@laplateforme.io>
 *
 * Example usage:
 *   1-|> let cmApp = new ConnectionModuleApp('en', 'dark', PAGE_HOME);
