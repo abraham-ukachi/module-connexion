@@ -135,15 +135,15 @@ footer button {
 }
 
 
-/* Navigation */
-nav {
+/* Dots */
+#dots {
  width: 100%;
  height: 24px;
  margin: 8px 0;
 }
 
-/* Navigation Buttons / Link Buttons in Nav */
-nav > a[role="button"] {
+/* Navigation Buttons / Link Buttons in Dots */
+#dots > a[role="button"] {
   width: 10px;
   height: 10px;
   background: var(--on-background-color);
@@ -161,13 +161,13 @@ nav > a[role="button"] {
 
 }
 
-/* Whenever a navigation button is hovered */
-nav > a[role="button"]:hover {
+/* Whenever a dot is hovered */
+#dots > a[role="button"]:hover {
   opacity: var(--opacity-md-active);
 }
 
-/* Whenever a navigation button gains focus */
-nav > a[role="button"]:focus-visible {
+/* Whenever a dot gains focus */
+#dots > a[role="button"]:focus-visible {
   outline: 4px solid var(--tertiary-color);
   opacity: var(--opacity-md-active);
   /* background: var(--tertiary-color); */
@@ -175,7 +175,7 @@ nav > a[role="button"]:focus-visible {
 
 
 /* Active Navigation Button */
-nav > a[role="button"][active] {
+#dots > a[role="button"][active] {
   width: 40px;
   background: var(--primary-color);
   opacity: var(--opacity-md-active);

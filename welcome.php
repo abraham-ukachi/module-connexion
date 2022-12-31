@@ -401,8 +401,8 @@ $getDescByStep = function ($step) use ($steps, $welcomePackage) {
         <!-- End of Content - App Layout -->
 
 
-        <!-- NAV -->
-        <nav class="horizontal flex-layout centered">
+        <!-- Dots - NAV -->
+        <nav id="dots" class="horizontal flex-layout centered">
           <!-- PHP: For each step (index / id) in $steps... -->
           <?php foreach ($steps as $stepIndex => $stepId) : ?>
           <!-- PHP: ...show a corresponding navigation button / link -->
@@ -416,7 +416,7 @@ $getDescByStep = function ($step) use ($steps, $welcomePackage) {
           <!-- End of PHP: For each step id in $steps -->
           <?php endforeach; ?>
         </nav>
-        <!-- End of NAV -->
+        <!-- End of Dots - NAV -->
 
         <!-- FOOTER -->
         <footer class="vertical flex-layout centered">
