@@ -36,7 +36,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Home - Page`* | **index.php** | Pending |
+| 1 | *`Home - Page`* | **index.php** | _*In progress*_ |
 | 2 | *`Register - Page`* | **inscription.php** | _*In progress*_ |
 | 3 | *`Login - Page`* | **connexion.php** | _*In progress*_ |
 | 4 | *`Profile - Page`* | **profil.php** | *_In progress*_ |
