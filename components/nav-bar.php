@@ -89,7 +89,7 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 <!-- Vertical Nav Bar -->
 <nav class="nav-bar vertical flex-layout" <?php echo ($_GET['navbar_res'] == 'true') ? 'responsive' : '' ?>>
   <!-- Icon-Wrapper -->
-  <a href="." class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
+  <a href="index.php" class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
     <!-- App-Logo -->
     <span class="app-logo"></span> <!-- UX: Use `home` material-icon instead ? -->
     <!-- End of App-Logo -->
@@ -98,11 +98,11 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
   
   <span flex></span>
    
-  <!-- DDD - Nav-Link -->
-  <a title="DDD" href="ddd.php" class="nav-link" <?php echo ($_GET['navbar_page'] == 'ddd') ? 'active' : '' ?>>
+  <!-- DDD Studio - Nav-Link -->
+  <a title="DDD Studio" href="ddd-studio.php" class="nav-link" <?php echo ($_GET['navbar_page'] == 'ddd-studio') ? 'active' : '' ?>>
     <span class="material-icons nav-icon">view_in_ar</span>
   </a>
-  <!-- End of DDD Nav-Link -->
+  <!-- End of DDD Studio Nav-Link -->
 
   
   <!-- Profile - Nav-Link -->
@@ -171,16 +171,16 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 <nav class="nav-bar horizontal flex-layout center" <?php echo ($_GET['navbar_res'] == 'true') ? 'responsive' : '' ?>>
   <span class="divider horizontal top"></span>
 
-  <!-- DDD - Nav-Link -->
-  <a title="Home" href="." class="nav-link" <?php echo ($_GET['navbar_page'] == 'ddd') ? 'active' : '' ?>>
+  <!-- DDD Studio - Nav-Link -->
+  <a title="Home" href="ddd-studio.php" class="nav-link" <?php echo ($_GET['navbar_page'] == 'ddd-studio') ? 'active' : '' ?>>
     <span class="material-icons nav-icon">view_in_ar</span>
   </a>
-  <!-- End of Home Nav-Link -->
+  <!-- End of DDD Studio - Nav-Link -->
   
   <span flex></span> <!-- HACK: Just a temp. fix :) -->
 
   <!-- Icon-Wrapper -->
-  <a href="." class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
+  <a href="index.php" class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
     <!-- App-Logo -->
     <span class="app-logo"></span> <!-- UX: Use `home` material-icon instead ? -->
     <!-- End of App-Logo -->

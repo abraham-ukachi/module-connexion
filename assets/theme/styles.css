@@ -238,7 +238,7 @@ body {
 
 
 /* App Logo of any ASIDE */
-aside > .app-logo {
+aside > span.app-logo {
   --app-logo-color: var(--outline-color);
   opacity: var(--opacity-md-icon-disabled);
   --app-logo-size: 50%;

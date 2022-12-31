@@ -81,7 +81,7 @@ class DDD {
 
   // PAGES
   const PAGE_HOME = 'home';
-  const PAGE_DDD = 'ddd';
+  const PAGE_DDD_STUDIO = 'ddd-studio';
   const PAGE_LOGIN = 'connexion';
   const PAGE_REGISTER = 'inscription';
   const PAGE_PROFILE = 'profil';
