@@ -180,7 +180,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | ![Home Mobile Screenshot - Classic Mode](./screenshots/mobile/home_mobile_classic.png) | ![Home Mobile Screenshot - Light Mode](./screenshots/mobile/home_mobile_light.png) | ![Home Mobile Screenshot - Dark Mode](./screenshots/mobile/home_mobile_dark.png) |
 | ![Login Mobile Screenshot - Classic Mode](./screenshots/mobile/login_mobile_classic.png) | ![Login Mobile Screenshot - Light Mode](./screenshots/mobile/login_mobile_light.png) | ![Login Mobile Screenshot - Dark Mode](./screenshots/mobile/login_mobile_dark.png) |
 | ![CONNECTED Home Mobile Screenshot - Classic Mode](./screenshots/mobile/home_mobile_classic[connected].png) | ![CONNECTED Home Mobile Screenshot - Light Mode](./screenshots/mobile/home_mobile_light[connected].png) | ![CONNECTED Home Mobile Screenshot - Dark Mode](./screenshots/mobile/home_mobile_dark[connected].png) |
-
+| ![DDD Studio Mobile Screenshot - Classic Mode](./screenshots/mobile/ddd-studio_mobile_classic.png) | ![DDD Studio Mobile Screenshot - Light Mode](./screenshots/mobile/ddd-studio_mobile_light.png) | ![DDD Studio Mobile Screenshot - Dark Mode](./screenshots/mobile/ddd-studio_mobile_dark.png) |
 
 ### On Laptop
 
@@ -190,3 +190,4 @@ These are some of the things I did or plan to do, in addition to this project's 
 | ![Home Laptop Screenshot - Classic Mode](./screenshots/laptop/home_laptop_classic.png) | ![Home Laptop Screenshot - Light Mode](./screenshots/laptop/home_laptop_light.png) | ![Home Laptop Screenshot - Dark Mode](./screenshots/laptop/home_laptop_dark.png) |
 | ![Login Laptop Screenshot - Classic Mode](./screenshots/laptop/login_laptop_classic.png) | ![Login Laptop Screenshot - Light Mode](./screenshots/laptop/login_laptop_light.png) | ![Login Laptop Screenshot - Dark Mode](./screenshots/laptop/login_laptop_dark.png) |
 | ![CONNECTED Home Laptop Screenshot - Classic Mode](./screenshots/laptop/home_laptop_classic[connected].png) | ![CONNECTED Home Laptop Screenshot - Light Mode](./screenshots/laptop/home_laptop_light[connected].png) | ![CONNECTED Home Laptop Screenshot - Dark Mode](./screenshots/laptop/home_laptop_dark[connected].png) |
+| ![DDD Studio Laptop Screenshot - Classic Mode](./screenshots/laptop/ddd-studio_laptop_classic.png) | ![DDD Studio Laptop Screenshot - Light Mode](./screenshots/laptop/ddd-studio_laptop_light.png) | ![DDD Studio Laptop Screenshot - Dark Mode](./screenshots/laptop/ddd-studio_laptop_dark.png) |
