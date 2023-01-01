@@ -409,7 +409,7 @@ span.divider.vertical {
 }
 
 /* Icon-Button */
-button.icon-button {
+button.icon-button, a[role="icon-button"] {
   display: block;
   position: relative;
   width: var(--icon-button-size, 40px);
@@ -426,12 +426,22 @@ button.icon-button {
 }
 
 /* Hover over Icon-Button */
-button.icon-button:not(:disabled):hover {
+button.icon-button:not(:disabled):hover,
+a[role="icon-button"]:not(:disabled):hover {
   opacity: var(--icon-button-hover-opacity, var(--opacity-md-active));
 }
 
+/* Whenever Icon-Buttons gain focus */
+button.icon-button:focus-visible,
+a[role="icon-button"]:focus-visible {
+  outline: none;
+  opacity: var(--icon-button-hover-opacity, var(--opacity-md-active));
+  color: var(--icon-button-color-focus, var(--tertiary-color));
+  fill: var(--icon-button-color-focus, var(--tertiary-color));
+}
+
 /* Icon in Icon-Button */
-button.icon-button .icon {
+button.icon-button .icon, a[role="icon-button"] .icon {
   width: 100%;
   height: 100%;
 
@@ -444,7 +454,7 @@ button.icon-button .icon {
 }
 
 /* active links of Icon Buttons  */
-a[active] .icon-button {
+a[active] .icon-button, a[role="icon-button"][active] {
   --icon-button-opacity: 1;
   --icon-button-color: var(--primary-color);
 }
@@ -639,17 +649,17 @@ input[type="submit"][contained] {
 }
 
 /* Contained Button */
-button[contained] {
+button[contained], a[role="button"][contained] {
   background: var(--button-background-color, var(--primary-container-color));
   color: var(--button-text-color, var(--on-primary-container-color));
-  padding: 6px 12px;
+  padding: var(--button-padding, 6px 12px);
   border-radius: 8px;
   font-size: 18px; /* b4: 16px */
   line-height: 32px;
-  width: 100%;
+  width: var(--button-width, 100%);
+  height: var(--button-height, inherit);
   border: 0;
   outline: none;
-  height: inherit;
   font-weight: bold;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -668,21 +678,22 @@ button[contained] {
 }
 
 /* Whenever a button that shrinks is pressed */
-button[contained][shrinks]:active {
+button[contained][shrinks]:active, a[role="button"][contained][shrinks]:active {
   -webkit-transform: scale(0.95);
   -moz-transform: scale(0.95);
   transform: scale(0.95);
 }
 
 
-/* Contained Button */
-button[contained]:hover {
+/* Contained Button on hover */
+button[contained]:hover, a[role="button"][contained]:hover {
+  text-decoration: none;
   background: var(--button-background-color-hover, var(--primary-color));
   color: var(--button-text-color-hover, var(--on-primary-color));
 }
 
 /* Whenever a contained button gains focus */
-button[contained]:focus-visible {
+button[contained]:focus-visible, a[role="button"][contained]:focus-visible {
   outline: none;
   background: var(--button-color-focus, var(--tertiary-color));
   color: var(--button-color-focus, var(--on-tertiary-color));
@@ -880,6 +891,7 @@ a.nav-link {
   height: var(--nav-link-height, 60px);
   margin: var(--nav-link-margin, 8px 0);
   opacity: var(--nav-link-opacity, var(--opacity-icon-inactive));
+  user-select: none;
 
   color: var(--nav-icon-color, var(--on-background-color));
   fill: var(--nav-icon-color, var(--on-background-color));
@@ -922,7 +934,7 @@ a.nav-link[active] span.initials {
 a.nav-link[active] {
   opacity: 1;
   color: var(--nav-icon-color-active, var(--primary-color));
-  
+  pointer-events: none; 
 }
 
 /* App Logo in an active Nav Link */
@@ -1011,13 +1023,15 @@ em {
   }
 
   /* Icon-Button */
-  button.icon-button {
+  button.icon-button, a[role="icon-button"] {
     width: var(--icon-button-size, 48px);
     height: var(--icon-button-size, 48px); 
   }
 
+ 
+
   /* Icon in Icon-Button */
-  button.icon-button .icon {
+  button.icon-button .icon, a[role="icon-button"] .icon {
     font-size: calc(var(--icon-button-size, 48px) - (var(--icon-button-padding, 8px) * 2)); 
   }
 
