@@ -39,7 +39,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 | 3 | *`Login - Page`* | **connexion.php** | [Done](./connexion.php)\* |
 | 4 | *`Profile - Page`* | **profil.php** | [Done](./profil.php)\* |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
-| 6 | *`DDD Studio - Page`* | **ddd-studio.php** | _*In progress*_ |
+| 6 | *`DDD Studio - Page`* | **ddd-studio.php** | [Done](./ddd-studio.php)\*_ |
 
 > NOTE: (\*) = still needs to be updated
 
@@ -145,6 +145,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
 | 15 | *`Welcome - Stylesheet`* | **welcome-styles.css** | [Done](./assets/stylesheets/welcome-styles.css)\* |
 | 16 | *`Home - Stylesheet`* | **home-styles.css** | [Done](./assets/stylesheets/home-styles.css)\* |
+| 17 | *`DDD Studio - Stylesheet`* | **ddd-studio-styles.css** | [Done](./assets/stylesheets/ddd-studio-styles.css)\* |
  
 
 > NOTE: (\*) = still needs to be updated. <br>
