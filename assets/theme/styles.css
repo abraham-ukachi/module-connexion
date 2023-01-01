@@ -275,6 +275,8 @@ aside > span.app-logo {
   height: var(--app-bar-size, 54px);
   box-sizing: border-box;
   padding: 0 var(--app-bar-padding, 16px);
+  background: var(--app-bar-color-background, inherit);
+  color: var(--app-bar-color-on-background, inherit);
 }
 
 
