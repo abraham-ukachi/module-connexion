@@ -621,8 +621,8 @@ input {
 /* Password Input */
 input[type="password"] {}
 
-/* Submit Button / Inputs */
-input[type="submit"] {
+/* Submit Button / Inputs & Outlined Buttons */
+input[type="submit"], button[outlined], a[role="button"][outlined] {
   border: 2px solid var(--outline-color);
   border-radius: 8px;
   padding: 8px 16px;
@@ -630,14 +630,17 @@ input[type="submit"] {
   cursor: pointer;
   margin-top: 24px;
   margin-bottom: 16px;
+  background: inherit;
+  color: inherit;
 
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   transition: all .2s ease;
 }
 
-/* Hovered / Focused Submit Input */
-input[type="submit"]:hover, input[type="submit"]:focus {
+/* Hovered / Focused Submit Input & Outlined Buttons */
+input[type="submit"]:hover, input[type="submit"]:focus,
+button[outlined]:hover, a[role="button"][outlined]:focus {
   opacity: 1;
   border-color: var(--primary-color);
   color: var(--primary-color);
@@ -679,12 +682,21 @@ button[contained], a[role="button"][contained] {
   transition: all 200ms ease;
 }
 
+/* Whenever a button that expands is hovered and/or gains focus */
+button[contained][expands]:hover, a[role="button"][contained][expands]:hover,
+button[contained][expands]:focus-visible, a[role="button"][contained][expands]:focus-visible {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 /* Whenever a button that shrinks is pressed */
 button[contained][shrinks]:active, a[role="button"][contained][shrinks]:active {
   -webkit-transform: scale(0.95);
   -moz-transform: scale(0.95);
   transform: scale(0.95);
 }
+
 
 
 /* Contained Button on hover */
@@ -1042,7 +1054,7 @@ em {
     height: var(--app-bar-size, 60px);
   }
 
-  input[type="submit"] {
+  input[type="submit"], button[outlined], a[role="button"][outlined] {
     margin-top: 32px;
     margin-bottom: 24px;
   }

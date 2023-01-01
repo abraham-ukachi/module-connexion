@@ -58,7 +58,7 @@
     <meta name="description" content="DDD studio page of ddd / module-connexion">
     
     <!-- Title -->
-    <title>DDD Studio - module-connexion | by Abraham Ukachi</title>
+    <title>DDD Studio - module-connexion / ddd | by Abraham Ukachi</title>
 
 
     <!-- Fonts -->
@@ -207,10 +207,10 @@
           <div id="appBar" class="app-bar">
 
 
-            <!-- Return Icon Button -->
-            <a href="profil.php" title="Go Back">
-              <button id="returnIconButton" class="icon-button">
-                <span class="material-icons icon">arrow_back</span>
+            <!-- Cancel Icon Button -->
+            <a href="." title="Cancel">
+              <button id="closeIconButton" class="icon-button">
+                <span class="material-icons icon">close</span>
               </button>
             </a>
 
@@ -221,19 +221,6 @@
             </div>
             <!-- End of Title Wrapper -->
             
-            <!-- <span flex></span> -->
-            
-            <!-- Settings - Icon Button -->
-            <a href="settings.php" title="Settings">
-              <button id="settingsIconButton" class="icon-button">
-                <span class="material-icons icon">settings</span>
-              </button>
-            </a>
-            <!-- End of Settings - Icon Button -->
-            
-            
-            <!-- Horizontal Divider -->
-            <span class="divider horizontal bottom"></span>
           </div>
           <!-- End of App Bar -->
 
@@ -244,7 +231,60 @@
         <!-- NOTE: This is arguably the most important content ever!!! -->
         <!-- TODO: (scrollableTarget) - Make it the only scrollable `content` -->
         <div id="content">
-                     
+
+          <!-- Container -->
+          <div class="container vertical flex-layout">
+
+            <!-- Preview Wrapper -->
+            <div class="preview-wrapper vertical flex-layout slide-from-up">
+
+              <!-- Preview -->
+              <div id="preview" class="vertical flex-layout centered">
+                <!-- DDD Box Simulator  -->
+                <img id="dddBoxSimulator" src="assets/images/gifs/ddd_box8.gif" alt="A DDD Box Simulator" width="300" height="300"/>
+
+              </div>
+              <!-- End of Preview -->
+              
+              <!-- Start-Button-Wrapper -->
+              <div class="start-button-wrapper vertical flex-layout centered">
+                <!-- Label -->
+                <span class="label">Start with this box</span>
+
+                <!-- Start Button -->
+                <button id="startButton" class="vertical flex-layout centered" contained expands shrinks>
+                  <span class="material-icons icon">arrow_forward</span>
+                </button>
+              
+              </div>
+              <!-- End of Start-Button-Wrapper -->
+
+              <!-- Wave -->
+              <svg id="wave" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 500 100">
+                <path d="M26.7 0H0v100h500V0h-27.7c-115 11.6-127.4 94.7-221.6 94.7-94.9 0-101-83.1-224-94.7z"/>
+              </svg> 
+              <!-- End of Wave -->
+            </div>
+            <!-- End of Preview Wrapper -->
+
+
+            <!-- Buttons Wrapper -->
+            <div class="buttons-wrapper vertical flex-layout center slide-from-down">
+
+              <!-- Make From Pic - BUTTON -->
+              <!-- TODO: Change this button to a file input (eg. `<input type="file">`) -->
+              <button id="makeFromPicButton" class="horizontal flex-layout centered" outlined>
+                <span class="material-icons icon">photo</span>
+                <span>Make from pic</span>
+              </button>
+
+            </div>
+            <!-- End of Buttons Wrapper -->
+
+          </div>
+          <!-- End of Container --> 
+
+
         </div>
         <!-- End of Content - App Layout -->
 

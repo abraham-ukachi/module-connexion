@@ -29,19 +29,135 @@
 /* Importing some VIP styles */
 @import '../theme/color.css'; /* <- color from theme */
 
+/* Importing some animations */
+@import '../animations/slide-from-up-animation.css';
+@import '../animations/slide-from-down-animation.css';
+
+
 /* ====  DDD Studio STYLES === */
 
 
 /* ROOT / HTML */
-:root {}
+:root {
+  /* --slide-animation-timing-function: cubic-bezier(0.56, 0.62, 0.52, 1.37); */
+}
 
 
+/* Default Theme */
+.theme {}
+
+/* Dark Theme */
+.theme.dark {}
 
 
+/* App Bar */
+#appBar {
+  --app-bar-color-background: var(--primary-container-color);
+  --app-bar-color-on-background: var(--on-primary-container-color);
+}
 
 
+/* Content */
+#content {
+  /* <- HACK: hides top border line */
+  /* top: -1px; */
+}
+
+/* Container of Content */
+#content > .container {
+  padding: 0;
+  height: 100%;
+}
+
+/* Preview Wrapper */
+.preview-wrapper {
+  background: var(--primary-container-color);
+  flex: 3;
+}
 
 
+/* Buttons Wrapper */
+.buttons-wrapper {
+  flex: 1;
+  padding: 10%;
+}
+
+/* Start Button Wrapper */
+.start-button-wrapper {
+  margin-bottom: -50px;
+}
+
+/* Label in Start Button Wrapper */
+.start-button-wrapper span.label {
+  font-size: 14px;
+  font-weight: bold;
+  opacity: var(--opacity-text-active);
+}
+
+/* Wave - SVG */
+svg#wave {
+  pointer-events: none;
+  fill: var(--wave-color, var(--background-color));
+  transform: scale(1.02); /* HACK: Removes annoying bottom border line */
+}
+
+/* Make From Pic Button */
+#makeFromPicButton { 
+  position: relative;
+  font-size: 20px;
+  padding: 8px 16px;
+  margin: 0;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+/* Icon of Make From Pic Button */
+#makeFromPicButton .icon {
+  margin: 0 8px;
+}
+
+/* HACK: Should be in styles.css */
+#makeFromPicButton:hover {
+  --material-icon-color: var(--primary-color);
+}
+
+/* === Preview Styles === */
+
+/* Preview */
+#preview {
+  width: 100%;
+  height: auto;
+  flex: 1;
+}
+
+/* === End of Preview Styles === */
+
+
+/* Start Button */
+button#startButton {
+  --button-width: 80px;
+  --button-height: 80px;
+  --button-padding: 8px;
+  --button-background-color: var(--background-color);
+
+  --material-icon-color: var(--primary-color);
+  --material-icon-size: 32px;
+
+  border-radius: 50%;
+  margin: 8px;
+}
+
+/* Hovered Start Button */
+button#startButton:hover {
+  --material-icon-color: var(--on-primary-color);
+}
+
+/* Focused Start Button */
+button#startButton:focus-visible {
+  --material-icon-color: var(--on-tertiary-color);
+}
 
 /* 
  * --> Wide - Layout <--
@@ -53,7 +169,24 @@
  * layout changes to wide-layout.
  * ***************************************
  */
-@media (min-width: 460px) {}
+@media (min-width: 460px) {
+
+  /* Make From Pic Button */
+  #makeFromPicButton { 
+    padding: 12px 24px;
+  }
+
+  /* Icon of Make From Pic Button */
+  #makeFromPicButton .icon {
+    margin: 0 12px;
+  }
+
+  /* Label in Start Button Wrapper */
+  .start-button-wrapper span.label {
+    font-size: 16px;
+  }
+
+}
 
 
 
@@ -70,7 +203,12 @@
  * Phone: ? (Responsive)
  * Width: 1024px <-to-> 2560px
  */
-@media (min-width: 1024px) and (max-width: 2560px) {}
+@media (min-width: 1024px) and (max-width: 2560px) {
+  /* Start Button Wrapper */
+  .start-button-wrapper {
+    margin-bottom: -80px;
+  }
+}
 
 
 /* ====  END of DDD Studio STYLES === */
