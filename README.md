@@ -35,9 +35,9 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
 | 1 | *`Home - Page`* | **index.php** | [Done](./index.php)\* |
-| 2 | *`Register - Page`* | **inscription.php** | _*In progress*_ |
-| 3 | *`Login - Page`* | **connexion.php** | _*In progress*_ |
-| 4 | *`Profile - Page`* | **profil.php** | *_In progress*_ |
+| 2 | *`Register - Page`* | **inscription.php** | [Done](./inscription.php)\* |
+| 3 | *`Login - Page`* | **connexion.php** | [Done](./connexion.php)\* |
+| 4 | *`Profile - Page`* | **profil.php** | [Done](./profil.php)\*_ |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
 | 6 | *`DDD Studio - Page`* | **ddd-studio.php** | Pending |
 
