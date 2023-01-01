@@ -37,7 +37,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 | 1 | *`Home - Page`* | **index.php** | [Done](./index.php)\* |
 | 2 | *`Register - Page`* | **inscription.php** | [Done](./inscription.php)\* |
 | 3 | *`Login - Page`* | **connexion.php** | [Done](./connexion.php)\* |
-| 4 | *`Profile - Page`* | **profil.php** | [Done](./profil.php)\*_ |
+| 4 | *`Profile - Page`* | **profil.php** | [Done](./profil.php)\* |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
 | 6 | *`DDD Studio - Page`* | **ddd-studio.php** | Pending |
 
@@ -176,6 +176,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 |:-------------|:-----------|:----------|
 | ![Welcome Mobile Screenshot - Classic Mode](./screenshots/mobile/welcome_mobile_classic.png) | ![Welcome Mobile Screenshot - Light Mode](./screenshots/mobile/welcome_mobile_light.png) | ![Welcome Mobile Screenshot - Dark Mode](./screenshots/mobile/welcome_mobile_dark.png) |
 | ![Home Mobile Screenshot - Classic Mode](./screenshots/mobile/home_mobile_classic.png) | ![Home Mobile Screenshot - Light Mode](./screenshots/mobile/home_mobile_light.png) | ![Home Mobile Screenshot - Dark Mode](./screenshots/mobile/home_mobile_dark.png) |
+| ![CONNECTED Home Mobile Screenshot - Classic Mode](./screenshots/mobile/home_mobile_classic[connected].png) | ![CONNECTED Home Mobile Screenshot - Light Mode](./screenshots/mobile/home_mobile_light[connected].png) | ![CONNECTED Home Mobile Screenshot - Dark Mode](./screenshots/mobile/home_mobile_dark[connected].png) |
 
 
 ### On Laptop
@@ -184,3 +185,4 @@ These are some of the things I did or plan to do, in addition to this project's 
 |:-------------|:-----------|:----------|
 | ![Welcome Laptop Screenshot - Classic Mode](./screenshots/laptop/welcome_laptop_classic.png) | ![Welcome Laptop Screenshot - Light Mode](./screenshots/laptop/welcome_laptop_light.png) | ![Welcome Laptop Screenshot - Dark Mode](./screenshots/laptop/welcome_laptop_dark.png) |
 | ![Home Laptop Screenshot - Classic Mode](./screenshots/laptop/home_laptop_classic.png) | ![Home Laptop Screenshot - Light Mode](./screenshots/laptop/home_laptop_light.png) | ![Home Laptop Screenshot - Dark Mode](./screenshots/laptop/home_laptop_dark.png) |
+| ![CONNECTED Home Laptop Screenshot - Classic Mode](./screenshots/laptop/home_laptop_classic[connected].png) | ![CONNECTED Home Laptop Screenshot - Light Mode](./screenshots/laptop/home_laptop_light[connected].png) | ![CONNECTED Home Laptop Screenshot - Dark Mode](./screenshots/laptop/home_laptop_dark[connected].png) |
