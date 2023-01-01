@@ -48,6 +48,7 @@
 
 /* Doodles */
 .doodle {
+  display: block;
   width: var(--doodle-size, 250px);
   height: var(--doodle-size, 250px);
   background: var(--doodle-color, var(--on-background-color));

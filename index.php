@@ -216,35 +216,15 @@
 
           <!-- App Bar -->
           <div id="appBar" class="app-bar">
-
-
-            <!-- Return Icon Button -->
-            <a href="profil.php" title="Go Back">
-              <button id="returnIconButton" class="icon-button">
-                <span class="material-icons icon">arrow_back</span>
-              </button>
-            </a>
-
-            <!-- Title Wrapper -->
-            <div class="title-wrapper">
-              <!-- App Title -->
-              <h2 id="appTitle" class="app-title">Home</h2> 
-            </div>
-            <!-- End of Title Wrapper -->
             
-            <!-- <span flex></span> -->
-            
+            <span flex></span>
+
             <!-- Settings - Icon Button -->
-            <a href="settings.php" title="Settings">
-              <button id="settingsIconButton" class="icon-button">
-                <span class="material-icons icon">settings</span>
-              </button>
+            <a id="settingsIconButton" role="icon-button" tabindex="0" href="settings.php" title="Settings">
+              <span class="material-icons icon">settings</span>
             </a>
             <!-- End of Settings - Icon Button -->
-            
-            
-            <!-- Horizontal Divider -->
-            <span class="divider horizontal bottom"></span>
+
           </div>
           <!-- End of App Bar -->
 
@@ -255,7 +235,107 @@
         <!-- NOTE: This is arguably the most important content ever!!! -->
         <!-- TODO: (scrollableTarget) - Make it the only scrollable `content` -->
         <div id="content">
-                     
+
+
+          <!-- [online] Container -->
+          <div class="container vertical flex-layout" online>
+
+            <!-- Home Title -->
+            <h3 class="home-title txt capitalize">&#9728;&#65039; Good morning, <span>Abraham</span></h3>
+
+            <!-- Home Description -->
+            <p class="home-description">Nice to see you again :)</p>
+
+            <!-- Home-Menu -->
+            <!-- TODO: Rename to Dashboard ? -->
+            <menu class="home-menu">
+
+              <!-- Profile -->
+              <li><a href="profil.php?edit">
+                <!-- Doodle Wrapper -->
+                <div class="doodle-wrapper">
+                  <!-- Doodle -->
+                  <span class="doodle edit-doodle"></span>
+                </div>
+
+                <!-- Label -->
+                <span class="label">Edit your profile</span>
+              </a></li> 
+
+
+              <!-- DDD Studio -->
+              <li><a href="ddd-studio.php">
+                <!-- Doodle Wrapper -->
+                <div class="doodle-wrapper">
+                  <!-- Doodle -->
+                  <span class="doodle ddd-doodle"></span>
+                </div>
+
+                <!-- Label -->
+                <span class="label">Build your DDD box</span>
+              </a></li> 
+
+              <!-- Language -->
+              <li><a href="settings.php?view=lang">
+                <!-- Doodle Wrapper -->
+                <div class="doodle-wrapper">
+                  <!-- Doodle -->
+                  <span class="doodle language-doodle"></span>
+                </div>
+
+                <!-- Label -->
+                <span class="label">Change your language</span>
+              </a></li>
+
+
+              <!-- Theme -->
+              <li><a href="settings.php?view=theme">
+                <!-- Doodle Wrapper -->
+                <div class="doodle-wrapper">
+                  <!-- Doodle -->
+                  <span class="doodle theme-doodle"></span>
+                </div>
+
+                <!-- Label -->
+                <span class="label">Change your theme</span>
+              </a></li> 
+
+              <!-- Dividers -->
+              <div class="dividers" fit>
+                <span class="divider horizontal top left"></span>
+                <span class="divider vertical top left"></span>
+              </div>
+              
+            </menu>
+            <!-- End of Home-Menu -->
+
+          </div>
+          <!-- End of [online] Container -->
+
+
+          
+          <!-- [offline] Container -->
+          <div class="container vertical flex-layout centered slide-from-down" offline hidden>
+
+            <!-- Home Image -->
+            <span class="home-image"></span>
+
+            <!-- Home Title -->
+            <h3 class="home-title">Welcome to module-connexion</h3>
+
+            <!-- Home Description -->
+            <p class="home-description">The fastest and easiest way to create / delete an account, modify your profile, build your own unique `<em>DDD</em>` box and more... Get started by logging into your account.</p>
+            
+            <!-- Register - Button -->
+            <a id="registerButton" role="button" tabindex="0" href="inscription.php" contained>Register</a>
+
+            <!-- Login - Button -->
+            <a id="loginButton" role="button" tabindex="0" href="connexion.php">Log In</a>
+            
+          </div>
+          <!-- End of [offline] Container -->
+
+
         </div>
         <!-- End of Content - App Layout -->
 

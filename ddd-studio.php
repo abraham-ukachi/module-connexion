@@ -110,7 +110,7 @@
     <link rel="stylesheet" href="assets/theme/styles.css">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/stylesheets/profile-styles.css">
+    <link rel="stylesheet" href="assets/stylesheets/ddd-studio-styles.css">
     
     <!-- Animations -->
     <!-- <link rel="stylesheet" href="assets/animations/fade-in-animation.css"> -->

@@ -260,7 +260,8 @@ input[type="submit"], button[type="submit"] {
 
 /* Links as BUTTON */
 a[role="button"] {
-  width: fit-content;
+  width: var(--button-width, fit-content);
+  height: var(--button-height, auto);
   padding: 8px 16px;
   min-width: 50px;
   text-align: center;
@@ -270,9 +271,8 @@ a[role="button"] {
   letter-spacing: 1px;
   user-select: none;
   box-sizing: border-box;
-  margin: 12px 0;
+  margin: var(--button-margin, 12px 0);
 }
-
 
 /* Caption - Text */
 .txt.caption {

@@ -34,7 +34,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Home - Page`* | **index.php** | _*In progress*_ |
+| 1 | *`Home - Page`* | **index.php** | [Done](./index.php)\* |
 | 2 | *`Register - Page`* | **inscription.php** | _*In progress*_ |
 | 3 | *`Login - Page`* | **connexion.php** | _*In progress*_ |
 | 4 | *`Profile - Page`* | **profil.php** | *_In progress*_ |
@@ -144,10 +144,11 @@ These are some of the things I did or plan to do, in addition to this project's 
 | 13 | *`Goodbye - Page`* | **goodbye.php** | [Done](./goodbye.php)\* |
 | 14 | *`Slide From Up - Animation`* | **slide-from-up-animation.css** | [Done](./assets/animations/slide-from-up-animation.css) |
 | 15 | *`Welcome - Stylesheet`* | **welcome-styles.css** | [Done](./assets/stylesheets/welcome-styles.css)\* |
+| 16 | *`Home - Stylesheet`* | **home-styles.css** | [Done](./assets/stylesheets/home-styles.css)\* |
  
 
 > NOTE: (\*) = still needs to be updated. <br>
-> There are a few we must have forgotten or not added yet,so I'll keep the above list updated obv. :)
+> There's certainly a couple of file I must've forgot or not added yet,so I'll keep the above list updated obv. :)
 
 ## TODOs
 
@@ -169,7 +170,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 ## Some random screenshots
 
 
-## On Mobile
+### On Mobile
 
 | Classic Mode | Light Mode | Dark Mode |
 |:-------------|:-----------|:----------|
@@ -177,7 +178,7 @@ These are some of the things I did or plan to do, in addition to this project's 
 | ![Home Mobile Screenshot - Classic Mode](./screenshots/mobile/home_mobile_classic.png) | ![Home Mobile Screenshot - Light Mode](./screenshots/mobile/home_mobile_light.png) | ![Home Mobile Screenshot - Dark Mode](./screenshots/mobile/home_mobile_dark.png) |
 
 
-## On Laptop
+### On Laptop
 
 | Classic Mode | Light Mode | Dark Mode |
 |:-------------|:-----------|:----------|

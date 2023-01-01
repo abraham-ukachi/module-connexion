@@ -271,55 +271,19 @@
 
     <!-- App Layout -->
     <div id="appLayout" class="flex-layout horizontal" fit>
-      
-      <!-- Vertical Nav Bar -->
-      <nav class="nav-bar vertical flex-layout">
-        <!-- Icon-Wrapper -->
-        <a href=".#" class="icon-wrapper">
-          <!-- App-Logo -->
-          <span class="app-logo"></span>
-          <!-- End of App-Logo -->
-        </a>
-        <!-- End of Icon-Wrapper -->
-        
-        <span flex></span>
-         
-        <!-- Home - Nav-Link -->
-        <a title="Home" href="" class="nav-link">
-          <span class="material-icons nav-icon">view_in_ar</span> <!-- UX: Use `home` instead -->
-        </a>
-        <!-- End of Home Nav-Link -->
 
-        
-        <!-- Profile - Nav-Link -->
-        <a title="Profile" href="profil.php" class="nav-link">
-          <span class="material-icons nav-icon">account_circle</span>
-        </a>
-        <!-- End of Profile Nav-Link -->
+      <!-- PHP(1): Include the vertical & responsive `nav-bar` component here -->
+      <?php 
+        $_GET['navbar_type'] = 'vertical'; 
+        $_GET['navbar_page'] = 'connexion'; 
+        $_GET['navbar_init'] = 'au'; 
+        $_GET['navbar_connected'] = 'false'; 
+        $_GET['navbar_res'] = 'true'; 
+      ?>
 
-        <span class="divider horizontal"></span>
+      <?php include 'components/nav-bar.php'; ?>
+      <!-- End of PHP(1) -->
 
-        
-        <!-- Settings - Nav-Link -->
-        <a title="Settings" href="settings.php" class="nav-link">
-          <span class="material-icons nav-icon">settings</span>
-        </a>
-        <!-- End of Settings Nav-Link -->
-        
-
-        <span flex></span>
-
-        
-        <!-- LogOut - Nav-Link -->
-        <a title="Log out" href="logout.php" class="nav-link"> 
-          <span class="material-icons nav-icon">power_settings_new</span>
-        </a>
-        <!-- End of Profile Nav-Link -->
-
-        <!-- Horizontal Divider -->
-        <span class="divider vertical right"></span>
-      </nav>
-      <!-- End of Vertical Nav Bar -->
 
       <!-- MAIN - App Layout -->
       <main class="flex-layout vertical">
@@ -330,7 +294,13 @@
           <!-- App Bar -->
           <div id="appBar" class="app-bar">
             <!-- Close - Icon Button -->
-            <button id="closeIconButton" class="icon-button"><span class="material-icons icon">close</span></button>
+            <a href="." title="Cancel">
+              <button id="closeIconButton" class="icon-button">
+                <span class="material-icons icon">close</span>
+              </button>
+            </a>
+            <!-- End of Close - Icon Button -->
+
             <!-- Title Wrapper -->
             <div class="title-wrapper">
               <h2 id="appTitle" class="app-title">Log in</h2> <!-- App Title -->
@@ -448,32 +418,18 @@
         </div>
         <!-- End of Content - App Layout -->
 
-        <!-- Nav Bar -->
-        <nav class="nav-bar horizontal flex-layout center">
-          <span class="divider horizontal top"></span>
 
-          <!-- Home - Nav-Link -->
-          <a title="Home" href="" class="nav-link">
-            <span class="material-icons nav-icon">view_in_ar</span> <!-- UX: Use `home` instead -->
-          </a>
-          <!-- End of Home Nav-Link -->
+        <!-- PHP(2): Include the horizontal & responsive `nav-bar` component here -->
+        <?php 
+          $_GET['navbar_type'] = 'horizontal'; 
+          $_GET['navbar_page'] = 'connexion'; 
+          $_GET['navbar_init'] = 'au'; 
+          $_GET['navbar_connected'] = 'false'; 
+          $_GET['navbar_res'] = 'true'; 
+        ?> 
 
-
-          <span flex></span> <!-- HACK: Just a temp. fix :) -->
-          
-          <!-- App Logo -->
-          <span class="app-logo"></span>
-           
-          <span flex></span> <!-- HACK: Just a temp. fix :) -->
-          
-          <!-- Profile - Nav-Link -->
-          <a title="Profile" href="profil.php" class="nav-link">
-            <span class="material-icons nav-icon">account_circle</span>
-          </a>
-          <!-- End of Profile Nav-Link -->
-
-        </nav>
-        <!-- End of Nav Bar -->
+        <?php include 'components/nav-bar.php'; ?>
+        <!-- End of PHP(2) -->
         
       </main>
       <!-- End of MAIN - App Layout -->
