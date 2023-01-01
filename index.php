@@ -238,7 +238,7 @@
 
 
           <!-- [online] Container -->
-          <div class="container vertical flex-layout" online>
+          <div class="container vertical flex-layout" online hidden>
 
             <!-- Home Title -->
             <h3 class="home-title txt capitalize">&#9728;&#65039; Good morning, <span>Abraham</span></h3>
@@ -315,7 +315,7 @@
 
           
           <!-- [offline] Container -->
-          <div class="container vertical flex-layout centered slide-from-down" offline hidden>
+          <div class="container vertical flex-layout centered slide-from-down" offline>
 
             <!-- Home Image -->
             <span class="home-image"></span>

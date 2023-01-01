@@ -61,10 +61,6 @@
 
 /* Content */
 #content {
-  --doodle-size: 80px;
-  --doodle-color: var(--on-background-color);
-  --doodle-opacity: var(--opacity-icon-inactive);
-  --link-color: var(--on-background-color);
 }
 
 /* Container of Content */
@@ -156,6 +152,11 @@ p.home-description {
 
 /* Online Container of Content */
 #content > .container[online] {
+  --doodle-size: 80px;
+  --doodle-color: var(--on-background-color);
+  --doodle-opacity: var(--opacity-icon-inactive);
+  --link-color: var(--on-background-color);
+
   text-align: left;
 }
 

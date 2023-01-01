@@ -39,7 +39,7 @@ The official deadline of the jobs below - according to [intra](https://intra.lap
 | 3 | *`Login - Page`* | **connexion.php** | [Done](./connexion.php)\* |
 | 4 | *`Profile - Page`* | **profil.php** | [Done](./profil.php)\* |
 | 5 | *`Database - SQL`* | **moduleconnexion.sql** | Pending |
-| 6 | *`DDD Studio - Page`* | **ddd-studio.php** | Pending |
+| 6 | *`DDD Studio - Page`* | **ddd-studio.php** | _*In progress*_ |
 
 > NOTE: (\*) = still needs to be updated
 
