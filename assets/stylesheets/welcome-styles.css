@@ -43,6 +43,9 @@
   --ddd-doodle: url('../images/doodles/doodle-ddd.svg');
   --language-doodle: url('../images/doodles/doodle-language.svg');
   --theme-doodle: url('../images/doodles/doodle-paint.svg');
+
+  --users-doodle: url('../images/doodles/doodle-users.svg');
+  --dashboard-doodle: url('../images/doodles/doodle-dashboard.svg');
 }
 
 
@@ -94,6 +97,16 @@
 /* Theme Doodle */
 .theme-doodle {
   --doodle-image: var(--theme-doodle);
+}
+
+/* Users Doodle */
+.users-doodle {
+  --doodle-image: var(--users-doodle);
+}
+
+/* Dashboard Doodle */
+.dashboard-doodle {
+  --doodle-image: var(--dashboard-doodle);
 }
 
 /* Container of Content */
