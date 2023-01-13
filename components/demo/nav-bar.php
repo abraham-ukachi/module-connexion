@@ -50,6 +50,10 @@ define('PAGE_HOME', 'home');
 define('PAGE_DDD', 'ddd');
 define('PAGE_PROFILE', 'profil');
 define('PAGE_SETTINGS', 'settings');
+define('PAGE_ADMIN', 'admin');
+// Routes
+define('ROUTE_USERS', 'users');
+define('ROUTE_DASHBOARD', 'dashboard');
 // toggles
 define('ACTIVE', 'active');
 
@@ -58,6 +62,9 @@ $type = isset($_GET['type']) ?  $_GET['type'] : '';
 
 // get the value of `page` parameter from PHP's global variable - GET
 $page = isset($_GET['page']) ?  $_GET['page'] : '';
+
+// get the value of `route` parameter from PHP's global variable - GET
+$route = isset($_GET['route']) ?  $_GET['route'] : '';
 
 // get the value of `connected` parameter from PHP's global variable - GET
 $connected = isset($_GET['connected']) ?  $_GET['connected'] : 'false';
@@ -363,6 +370,7 @@ $navbarResponsive = 'false';
           <?php
             $_GET['navbar_type'] = $type;
             $_GET['navbar_page'] = $page;
+            $_GET['navbar_route'] = $route;
             $_GET['navbar_init'] = $init;
             $_GET['navbar_connected'] = $connected;
             $_GET['navbar_res'] = $navbarResponsive;
@@ -428,14 +436,41 @@ $navbarResponsive = 'false';
                <span>Settings</span> 
               </button>
 
+
+              <!-- Admin - Page - Button -->
+              <button onclick="updateSearch('page', 'admin')" <?php echo ($page === PAGE_ADMIN) ? ACTIVE : '' ; ?>>
+               <span>Admin</span> 
+              </button>
+
             </div>
             <!-- End of Control Buttons -->
           </div>
           <!-- End of Pages Controls -->
 
+          <!-- Routes Controls -->
+          <div id="routesControl" class="control">
+            <h4>Routes</h4>
+            <!-- Control Buttons -->
+            <div class="control-buttons">
+              <!-- Users - Route - Button -->
+              <button onclick="updateSearch('route', 'users')" <?php echo ($route === ROUTE_USERS) ? ACTIVE : '' ; ?>>
+                <span>Users</span>
+              </button>
 
-          <!-- Pages Controls -->
-          <div id="pagesControl" class="control">
+
+              <!-- Dashboard - Route - Button -->
+              <button onclick="updateSearch('route', 'dashboard')" <?php echo ($route === ROUTE_DASHBOARD) ? ACTIVE : '' ; ?>>
+               <span>Dashboard</span> 
+              </button>
+
+            </div>
+            <!-- End of Control Buttons -->
+          </div>
+          <!-- End of Route Controls -->
+
+
+          <!-- Connected Controls -->
+          <div id="connectedControl" class="control">
             <h4>Connected</h4>
             <!-- Control Buttons -->
             <div class="control-buttons">
@@ -453,7 +488,7 @@ $navbarResponsive = 'false';
             </div>
             <!-- End of Control Buttons -->
           </div>
-          <!-- End of Pages Controls -->
+          <!-- End of Connected Controls -->
 
 
 

@@ -82,9 +82,9 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 ?>
 
 
-<!-- PHP: If the nav bar should be vertical... -->
+<!-- PHP (1): If the nav bar should be vertical... -->
 <?php if ($isNavbarVertical) : ?>
-<!-- PHP: ...show the vertical nav-bar -->
+<!-- PHP (1): ...show the vertical nav-bar -->
 
 <!-- Vertical Nav Bar -->
 <nav class="nav-bar vertical flex-layout" <?php echo ($_GET['navbar_res'] == 'true') ? 'responsive' : '' ?>>
@@ -97,12 +97,39 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
   <!-- End of Icon-Wrapper -->
   
   <span flex></span>
-   
+
+
+  <!-- PHP (3): If the current page is `admin` ... -->
+  <?php if ($_GET['navbar_page'] == 'admin') : ?>
+  <!-- PHP (3): ...show the users and dashboard nav-links -->
+
+  <!-- Users - Nav-Link -->
+  <a title="Users" href="admin.php?route=users" class="nav-link" <?php echo ($_GET['navbar_route'] == 'users') ? 'active' : '' ?>>
+    <span class="material-icons nav-icon">people</span>
+  </a>
+  <!-- End of Users Nav-Link -->
+
+
+  <!-- Dashboard - Nav-Link [disabled] -->
+  <a title="Dashboard" href="admin.php?route=dashboard" class="nav-link" <?php echo ($_GET['navbar_route'] == 'dashboard') ? 'active' : '' ?> disabled>
+    <span class="material-icons nav-icon">dashboard</span>
+  </a>
+  <!-- End of Dashboard Nav-Link -->
+
+  <!-- PHP (else): Current page *IS NOT* `admin`...  -->
+  <?php else : ?> 
+  <!-- PHP (else): ...show the DDD Studio - Nav-Link  -->
+
+
   <!-- DDD Studio - Nav-Link -->
   <a title="DDD Studio" href="ddd-studio.php" class="nav-link" <?php echo ($_GET['navbar_page'] == 'ddd-studio') ? 'active' : '' ?>>
     <span class="material-icons nav-icon">view_in_ar</span>
   </a>
   <!-- End of DDD Studio Nav-Link -->
+
+  <?php endif; ?>
+  <!-- End of PHP (3) -->
+
 
   
   <!-- Profile - Nav-Link -->
@@ -158,24 +185,41 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 </nav>
 <!-- End of Vertical Nav Bar -->
 
-<!-- End of PHP: If the nav bar should be vertical -->
 <?php endif; ?>
+<!-- End of PHP (1) -->
 
 
-
-<!-- PHP: If the nav bar should be horizontal... -->
+<!-- PHP (2): If the nav bar should be horizontal... -->
 <?php if ($isNavbarHorizontal) : ?>
-<!-- PHP: ...show the horizontal nav-bar -->
+<!-- PHP (2): ...show the horizontal nav-bar -->
 
 <!-- Horizontal Nav Bar -->
 <nav class="nav-bar horizontal flex-layout center" <?php echo ($_GET['navbar_res'] == 'true') ? 'responsive' : '' ?>>
   <span class="divider horizontal top"></span>
+
+  <!-- PHP (4): If the current page is `admin` ... -->
+  <?php if ($_GET['navbar_page'] == 'admin') : ?>
+  <!-- PHP (4): ...show the Users Nav-Link -->
+
+  <!-- Users - Nav-Link -->
+  <a title="Users" href="admin.php?route=users" class="nav-link" <?php echo ($_GET['navbar_route'] == 'users') ? 'active' : '' ?>>
+    <span class="material-icons nav-icon">people</span>
+  </a>
+  <!-- End of Users Nav-Link -->
+
+  <!-- PHP (else): Current page *IS NOT* `admin`...  -->
+  <?php else : ?> 
+  <!-- PHP (else): ...show the DDD Studio - Nav-Link  -->
 
   <!-- DDD Studio - Nav-Link -->
   <a title="DDD Studio" href="ddd-studio.php" class="nav-link" <?php echo ($_GET['navbar_page'] == 'ddd-studio') ? 'active' : '' ?>>
     <span class="material-icons nav-icon">view_in_ar</span>
   </a>
   <!-- End of DDD Studio - Nav-Link -->
+
+  <?php endif; ?>
+  <!-- End of PHP (4) -->
+
   
   <span flex></span> <!-- HACK: Just a temp. fix :) -->
 
@@ -213,6 +257,5 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 </nav>
 <!-- End of Horizontal Nav Bar -->
 
-<!-- End of PHP: If the nav bar should be horizontal -->
 <?php endif; ?>
-
+<!-- End of PHP (2) -->
