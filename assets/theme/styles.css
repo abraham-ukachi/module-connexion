@@ -131,6 +131,8 @@
 
 /* Disabled */
 [disabled] {
+  --nav-link-opacity: var(--opacity-icon-disabled);
+
   pointer-events: none !important;
   cursor: default !important;
 }

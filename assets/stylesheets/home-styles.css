@@ -188,6 +188,11 @@ menu.home-menu > li {
   transition: all 200ms ease-in-out;
 
 }
+/* Items of Home Menu */
+menu.home-menu > li[disabled],
+menu.home-menu > li[aria-disabled="true"] {
+ opacity: var(--opacity-icon-disabled); 
+}
 
 /* Items of Home Menu */
 menu.home-menu > li:hover {
