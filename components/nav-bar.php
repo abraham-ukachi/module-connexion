@@ -89,7 +89,9 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
 <!-- Vertical Nav Bar -->
 <nav class="nav-bar vertical flex-layout" <?php echo ($_GET['navbar_res'] == 'true') ? 'responsive' : '' ?>>
   <!-- Icon-Wrapper -->
-  <a title="Home" href="index.php" class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
+  <a title="Home" 
+    href="<?php echo ($_GET['navbar_page'] == 'admin') ? 'admin.php' : 'index.php' ?>" 
+    class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
     <!-- App-Logo -->
     <span class="app-logo"></span> <!-- UX: Use `home` material-icon instead ? -->
     <!-- End of App-Logo -->
@@ -224,7 +226,9 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
   <span flex></span> <!-- HACK: Just a temp. fix :) -->
 
   <!-- Icon-Wrapper -->
-  <a title="Home" href="index.php" class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
+  <a title="Home" 
+    href="<?php echo ($_GET['navbar_page'] == 'admin') ? 'admin.php' : 'index.php' ?>" 
+    class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
     <!-- App-Logo -->
     <span class="app-logo"></span> <!-- UX: Use `home` material-icon instead ? -->
     <!-- End of App-Logo -->
