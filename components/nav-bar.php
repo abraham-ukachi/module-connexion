@@ -91,7 +91,7 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
   <!-- Icon-Wrapper -->
   <a title="Home" 
     href="<?php echo ($_GET['navbar_page'] == 'admin') ? 'admin.php' : 'index.php' ?>" 
-    class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
+    class="nav-link icon-wrapper" <?php echo (($_GET['navbar_page'] == 'home') || ($_GET['navbar_page'] == 'admin'))  ? 'active' : '' ?>>
     <!-- App-Logo -->
     <span class="app-logo"></span> <!-- UX: Use `home` material-icon instead ? -->
     <!-- End of App-Logo -->
@@ -228,7 +228,7 @@ $isNavbarVertical = ($navbarType == 'vertical') ? true : false;
   <!-- Icon-Wrapper -->
   <a title="Home" 
     href="<?php echo ($_GET['navbar_page'] == 'admin') ? 'admin.php' : 'index.php' ?>" 
-    class="nav-link icon-wrapper" <?php echo ($_GET['navbar_page'] == 'home') ? 'active' : '' ?>>
+    class="nav-link icon-wrapper" <?php echo (($_GET['navbar_page'] == 'home') || ($_GET['navbar_page'] == 'admin'))  ? 'active' : '' ?> >
     <!-- App-Logo -->
     <span class="app-logo"></span> <!-- UX: Use `home` material-icon instead ? -->
     <!-- End of App-Logo -->
