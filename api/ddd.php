@@ -87,8 +87,10 @@ class DDD {
   const PAGE_PROFILE = 'profil';
   const PAGE_SETTINGS = 'settings';
   const PAGE_SPLASH_SCREEN = 'splash-screen';
+  const PAGE_ADMIN = 'admin';
   
   // QUERIES
+  const QUERY_ROUTE = 'route';
   const QUERY_VIEW = 'view';
   const QUERY_DIALOG = 'dialog';
   const QUERY_STEP = 'step';
@@ -107,6 +109,15 @@ class DDD {
 
   /* ---> End of VIEWS <--- */
 
+
+
+  /* ----< ROUTES >---- */
+
+  // admin routes
+  const ROUTE_ADMIN_USERS = 'users';
+  const ROUTE_ADMIN_DASHBOARD = 'dashboard';
+  
+  /* ---> End of ROUTES <--- */
 
 
 
@@ -239,6 +250,26 @@ class DDD {
     // from PHP's global variable GET,only if `view` exists,
     // otherwise, just return the given default view
     return isset($_GET['view']) ? $_GET['view'] : $defaultView;
+  }
+
+
+
+  /**
+   * Returns the current route of the page.
+   *
+   * Example: 
+   *    
+   *    $ddd->getCurrentRoute()
+   *
+   * @param string $defaultRoute - The default route of the current page
+   *
+   * @return string : Current route (eg. 'users', 'dashboard', ..).
+   */
+  public function getCurrentRoute($defaultRoute = '') {
+    // Using our beloved ternary statment, return the value of `route` parameter 
+    // from PHP's global variable GET,only if `route` exists,
+    // otherwise, just return the given `defaultRoute`
+    return isset($_GET[self::QUERY_ROUTE]) ? $_GET[self::QUERY_ROUTE] : $defaultRoute;
   }
 
 
