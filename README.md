@@ -15,6 +15,8 @@ following:
 - **name**, varchar of size 255
 - **password**, varchar of size 255
 
+> NOTE: 
+
 ## Requirements
 
 These are a couple of the main requirements for this school project:
