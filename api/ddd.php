@@ -273,6 +273,8 @@ class DDD {
   }
 
 
+
+
   // PUBLIC SETTERS
 
 
@@ -284,7 +286,48 @@ class DDD {
  
 
   // PRIVATE GETTERS
-  
+
+
+  /**
+   * Returns an alphabetical color set.
+   * NOTE: This is a multidimensional array.
+   *
+   * @return array
+   * @private
+   */
+  public function getAlphaColorSet() {
+    return array(
+      'a' => ['bgColor' => 'darkorange', 'fgColor' => 'white'],
+      'b' => ['bgColor' => 'darkred', 'fgColor' => 'white'],
+      'c' => ['bgColor' => 'darkgreen', 'fgColor' => 'white'],
+      'd' => ['bgColor' => 'darkyellow', 'fgColor' => 'white'],
+      'e' => ['bgColor' => 'darkblue', 'fgColor' => 'white'],
+      'f' => ['bgColor' => '#13005A', 'fgColor' => 'white'],
+      'g' => ['bgColor' => '#0A2647', 'fgColor' => 'white'],
+      'h' => ['bgColor' => '#1A120B', 'fgColor' => 'white'],
+      'i' => ['bgColor' => '#453C67', 'fgColor' => 'white'],
+      'j' => ['bgColor' => '#2D033B', 'fgColor' => 'white'],
+      'k' => ['bgColor' => '#00005C', 'fgColor' => 'white'],
+      'l' => ['bgColor' => '#000000', 'fgColor' => 'white'],
+      'm' => ['bgColor' => '#404258', 'fgColor' => 'white'],
+      'n' => ['bgColor' => '#3F3B6C', 'fgColor' => 'white'],
+      'o' => ['bgColor' => '#4C0033', 'fgColor' => 'white'],
+      'p' => ['bgColor' => '#182747', 'fgColor' => 'white'],
+      'q' => ['bgColor' => '#16213E', 'fgColor' => 'white'],
+      'r' => ['bgColor' => '#472D2D', 'fgColor' => 'white'],
+      's' => ['bgColor' => '#2C3333', 'fgColor' => 'white'],
+      't' => ['bgColor' => '#2E0249', 'fgColor' => 'white'],
+      'u' => ['bgColor' => '#180A0A', 'fgColor' => 'white'],
+      'v' => ['bgColor' => '#46244C', 'fgColor' => 'white'],
+      'w' => ['bgColor' => '#191919', 'fgColor' => 'white'],
+      'x' => ['bgColor' => '#041C32', 'fgColor' => 'white'],
+      'y' => ['bgColor' => '#1F1D36', 'fgColor' => 'white'],
+      'z' => ['bgColor' => '#420516', 'fgColor' => 'white']
+    );
+    
+  }
+
+
   // PRIVATE SETTERS
 
   // PRIVATE FUNCTIONS
